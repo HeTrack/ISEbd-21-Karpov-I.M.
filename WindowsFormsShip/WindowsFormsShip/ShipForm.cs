@@ -29,7 +29,7 @@ namespace WindowsFormsShip
         {
             int minpos;
             Random rnd = new Random();
-            ship = new Ship(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true);
+            ship = new Ship(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true, countMotors.Three);
             if (ship.SecondBoard)
                 minpos = 47;
             else

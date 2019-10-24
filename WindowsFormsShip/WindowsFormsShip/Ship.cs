@@ -9,9 +9,9 @@ namespace WindowsFormsShip
 {
     public class Ship
     {
-        private float _startPosX;
+        public  static float _startPosX;
 
-        private float _startPosY;
+        public static float _startPosY;
 
         private int _pictureWidth;
 
@@ -32,6 +32,8 @@ namespace WindowsFormsShip
         public bool SecondBoard { private set; get; }
 
         public bool LifeBuoy { private set; get; }
+
+        public countMotors Motors { private set; get; }
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -40,7 +42,7 @@ namespace WindowsFormsShip
         /// <param name="mainColor">Основной цвет кузова</param>
         /// <param name="dopColor">Дополнительный цвет</param>
 
-        public Ship(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy)
+        public Ship(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, countMotors countmotors)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -48,6 +50,7 @@ namespace WindowsFormsShip
             DopColor = dopColor;
             SecondBoard = secondBoard;
             LifeBuoy = lifebuoy;
+            Motors = countmotors;
         }
         /// <param name="height">Высота картинки</param>
         public void SetPosition(int x, int y, int width, int height)
@@ -109,8 +112,8 @@ namespace WindowsFormsShip
             Brush bottom = new SolidBrush(MainColor);
             Brush brBlack = new SolidBrush(Color.Black);
             Brush hull = new SolidBrush(DopColor);
-            //  DrawMotors drawMotors = new DrawMotors(Motors, _startPosX, _startPosY);
-            //drawMotors.MotorDraw(g);
+              DrawMotors drawMotors = new DrawMotors(Motors, _startPosX, _startPosY);
+            drawMotors.MotorDraw(g);
             if (SecondBoard)
             {
                 g.FillRectangle(white, _startPosX + 20, _startPosY - 35, 55, 4);
