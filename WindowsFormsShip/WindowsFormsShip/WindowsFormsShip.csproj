@@ -47,7 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Direction.cs" />
+    <Compile Include="FormPort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPort.Designer.cs">
+      <DependentUpon>FormPort.cs</DependentUpon>
+    </Compile>
     <Compile Include="IShip.cs" />
+    <Compile Include="Port.cs" />
     <Compile Include="ShipForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +66,9 @@
     <Compile Include="Ship.cs" />
     <Compile Include="SuperShip.cs" />
     <Compile Include="WaterVehicle.cs" />
+    <EmbeddedResource Include="FormPort.resx">
+      <DependentUpon>FormPort.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShipForm.resx">
       <DependentUpon>ShipForm.cs</DependentUpon>
     </EmbeddedResource>

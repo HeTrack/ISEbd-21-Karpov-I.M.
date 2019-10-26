@@ -9,11 +9,11 @@ namespace WindowsFormsShip
 {
     public abstract class WaterVehicle : IShip
     {
-        public static float _startPosX;
+        protected float _startPosX;
         /// <summary>
         /// Правая кооридната отрисовки автомобиля
         /// </summary>
-        public static float _startPosY;
+        protected  float _startPosY;
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>

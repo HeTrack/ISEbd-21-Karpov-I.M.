@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-    interface IShip
+   public interface IShip
     {
         void SetPosition(int x, int y, int width, int height);
         void MoveTransport(Direction direction);
