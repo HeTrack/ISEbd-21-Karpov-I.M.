@@ -116,7 +116,7 @@
             this.Controls.Add(this.pictureBoxShip);
             this.Name = "ShipForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Катер";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShip)).EndInit();
             this.ResumeLayout(false);
 

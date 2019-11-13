@@ -49,7 +49,7 @@ namespace WindowsFormsShip
             SecondBoard = secondBoard;
             LifeBuoy = lifebuoy;
         }
-        /// <param name="height">Высота картинки</param>
+        /// Установка позиции корабля
         public void SetPosition(int x, int y, int width, int height)
         {
             _startPosX = x;
@@ -109,8 +109,6 @@ namespace WindowsFormsShip
             Brush bottom = new SolidBrush(MainColor);
             Brush brBlack = new SolidBrush(Color.Black);
             Brush hull = new SolidBrush(DopColor);
-            //  DrawMotors drawMotors = new DrawMotors(Motors, _startPosX, _startPosY);
-            //drawMotors.MotorDraw(g);
             if (SecondBoard)
             {
                 g.FillRectangle(white, _startPosX + 20, _startPosY - 35, 55, 4);
