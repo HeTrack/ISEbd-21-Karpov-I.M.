@@ -40,8 +40,7 @@ namespace WindowsFormsShip
                 var car = new Ship(100, 1000, dialog.Color);
                 int place = parking + car;
                 Draw();
-            }
-
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -85,4 +84,4 @@ namespace WindowsFormsShip
 
      
     }
-}
+}
