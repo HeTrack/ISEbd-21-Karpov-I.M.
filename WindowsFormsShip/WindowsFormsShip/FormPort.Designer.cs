@@ -48,7 +48,7 @@
             // 
             this.pictureBoxPort.Location = new System.Drawing.Point(1, 2);
             this.pictureBoxPort.Name = "pictureBoxPort";
-            this.pictureBoxPort.Size = new System.Drawing.Size(723, 453);
+            this.pictureBoxPort.Size = new System.Drawing.Size(904, 522);
             this.pictureBoxPort.TabIndex = 0;
             this.pictureBoxPort.TabStop = false;
             // 
@@ -60,7 +60,7 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(742, 204);
+            this.groupBox1.Location = new System.Drawing.Point(964, 237);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(228, 252);
             this.groupBox1.TabIndex = 1;
@@ -119,7 +119,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(779, 115);
+            this.button1.Location = new System.Drawing.Point(1018, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(174, 38);
             this.button1.TabIndex = 2;
@@ -129,7 +129,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(779, 159);
+            this.button2.Location = new System.Drawing.Point(1018, 176);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 39);
             this.button2.TabIndex = 3;
@@ -141,7 +141,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(807, 12);
+            this.listBox1.Location = new System.Drawing.Point(1051, 12);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 84);
             this.listBox1.TabIndex = 4;
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 468);
+            this.ClientSize = new System.Drawing.Size(1215, 604);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
