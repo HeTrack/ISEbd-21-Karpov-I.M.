@@ -30,13 +30,15 @@
         {
             this.pictureBoxPort = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxTake = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -62,6 +64,15 @@
             this.groupBox1.Size = new System.Drawing.Size(228, 278);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Забрать судно с";
             // 
             // pictureBoxTake
             // 
@@ -99,7 +110,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(796, 22);
+            this.button1.Location = new System.Drawing.Point(796, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(174, 38);
             this.button1.TabIndex = 2;
@@ -109,7 +120,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(796, 103);
+            this.button2.Location = new System.Drawing.Point(796, 56);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 39);
             this.button2.TabIndex = 3;
@@ -117,20 +128,33 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label2
+            // button4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Забрать судно с";
+            this.button4.Location = new System.Drawing.Point(796, 101);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(174, 32);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Перепарковать";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(796, 139);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(173, 32);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Очистить гавань";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 545);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -156,5 +180,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

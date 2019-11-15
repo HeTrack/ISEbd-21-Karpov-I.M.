@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-   public class Port<T> where T:class, IShip
+   public class Port<T,N> where T:class, IShip where N:class,IMotors
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -52,14 +52,14 @@ namespace WindowsFormsShip
         /// <param name="p">Парковка</param>
         /// <param name="car">Добавляемый автомобиль</param>
         /// <returns></returns>
-        public static int operator +(Port<T> p, T car)
+        public static int operator +(Port<T,N> p, T car)
         {
             for (int i = 0; i < p._places.Length; i++)
             {
                 if (p.CheckFreePlace(i))
                 {
                     p._places[i] = car;
-                    p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 10,
+                    p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 15,
                      i % 5 * _placeSizeHeight + 55, p.PictureWidth,
                     p.PictureHeight);
                     return i;
@@ -75,27 +75,64 @@ namespace WindowsFormsShip
         /// <param name="index">Индекс места, с которого пытаемся извлечь
   
  /// <returns></returns>
- public static T operator -(Port<T> p, int index)
+        public static T operator -(Port<T,N> p, int index)
         {
             if (index < 0 || index > p._places.Length)
             {
                 return null;
             }
-            if (!p.CheckFreePlace(index))
- {
+            if (!p.CheckFreePlace(index)) {
                 T car = p._places[index];
                 p._places[index] = null;
                 return car;
             }
             return null;
         }
+
+        //перепарковать
+        public static int operator +(Port<T, N> p, int size)
+        {
+            int freeplace = 15;
+            for (int i = 0; i < p._places.Length; i++)
+            {
+                if (!p.CheckFreePlace(i))
+                {
+                  if(freeplace!=15)
+                    if (p.CheckFreePlace(freeplace))
+                    {
+                        p._places[freeplace] = p._places[i];
+                        p._places[freeplace].SetPosition(5 + freeplace / 5 * _placeSizeWidth + 15,
+                        freeplace % 5 * _placeSizeHeight + 55, p.PictureWidth,
+                       p.PictureHeight);
+                        p._places[i] = null;
+                         i = freeplace ;
+                            freeplace = 15;
+                    }
+                }
+                else
+                    if(i <= freeplace)
+                    freeplace = i;
+            }
+            return 1;
+        }
+
+        public static int operator -(Port<T, N> p, string size)
+        {
+            for (int i = 0; i < Convert.ToInt32(size); i++)
+            {
+                p._places[i] = null;
+            }
+            return 1;
+        }
+
+
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
         /// <param name="index">Номер парковочного места (порядковый номер в
-       
- /// <returns></returns>
- private bool CheckFreePlace(int index)
+
+        /// <returns></returns>
+        private bool CheckFreePlace(int index)
         {
             return _places[index] == null;
         }

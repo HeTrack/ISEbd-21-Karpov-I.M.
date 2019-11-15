@@ -64,7 +64,7 @@ namespace WindowsFormsShip
         {
             int minpos = 47;
             Random rnd = new Random();
-            ship = new SuperShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black, Color.Red, true, true, 3);
+            ship = new SuperShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black, Color.Red, true, true, CountMotors.Three ,Color.White);
             ship.SetPosition(rnd.Next(10, 100), rnd.Next(minpos, 100), pictureBoxShip.Width, pictureBoxShip.Height);
             Draw();
         }
