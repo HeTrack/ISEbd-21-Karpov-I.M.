@@ -9,9 +9,9 @@ namespace WindowsFormsShip
 {
     public class SuperShip : Ship
     {
-        
+
         public Color DopColor { private set; get; }
-    
+
         public bool LifeBuoy { private set; get; }
 
         public bool SecondBoard { private set; get; }
@@ -87,6 +87,10 @@ namespace WindowsFormsShip
                 g.DrawLine(whitep, _startPosX + 126, _startPosY - 14, _startPosX + 126, _startPosY - 12);
                 g.DrawLine(whitep, _startPosX + 126, _startPosY - 4, _startPosX + 126, _startPosY - 2);
             }
+        }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
     }
 }

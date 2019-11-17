@@ -16,6 +16,7 @@ namespace WindowsFormsShip
         /// Объект от класса многоуровневой парковки
         /// </summary>
         MultiLevelPort parking;
+        FormShipConfig form;
         /// <summary>
         /// Количество уровней-парковок
         /// </summary>
@@ -139,12 +140,27 @@ namespace WindowsFormsShip
             }
         }
 
+        private void AddShip(IShip ship)
+        {
+            if (ship != null && listBox1.SelectedIndex > -1)
+            {
+                int place = parking[listBox1.SelectedIndex] + ship;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Cудно не удалось поставить");
+                }
+            }
+        }
 
-        /// <summary>
-        /// Метод обработки выбора элемента на listBoxLevels
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
+        private void buttonSetShip_Click(object sender, EventArgs e)
+        {
+            form = new FormShipConfig();
+            form.AddEvent(AddShip);
+            form.Show();
+        }
     }
 }
