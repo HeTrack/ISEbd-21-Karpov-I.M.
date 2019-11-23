@@ -28,6 +28,22 @@ namespace WindowsFormsShip
             Random rnd = new Random();
             Motors = countmotors;
         }
+
+        public SuperShip(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                LifeBuoy = Convert.ToBoolean(strs[4]);
+                SecondBoard = Convert.ToBoolean(strs[5]);
+                Motors = Convert.ToInt32(strs[6]);
+            }
+        }
+
         public override void DrawShip(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
@@ -92,6 +108,10 @@ namespace WindowsFormsShip
         {
             DopColor = color;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" +  SecondBoard + ";" + LifeBuoy + ";" + Motors;
+        }
     }
 }
-

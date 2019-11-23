@@ -25,6 +25,18 @@ namespace WindowsFormsShip
             Weight = weight;
             MainColor = bottomColor;
         }
+
+
+        public Ship(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -150,6 +162,10 @@ namespace WindowsFormsShip
             Point window8 = new Point((int)_startPosX + 82, (int)_startPosY - 25);
             Point[] windows2 = { window5, window6, window7, window8 };
             g.FillPolygon(brBlack, windows2);
+        }
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }
