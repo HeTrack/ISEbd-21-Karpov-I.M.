@@ -88,7 +88,9 @@ namespace WindowsFormsShip
             if (!p.CheckFreePlace(index))
             {
                 T car = p._places[index];
+                p.removed.Add(index,car);
                 p._places.Remove(index);
+
                 return car;
             }
             return null;
