@@ -46,5 +46,16 @@ namespace WindowsFormsShip
                 return null;
             }
         }
+        public IShip this[int level, int key]
+        {
+            get
+            {
+                if (level > -1 && level < parkingStages.Count)
+                {
+                    return parkingStages[level].GetShipByKey(key);
+                }
+                return null;
+            }
+        }
     }
 }

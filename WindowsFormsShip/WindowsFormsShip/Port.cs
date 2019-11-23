@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace WindowsFormsShip
         /// Массив объектов, которые храним
         /// </summary>
         private Dictionary<int, T> _places;
+        private Hashtable removed;
         /// <summary>
         /// Максимальное количество мест на парковке
         /// </summary>
@@ -45,6 +47,7 @@ namespace WindowsFormsShip
             _places = new Dictionary<int, T>();
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
+            removed = new Hashtable();
         }
         /// <summary>
         /// Перегрузка оператора сложения
@@ -100,11 +103,16 @@ namespace WindowsFormsShip
         {
             return !_places.ContainsKey(index);
         }
- /// <summary>
- /// Метод отрисовки парковки
- /// </summary>
- /// <param name="g"></param>
- public void Draw(Graphics g)
+
+        public T GetShipByKey(int key)
+        {
+            return _places.ContainsKey(key) ? _places[key] : null;
+        }
+        /// <summary>
+        /// Метод отрисовки парковки
+        /// </summary>
+        /// <param name="g"></param>
+        public void Draw(Graphics g)
         {
             DrawMarking(g);
             var keys = _places.Keys.ToList();
