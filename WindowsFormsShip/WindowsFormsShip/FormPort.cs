@@ -37,8 +37,8 @@ namespace WindowsFormsShip
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                var car = new Ship(100, 1000, dialog.Color);
-                int place = parking + car;
+                var ship = new Ship(100, 1000, dialog.Color);
+                int place = parking + ship;
                 Draw();
             }
 
@@ -52,9 +52,9 @@ namespace WindowsFormsShip
                 ColorDialog dialogDop = new ColorDialog();
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
-                    var car = new SuperShip(100, 1000, dialog.Color, dialogDop.Color,
+                    var ship = new SuperShip(100, 1000, dialog.Color, dialogDop.Color,
                    true, true, 2);
-                    int place = parking + car;
+                    int place = parking + ship;
                     Draw();
                 }
             }
@@ -64,13 +64,13 @@ namespace WindowsFormsShip
         {
             if (maskedTextBox1.Text != "")
             {
-                var car = parking - Convert.ToInt32(maskedTextBox1.Text);
-                if (car != null)
+                var ship = parking - Convert.ToInt32(maskedTextBox1.Text);
+                if (ship != null)
                 {
                     Bitmap bmp = new Bitmap(pictureBoxTake.Width, pictureBoxTake.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                    car.SetPosition(15, 55, pictureBoxTake.Width,  pictureBoxTake.Height);
-                    car.DrawShip(gr);
+                   ship.SetPosition(15, 55, pictureBoxTake.Width,  pictureBoxTake.Height);
+                    ship.DrawShip(gr);
                     pictureBoxTake.Image = bmp;
                 }
                 else

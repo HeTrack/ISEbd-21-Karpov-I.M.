@@ -50,15 +50,15 @@ namespace WindowsFormsShip
         /// Логика действия: на парковку добавляется судно
         /// </summary>
         /// <param name="p">Парковка</param>
-        /// <param name="car">Добавляемое судно</param>
+        /// <param name="ship">Добавляемое судно</param>
         /// <returns></returns>
-        public static int operator +(Port<T> p, T car)
+        public static int operator +(Port<T> p, T ship)
         {
             for (int i = 0; i < p._places.Length; i++)
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p._places[i] = car;
+                    p._places[i] = ship;
                     p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 10,
                      i % 5 * _placeSizeHeight + 55, p.PictureWidth,
                     p.PictureHeight);
@@ -83,9 +83,9 @@ namespace WindowsFormsShip
             }
             if (!p.CheckFreePlace(index))
  {
-                T car = p._places[index];
+                T ship = p._places[index];
                 p._places[index] = null;
-                return car;
+                return ship;
             }
             return null;
         }
