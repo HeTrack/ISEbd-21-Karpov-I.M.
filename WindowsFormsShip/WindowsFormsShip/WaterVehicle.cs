@@ -29,7 +29,7 @@ namespace WindowsFormsShip
         /// </summary>
         public float Weight { protected set; get; }
         /// <summary>
-        /// Основной цвет кузова
+        /// Основной цвет (ватерлиния)
         /// </summary>
         public Color MainColor { protected set; get; }
 

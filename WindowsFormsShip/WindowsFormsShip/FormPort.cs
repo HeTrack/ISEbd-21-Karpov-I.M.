@@ -12,7 +12,7 @@ namespace WindowsFormsShip
 {
     public partial class FormPort : Form
     {
-        Port<IShip,IMotors> parking;
+        Port<IShip, IMotors> parking;
         public FormPort()
         {
             InitializeComponent();
@@ -32,19 +32,18 @@ namespace WindowsFormsShip
             pictureBoxPort.Image = bmp;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLocateBoat_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                var car = new Ship(100, 1000, dialog.Color);
-                int place = parking + car;
+                var ship = new Ship(100, 1000, dialog.Color);
+                int place = parking + ship;
                 Draw();
             }
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonLocateShip_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -52,24 +51,24 @@ namespace WindowsFormsShip
                 ColorDialog dialogDop = new ColorDialog();
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
-                    var car = new SuperShip(100, 1000, dialog.Color, dialogDop.Color, true, true, CountMotors.Two,Color.White);
-                    int place = parking + car;
+                    var ship = new SuperShip(100, 1000, dialog.Color, dialogDop.Color, true, true, CountMotors.Two, Color.White);
+                    int place = parking + ship;
                     Draw();
                 }
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (maskedTextBox1.Text != "")
             {
-                var car = parking - Convert.ToInt32(maskedTextBox1.Text);
-                if (car != null)
+                var ship = parking - Convert.ToInt32(maskedTextBox1.Text);
+                if (ship != null)
                 {
                     Bitmap bmp = new Bitmap(pictureBoxTake.Width, pictureBoxTake.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                    car.SetPosition(18, 55, pictureBoxTake.Width,  pictureBoxTake.Height);
-                    car.DrawShip(gr);
+                    ship.SetPosition(18, 55, pictureBoxTake.Width, pictureBoxTake.Height);
+                    ship.DrawShip(gr);
                     pictureBoxTake.Image = bmp;
                 }
                 else
@@ -82,13 +81,13 @@ namespace WindowsFormsShip
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonNewPorting_Click(object sender, EventArgs e)
         {
             int place = parking + 15;
             Draw();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonCleanPort_Click(object sender, EventArgs e)
         {
             int place = parking - "15";
             Draw();
