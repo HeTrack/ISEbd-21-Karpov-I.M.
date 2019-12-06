@@ -51,12 +51,12 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора сложения
-        /// Логика действия: на парковку добавляется автомобиль
+        /// Логика действия: на парковку добавляется судно
         /// </summary>
         /// <param name="p">Парковка</param>
-        /// <param name="car">Добавляемый автомобиль</param>
+        /// <param name="ship">Добавляемое судно</param>
         /// <returns></returns>
-        public static int operator +(Port<T> p, T car)
+        public static int operator +(Port<T> p, T ship)
         {
             if (p._places.Count == p._maxCount)
             {
@@ -66,7 +66,7 @@ namespace WindowsFormsShip
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p._places.Add(i, car);
+                    p._places.Add(i, ship);
                     p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 15,
                      i % 5 * _placeSizeHeight + 55, p.PictureWidth,
                     p.PictureHeight);
@@ -77,7 +77,7 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки забираем автомобиль
+        /// Логика действия: с парковки забираем судно
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
@@ -87,11 +87,11 @@ namespace WindowsFormsShip
         {
             if (!p.CheckFreePlace(index))
             {
-                T car = p._places[index];
-                p.removed.Add(index,car);
+                T ship = p._places[index];
+                p.removed.Add(index,ship);
                 p._places.Remove(index);
 
-                return car;
+                return ship;
             }
             return null;
         }
