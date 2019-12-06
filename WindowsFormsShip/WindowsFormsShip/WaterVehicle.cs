@@ -11,7 +11,7 @@ namespace WindowsFormsShip
     {
         public static float _startPosX;
         /// <summary>
-        /// Правая кооридната отрисовки автомобиля
+        /// Правая кооридната отрисовки судна
         /// </summary>
         public static float _startPosY;
         /// <summary>
@@ -25,7 +25,7 @@ namespace WindowsFormsShip
         /// </summary>
         public int MaxSpeed { protected set; get; }
         /// <summary>
-        /// Вес автомобиля
+        /// Вес судна
         /// </summary>
         public float Weight { protected set; get; }
         /// <summary>
