@@ -25,6 +25,7 @@ namespace WindowsFormsShip
             Weight = weight;
             MainColor = bottomColor;
         }
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -69,9 +70,9 @@ namespace WindowsFormsShip
                         _startPosX -= step;
                     }
                     break;
-                //вверх
-                case Direction.Up:
-                    
+                //вверх               
+                case Direction.Up:                   
+
                     if (_startPosY - k - step > 0)
                     {
                         _startPosY -= step;
@@ -97,7 +98,7 @@ namespace WindowsFormsShip
             Brush bottom = new SolidBrush(MainColor);
             Brush brBlack = new SolidBrush(Color.Black);
             Brush hull = new SolidBrush(Color.LightGray);
-
+           
             //Днище
             Point point1 = new Point((int)_startPosX, (int)_startPosY);
             Point point2 = new Point((int)_startPosX + 5, (int)_startPosY + 10);
