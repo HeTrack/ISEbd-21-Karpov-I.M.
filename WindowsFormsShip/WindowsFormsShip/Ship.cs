@@ -52,7 +52,7 @@ namespace WindowsFormsShip
             LifeBuoy = lifebuoy;
             Motors = countmotors;
         }
-        /// <param name="height">Высота картинки</param>
+        /// Установка позиции корабля
         public void SetPosition(int x, int y, int width, int height)
         {
             _startPosX = x;
