@@ -141,7 +141,7 @@ DragDropEffects.Copy);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLocate_Click(object sender, EventArgs e)
         {
             eventAddShip?.Invoke(ship);
             Close();

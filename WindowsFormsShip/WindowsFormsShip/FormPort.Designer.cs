@@ -33,7 +33,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxTake = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonGetShip = new System.Windows.Forms.Button();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -56,7 +56,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBoxTake);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.buttonGetShip);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(964, 237);
@@ -90,15 +90,15 @@
             this.pictureBoxTake.TabIndex = 3;
             this.pictureBoxTake.TabStop = false;
             // 
-            // button3
+            // buttonGetShip
             // 
-            this.button3.Location = new System.Drawing.Point(54, 68);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Забрать";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonGetShip.Location = new System.Drawing.Point(54, 68);
+            this.buttonGetShip.Name = "buttonGetShip";
+            this.buttonGetShip.Size = new System.Drawing.Size(75, 33);
+            this.buttonGetShip.TabIndex = 2;
+            this.buttonGetShip.Text = "Забрать";
+            this.buttonGetShip.UseVisualStyleBackColor = true;
+            this.buttonGetShip.Click += new System.EventHandler(this.buttonGetShip_Click);
             // 
             // maskedTextBox1
             // 
@@ -160,7 +160,7 @@
         private System.Windows.Forms.PictureBox pictureBoxPort;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxTake;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonGetShip;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

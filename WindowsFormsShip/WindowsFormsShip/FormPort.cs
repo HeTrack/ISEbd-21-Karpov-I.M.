@@ -49,69 +49,36 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-        /// <summary>
-        /// Обработка нажатия кнопки "Пришвартовать лодку"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// Обработка нажатия кнопки "Пришвартовать катер"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// Обработка нажатия кнопки "Забрать"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
- 
+        
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddShip(IShip ship)
         {
-            if (listBox1.SelectedIndex > -1)
+            if (ship != null && listBox1.SelectedIndex > -1)
             {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
+                int place = parking[listBox1.SelectedIndex] + ship;
+                if (place > -1)
                 {
-                    var ship = new Ship(100, 1000, dialog.Color);
-                    int place = parking[listBox1.SelectedIndex] + ship;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                     Draw();
                 }
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
+                else
                 {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var ship = new SuperShip(100, 1000, dialog.Color,
-                       dialogDop.Color, true, true, 2);
-                        int place = parking[listBox1.SelectedIndex] + ship;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
+                    MessageBox.Show("Cудно не удалось поставить");
                 }
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonSetShip_Click(object sender, EventArgs e)
+        {
+            form = new FormShipConfig();
+            form.AddEvent(AddShip);
+            form.Show();
+        }
+
+        private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
             {
@@ -138,29 +105,6 @@ namespace WindowsFormsShip
                     Draw();
                 }
             }
-        }
-
-        private void AddShip(IShip ship)
-        {
-            if (ship != null && listBox1.SelectedIndex > -1)
-            {
-                int place = parking[listBox1.SelectedIndex] + ship;
-                if (place > -1)
-                {
-                    Draw();
-                }
-                else
-                {
-                    MessageBox.Show("Cудно не удалось поставить");
-                }
-            }
-        }
-
-        private void buttonSetShip_Click(object sender, EventArgs e)
-        {
-            form = new FormShipConfig();
-            form.AddEvent(AddShip);
-            form.Show();
         }
     }
 }
