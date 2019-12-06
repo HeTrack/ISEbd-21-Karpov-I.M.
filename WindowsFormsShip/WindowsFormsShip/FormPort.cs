@@ -51,6 +51,7 @@ namespace WindowsFormsShip
                 ColorDialog dialogDop = new ColorDialog();
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
+
                     var ship = new SuperShip(100, 1000, dialog.Color, dialogDop.Color, true, true, CountMotors.Two, Color.White);
                     int place = parking + ship;
                     Draw();

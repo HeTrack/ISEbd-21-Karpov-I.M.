@@ -69,11 +69,10 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки в порту забираем лодку
+        /// Логика действия: с парковки забираем судно
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
-  
  /// <returns></returns>
         public static T operator -(Port<T,N> p, int index)
         {
@@ -81,7 +80,9 @@ namespace WindowsFormsShip
             {
                 return null;
             }
-            if (!p.CheckFreePlace(index)) {
+
+            if (!p.CheckFreePlace(index))
+            {
                 T ship = p._places[index];
                 p._places[index] = null;
                 return ship;
