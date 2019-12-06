@@ -38,7 +38,7 @@ namespace WindowsFormsShip
         /// Конструктор
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
-        /// <param name="weight">Вес автомобиля</param>
+        /// <param name="weight">Вес судна</param>
         /// <param name="mainColor">Основной цвет кузова</param>
         /// <param name="dopColor">Дополнительный цвет</param>
 
