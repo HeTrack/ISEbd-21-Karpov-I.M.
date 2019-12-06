@@ -35,6 +35,7 @@
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
+            this.buttonCreateShip = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShip)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,9 +52,9 @@
             // 
             this.buttonCreate.Location = new System.Drawing.Point(12, 12);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(82, 26);
+            this.buttonCreate.Size = new System.Drawing.Size(124, 30);
             this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Создать";
+            this.buttonCreate.Text = "Создать лодку";
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
@@ -103,11 +104,22 @@
             this.buttonLeft.UseVisualStyleBackColor = true;
             this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // buttonCreateShip
+            // 
+            this.buttonCreateShip.Location = new System.Drawing.Point(161, 12);
+            this.buttonCreateShip.Name = "buttonCreateShip";
+            this.buttonCreateShip.Size = new System.Drawing.Size(123, 30);
+            this.buttonCreateShip.TabIndex = 6;
+            this.buttonCreateShip.Text = "Cоздать катер";
+            this.buttonCreateShip.UseVisualStyleBackColor = true;
+            this.buttonCreateShip.Click += new System.EventHandler(this.buttonCreateShip_Click);
+            // 
             // ShipForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 453);
+            this.Controls.Add(this.buttonCreateShip);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonRight);
@@ -115,7 +127,7 @@
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.pictureBoxShip);
             this.Name = "ShipForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;  
             this.Text = "Катер";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShip)).EndInit();
             this.ResumeLayout(false);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonLeft;
+        private System.Windows.Forms.Button buttonCreateShip;
     }
 }
 

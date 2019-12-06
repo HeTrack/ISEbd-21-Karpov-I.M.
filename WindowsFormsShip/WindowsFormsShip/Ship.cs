@@ -7,64 +7,51 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-    public class Ship
+    public class Ship: WaterVehicle
     {
-        private float _startPosX;
-
-        private float _startPosY;
-
-        private int _pictureWidth;
-
-        private int _pictureHeight;
-
-        private const int shipWidth = 150;
-
-        private const int shipHeight = 10;
-
-        public int MaxSpeed { private set; get; }
-
-        public float Weight { private set; get; }
-
-        public Color MainColor { private set; get; }
-
-        public Color DopColor { private set; get; }
-
-        public bool SecondBoard { private set; get; }
-
-        public bool LifeBuoy { private set; get; }
-        /// <summary>
-        /// Конструктор
+        /// Ширина отрисовки катера
         /// </summary>
-        /// <param name="maxSpeed">Максимальная скорость</param>
-        /// <param name="weight">Вес автомобиля</param>
-        /// <param name="mainColor">Основной цвет кузова</param>
-        /// <param name="dopColor">Дополнительный цвет</param>
-
-        public Ship(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy)
+        protected const int shipWidth = 150;
+        /// <summary>
+        /// Ширина отрисовки катера
+        /// </summary>
+        protected const int shipHeight = 10;
+        /// <summary>
+        /// Максимальная скорость
+        /// </summary>
+        public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
-            DopColor = dopColor;
-            SecondBoard = secondBoard;
-            LifeBuoy = lifebuoy;
         }
-        /// Установка позиции корабля
-        public void SetPosition(int x, int y, int width, int height)
-        {
-            _startPosX = x;
-            _startPosY = y;
-            _pictureWidth = width;
-            _pictureHeight = height;
-        }
+
         /// <summary>
-        /// Изменение направления пермещения
+        /// Конструктор
+        /// </summary>
+        /// <param name="maxSpeed">Максимальная скорость</param>
+        /// <param name="weight">Вес катера</param>
+        /// <param name="Bottom">Основной цвет кузова</param>
+        /// <param name="Hull">Дополнительный цвет корпуса</param>
+        /// <param name="LifeBuoy">Признак наличия переднего спойлера</param>
+        /// <param name="Motors">Признак наличия боковых спойлеров</param>
+        /// <param name="SecondBoard">Признак наличия заднего спойлера</param>
+        /// 
+        /// <summary>
+        /// Установка позиции катера
+        /// </summary>
+        /// <param name="x">Координата X</param>
+        /// <param name="y">Координата Y</param>
+        /// <param name="width">Ширина картинки</param>
+        /// <param name="height">Высота картинки</param>
+        /// <summary>
+        /// Изменение направления перемещения
         /// </summary>
         /// <param name="direction">Направление</param>
-        public void MoveTransport(Direction direction)
+        public override void MoveTransport(Direction direction)
         {
-            float step = MaxSpeed * 100 / Weight;
             int k = 30;
+            float step = MaxSpeed * 100 / Weight;
             switch (direction)
             {
                 // вправо
@@ -83,12 +70,8 @@ namespace WindowsFormsShip
                     }
                     break;
                 //вверх
-                case Direction.Up:
-                    if (SecondBoard)
-                        k = 48;
-                    else
-                        k = 30;
-                    if (_startPosY  - k -step > 0)
+                case Direction.Up:                   
+                    if (_startPosY - k - step > 0)
                     {
                         _startPosY -= step;
                     }
@@ -102,28 +85,18 @@ namespace WindowsFormsShip
                     break;
             }
         }
-        public void DrawShip(Graphics g)
+        /// <summary>
+        /// Отрисовка катера
+        /// </summary>
+        /// <param name="g"></param>
+        public override void DrawShip(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
             Brush white = new SolidBrush(Color.White);
             Brush bottom = new SolidBrush(MainColor);
             Brush brBlack = new SolidBrush(Color.Black);
-            Brush hull = new SolidBrush(DopColor);
-            if (SecondBoard)
-            {
-                g.FillRectangle(white, _startPosX + 20, _startPosY - 35, 55, 4);
-                g.DrawRectangle(pen, _startPosX + 20, _startPosY - 35, 55, 4);
-                Point sboard1 = new Point((int)_startPosX + 40, (int)_startPosY - 35);
-                Point sboard2 = new Point((int)_startPosX + 44, (int)_startPosY - 37);
-                Point sboard3 = new Point((int)_startPosX + 74, (int)_startPosY - 42);
-                Point sboard4 = new Point((int)_startPosX + 76, (int)_startPosY - 35);
-                Point[] sboard = { sboard1, sboard2, sboard3, sboard4 };
-                Pen pen1 = new Pen(Color.Blue);
-                g.DrawPolygon(pen1, sboard);
-                g.FillPolygon(brBlack, sboard);
-                g.DrawArc(pen1, _startPosX + 44, _startPosY - 48, 30, 15, 0, -60);
-            }
-
+            Brush hull = new SolidBrush(Color.LightGray);
+           
             //Днище
             Point point1 = new Point((int)_startPosX, (int)_startPosY);
             Point point2 = new Point((int)_startPosX + 5, (int)_startPosY + 10);
@@ -176,17 +149,6 @@ namespace WindowsFormsShip
             Point window8 = new Point((int)_startPosX + 82, (int)_startPosY - 25);
             Point[] windows2 = { window5, window6, window7, window8 };
             g.FillPolygon(brBlack, windows2);
-
-            if (LifeBuoy)
-            {
-                Pen orange = new Pen(Color.Orange, 2);
-                Pen whitep = new Pen(Color.White, 2);
-                g.DrawEllipse(orange, _startPosX + 120, _startPosY - 14, 10, 10);
-                g.DrawLine(whitep, _startPosX + 131, _startPosY - 9, _startPosX + 131, _startPosY - 7);
-                g.DrawLine(whitep, _startPosX + 121, _startPosY - 9, _startPosX + 121, _startPosY - 7);
-                g.DrawLine(whitep, _startPosX + 126, _startPosY - 14, _startPosX + 126, _startPosY - 12);
-                g.DrawLine(whitep, _startPosX + 126, _startPosY - 4, _startPosX + 126, _startPosY - 2);
-            }
         }
     }
 }

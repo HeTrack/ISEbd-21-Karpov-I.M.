@@ -12,7 +12,7 @@ namespace WindowsFormsShip
 {
     public partial class ShipForm : Form
     {
-        private Ship ship;
+        private IShip ship;
 
         public ShipForm()
         {
@@ -27,14 +27,10 @@ namespace WindowsFormsShip
         }
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            int minpos;
+            int minpos = 30;
             Random rnd = new Random();
-            ship = new Ship(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true);
-            if (ship.SecondBoard)
-                minpos = 47;
-            else
-                minpos = 30;
-            ship.SetPosition(rnd.Next(10, 100), rnd.Next(minpos, 100), pictureBoxShip.Width, pictureBoxShip.Height);
+            ship = new Ship(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black);
+            ship.SetPosition(rnd.Next(10, 300), rnd.Next(minpos, 200), pictureBoxShip.Width, pictureBoxShip.Height);
             Draw();
         }
         /// <summary>
@@ -61,6 +57,15 @@ namespace WindowsFormsShip
                     ship.MoveTransport(Direction.Right);
                     break;
             }
+            Draw();
+        }
+
+        private void buttonCreateShip_Click(object sender, EventArgs e)
+        {
+            int minpos = 47;
+            Random rnd = new Random();
+            ship = new SuperShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black, Color.Red, true, true, 3);
+            ship.SetPosition(rnd.Next(10, 100), rnd.Next(minpos, 100), pictureBoxShip.Width, pictureBoxShip.Height);
             Draw();
         }
     }
