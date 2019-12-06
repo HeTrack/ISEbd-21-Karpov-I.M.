@@ -50,11 +50,11 @@ namespace WindowsFormsShip
             }
         }
         /// <summary>
-        /// Обработка нажатия кнопки "Припарковать автомобиль"
+        /// Обработка нажатия кнопки "Пришвартовать лодку"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// Обработка нажатия кнопки "Припарковать гоночный автомобиль"
+        /// Обработка нажатия кнопки "Пришвартовать катер"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -75,8 +75,8 @@ namespace WindowsFormsShip
                 ColorDialog dialog = new ColorDialog();
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var car = new Ship(100, 1000, dialog.Color);
-                    int place = parking[listBox1.SelectedIndex] + car;
+                    var ship = new Ship(100, 1000, dialog.Color);
+                    int place = parking[listBox1.SelectedIndex] + ship;
                     if (place == -1)
                     {
                         MessageBox.Show("Нет свободных мест", "Ошибка",
@@ -97,9 +97,9 @@ namespace WindowsFormsShip
                     ColorDialog dialogDop = new ColorDialog();
                     if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
-                        var car = new SuperShip(100, 1000, dialog.Color,
+                        var ship = new SuperShip(100, 1000, dialog.Color,
                        dialogDop.Color, true, true, 2);
-                        int place = parking[listBox1.SelectedIndex] + car;
+                        int place = parking[listBox1.SelectedIndex] + ship;
                         if (place == -1)
                         {
                             MessageBox.Show("Нет свободных мест", "Ошибка",
@@ -117,16 +117,16 @@ namespace WindowsFormsShip
             {
                 if (maskedTextBox1.Text != "")
                 {
-                    var car = parking[listBox1.SelectedIndex] -
+                    var ship = parking[listBox1.SelectedIndex] -
                    Convert.ToInt32(maskedTextBox1.Text);
-                    if (car != null)
+                    if (ship != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(15, 55, pictureBoxTake.Width,
+                        ship.SetPosition(15, 55, pictureBoxTake.Width,
                        pictureBoxTake.Height);
-                        car.DrawShip(gr);
+                        ship.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
                     }
                     else
