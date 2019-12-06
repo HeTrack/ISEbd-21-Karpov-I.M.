@@ -50,10 +50,11 @@ namespace WindowsFormsShip
         /// <param name="direction">Направление</param>
         public override void MoveTransport(Direction direction)
         {
-            int k = 30;
             float step = MaxSpeed * 100 / Weight;
+            int k = 47;
             switch (direction)
             {
+               
                 // вправо
                 case Direction.Right:
                     if (_startPosX + step < _pictureWidth - shipWidth)
@@ -63,14 +64,15 @@ namespace WindowsFormsShip
                     break;
                 //влево
                 case Direction.Left:
-                    if (_startPosX - 10 - step > 0)
+                    if (_startPosX - 16 - step > 0)
 
                     {
                         _startPosX -= step;
                     }
                     break;
-                //вверх
+                //вверх               
                 case Direction.Up:                   
+
                     if (_startPosY - k - step > 0)
                     {
                         _startPosY -= step;
