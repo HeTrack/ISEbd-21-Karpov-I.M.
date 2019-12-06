@@ -13,7 +13,7 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-        /// Объект от класса многоуровневой парковки
+        /// Объект от класса многоуровневого порта
         /// </summary>
         MultiLevelPort parking;
         /// <summary>
@@ -48,34 +48,21 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// Обработка нажатия кнопки "Припарковать гоночный автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// Обработка нажатия кнопки "Забрать"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
- 
+        
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        /// Обработка нажатия кнопки "Пришвартовать лодку"
+        private void buttonLocateBoat_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
             {
                 ColorDialog dialog = new ColorDialog();
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var car = new Ship(100, 1000, dialog.Color);
-                    int place = parking[listBox1.SelectedIndex] + car;
+                    var ship = new Ship(100, 1000, dialog.Color);
+                    int place = parking[listBox1.SelectedIndex] + ship;
                     if (place == -1)
                     {
                         MessageBox.Show("Нет свободных мест", "Ошибка",
@@ -85,8 +72,8 @@ namespace WindowsFormsShip
                 }
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        /// Обработка нажатия кнопки "Пришвартовать катер"
+        private void buttonLocateShip_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
             {
@@ -96,9 +83,9 @@ namespace WindowsFormsShip
                     ColorDialog dialogDop = new ColorDialog();
                     if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
-                        var car = new SuperShip(100, 1000, dialog.Color,
+                        var ship = new SuperShip(100, 1000, dialog.Color,
                        dialogDop.Color, true, true, 2);
-                        int place = parking[listBox1.SelectedIndex] + car;
+                        int place = parking[listBox1.SelectedIndex] + ship;
                         if (place == -1)
                         {
                             MessageBox.Show("Нет свободных мест", "Ошибка",
@@ -110,22 +97,23 @@ namespace WindowsFormsShip
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        /// Обработка нажатия кнопки "Забрать"
+        private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
             {
                 if (maskedTextBox1.Text != "")
                 {
-                    var car = parking[listBox1.SelectedIndex] -
+                    var ship = parking[listBox1.SelectedIndex] -
                    Convert.ToInt32(maskedTextBox1.Text);
-                    if (car != null)
+                    if (ship != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(15, 55, pictureBoxTake.Width,
+                        ship.SetPosition(15, 55, pictureBoxTake.Width,
                        pictureBoxTake.Height);
-                        car.DrawShip(gr);
+                        ship.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
                     }
                     else
@@ -138,13 +126,5 @@ namespace WindowsFormsShip
                 }
             }
         }
-
-
-        /// <summary>
-        /// Метод обработки выбора элемента на listBoxLevels
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
     }
 }
