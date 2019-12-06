@@ -152,7 +152,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
