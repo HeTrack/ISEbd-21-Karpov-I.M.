@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountMotors.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="DrawMotors.cs" />
     <Compile Include="ShipForm.cs">

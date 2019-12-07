@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-    public enum countMotors
-    {
-        One,
-        Two,
-        Three
-    }
+   
     public class DrawMotors
     {
         public countMotors motorCount { private get; set; }
