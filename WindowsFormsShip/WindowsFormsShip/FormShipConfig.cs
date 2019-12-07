@@ -185,6 +185,7 @@ DragDropEffects.Copy);
             labelVentilMotors.DoDragDrop(labelVentilMotors.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
+
         private void labelMotorsType_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
