@@ -149,7 +149,8 @@ namespace WindowsFormsShip
                 {
                     return _places[ind];
                 }
-                throw new ParkingNotFoundException(ind);
+                return null;
+               // throw new ParkingNotFoundException(ind);
             }
             set
             {

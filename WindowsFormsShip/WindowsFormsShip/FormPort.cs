@@ -148,6 +148,7 @@ namespace WindowsFormsShip
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        error.Error(ex.Message);
                     }
                     
                 }
