@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,9 +22,13 @@ namespace WindowsFormsShip
         /// Количество уровней-парковок
         /// </summary>
         private const int countLevel = 5;
+        private Logger logger;
+        private Logger error;
         public FormPort()
         {
             InitializeComponent();
+            logger = LogManager.GetCurrentClassLogger();
+            error = LogManager.GetCurrentClassLogger();
             parking = new MultiLevelPort(countLevel, pictureBoxPort.Width,
            pictureBoxPort.Height);
             //заполнение listBox
@@ -117,10 +122,11 @@ namespace WindowsFormsShip
             {
                 if (maskedTextBox1.Text != "")
                 {
-                    var car = parking[listBox1.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBox1.Text);
-                    if (car != null)
+                    try
                     {
+                        var car = parking[listBox1.SelectedIndex] -
+                       Convert.ToInt32(maskedTextBox1.Text);
+
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
@@ -128,14 +134,22 @@ namespace WindowsFormsShip
                        pictureBoxTake.Height);
                         car.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
+                        logger.Info("Изъято судно" + car.ToString() + " с места " + maskedTextBox1.Text);
+                        Draw();
                     }
-                    else
+                    catch (ParkingNotFoundException ex)
                     {
+                        MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         pictureBoxTake.Image = bmp;
+                        error.Error(ex.Message);
                     }
-                    Draw();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                 }
             }
         }
@@ -144,14 +158,22 @@ namespace WindowsFormsShip
         {
             if (ship != null && listBox1.SelectedIndex > -1)
             {
-                int place = parking[listBox1.SelectedIndex] + ship;
-                if (place > -1)
+                try
                 {
+                    int place = parking[listBox1.SelectedIndex] + ship;
+                    logger.Info("Добавлено судно " + ship.ToString() + "на место " + place);
                     Draw();
                 }
-                else
+                catch (ParkingOverflowException ex)
                 {
-                    MessageBox.Show("Cудно не удалось поставить");
+                    
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
                 }
             }
         }
@@ -167,13 +189,16 @@ namespace WindowsFormsShip
         {
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.SaveData(saveFileDialog1.FileName))
+                try
                 {
+                    parking.SaveData(saveFileDialog1.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFileDialog1.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message,"Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   error.Error(ex.Message);
                 }
             }
         }
@@ -182,15 +207,22 @@ namespace WindowsFormsShip
         {
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.LoadData(openFileDialog1.FileName))
+                try
                 {
+                    parking.LoadData(openFileDialog1.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
     MessageBoxIcon.Information);
+                    logger.Info("Загружено из файла " + openFileDialog1.FileName);
                 }
-                else
+                catch (ParkingOccupiedPlaceException ex)
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
                 }
                 Draw();
             }
