@@ -110,7 +110,7 @@ namespace WindowsFormsShip
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("Неверный формат файла");
                 }
                 while ((line = sr.ReadLine()) != null)
                 {
