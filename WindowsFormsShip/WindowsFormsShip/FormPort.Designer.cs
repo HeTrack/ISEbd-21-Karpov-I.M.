@@ -143,6 +143,7 @@
             this.ClientSize = new System.Drawing.Size(1215, 604);
             this.Controls.Add(this.buttonSetShip);
             this.Controls.Add(this.listBox1);
+
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxPort);
             this.Name = "FormPort";
@@ -163,6 +164,7 @@
         private System.Windows.Forms.Button buttonGetShip;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
+
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBox1;
