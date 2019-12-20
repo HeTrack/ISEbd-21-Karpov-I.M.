@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-    // или ObjectDisposedException
-    public class ParkingNotFoundException: ArgumentNullException
+    public class ParkingNotFoundException:Exception
     {
         public ParkingNotFoundException(int i):base("Не найден автомобиль по месту " + i)
         { }
