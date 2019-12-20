@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-   public class Port<T> where T:class, IShip
+    public class Port<T> where T : class, IShip
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -82,14 +82,14 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
-      
- /// <returns></returns>
- public static T operator -(Port<T> p, int index)
+
+        /// <returns></returns>
+        public static T operator -(Port<T> p, int index)
         {
             if (!p.CheckFreePlace(index))
             {
                 T car = p._places[index];
-                p.removePort.Add(index,car);
+                p.removePort.Add(index, car);
                 p._places.Remove(index);
                 return car;
             }
@@ -99,9 +99,9 @@ namespace WindowsFormsShip
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
         /// <param name="index">Номер парковочного места (порядковый номер в
-     
- /// <returns></returns>
- private bool CheckFreePlace(int index)
+
+        /// <returns></returns>
+        private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
         }
@@ -160,6 +160,9 @@ namespace WindowsFormsShip
                     * _placeSizeHeight + 55, PictureWidth, PictureHeight);
                 }
             }
-        }
+        }        public void ForClearlvl()
+        {
+            _places.Clear();
+        }
     }
 }
