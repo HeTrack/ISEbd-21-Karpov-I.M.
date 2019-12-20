@@ -162,7 +162,7 @@ namespace WindowsFormsShip
                 try
                 {
                     int place = parking[listBox1.SelectedIndex] + ship;
-                    logger.Info("Добавлено судно " + ship.ToString() + " на место " + place);
+                    logger.Info("Добавлено судно " + ship.ToString() + "на место " + place);
                     Draw();
                 }
                 catch (ParkingOverflowException ex)
