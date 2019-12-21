@@ -44,6 +44,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.buttonForSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -135,7 +136,7 @@
             // 
             // buttonSetShip
             // 
-            this.buttonSetShip.Location = new System.Drawing.Point(1029, 165);
+            this.buttonSetShip.Location = new System.Drawing.Point(1029, 129);
             this.buttonSetShip.Name = "buttonSetShip";
             this.buttonSetShip.Size = new System.Drawing.Size(142, 38);
             this.buttonSetShip.TabIndex = 5;
@@ -188,11 +189,22 @@
             // 
             this.saveFileDialog1.Filter = "txt file | *.txt";
             // 
+            // buttonForSort
+            // 
+            this.buttonForSort.Location = new System.Drawing.Point(1029, 182);
+            this.buttonForSort.Name = "buttonForSort";
+            this.buttonForSort.Size = new System.Drawing.Size(142, 30);
+            this.buttonForSort.TabIndex = 7;
+            this.buttonForSort.Text = "Сортировка";
+            this.buttonForSort.UseVisualStyleBackColor = true;
+            this.buttonForSort.Click += new System.EventHandler(this.buttonForSort_Click);
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1215, 604);
+            this.Controls.Add(this.buttonForSort);
             this.Controls.Add(this.buttonSetShip);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
@@ -230,5 +242,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button buttonForSort;
     }
 }
