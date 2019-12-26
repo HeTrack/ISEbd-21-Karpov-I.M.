@@ -9,6 +9,7 @@ namespace WindowsFormsShip
 {
     public class Ship: WaterVehicle
     {
+        /// <summary>
         /// Ширина отрисовки катера
         /// </summary>
         protected const int shipWidth = 150;
@@ -17,7 +18,7 @@ namespace WindowsFormsShip
         /// </summary>
         protected const int shipHeight = 10;
         /// <summary>
-        /// Максимальная скорость
+        /// Конструктор   
         /// </summary>
         /// <summary>
         /// Конструктор      
@@ -51,7 +52,6 @@ namespace WindowsFormsShip
                 //влево
                 case Direction.Left:
                     if (_startPosX - 10 - step > 0)
-
                     {
                         _startPosX -= step;
                     }
