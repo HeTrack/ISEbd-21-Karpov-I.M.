@@ -20,6 +20,7 @@ namespace WindowsFormsShip
         /// <summary>
         private int pictureWidth;
         private int pictureHeight;
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="countStages">Количество уровенй порта</param>

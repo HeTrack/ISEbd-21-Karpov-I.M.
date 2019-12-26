@@ -93,12 +93,11 @@ namespace WindowsFormsShip
             {
                 if (parking.LoadData(openFileDialog1.FileName))
                 {
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
-    MessageBoxIcon.Information);
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 }
                 Draw();
@@ -109,7 +108,7 @@ namespace WindowsFormsShip
         {
             Draw();
         }
-
+        /// <summary>
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>
         /// <param name="sender"></param>

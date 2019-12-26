@@ -13,7 +13,6 @@ namespace WindowsFormsShip
     public partial class ShipForm : Form
     {
         private IShip ship;
-
         public ShipForm()
         {
             InitializeComponent();
@@ -59,7 +58,6 @@ namespace WindowsFormsShip
             }
             Draw();
         }
-
         private void buttonCreateShip_Click(object sender, EventArgs e)
         {
             int minpos = 47;
