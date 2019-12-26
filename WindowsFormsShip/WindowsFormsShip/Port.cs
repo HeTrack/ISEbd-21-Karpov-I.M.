@@ -145,9 +145,10 @@ namespace WindowsFormsShip
         {
             DrawMarking(g);
             for (int i = 0; i < _places.Length; i++)
-            {
+            { 
+                //если место не пустое
                 if (!CheckFreePlace(i))
-                {//если место не пустое
+                {                  
                     _places[i].DrawShip(g);
                 }
             }

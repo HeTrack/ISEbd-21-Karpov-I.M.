@@ -60,9 +60,9 @@ namespace WindowsFormsShip
 
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox1.Text != "")
+            if (maskedTextBoxSpot.Text != "")
             {
-                var ship = parking - Convert.ToInt32(maskedTextBox1.Text);
+                var ship = parking - Convert.ToInt32(maskedTextBoxSpot.Text);
                 if (ship != null)
                 {
                     Bitmap bmp = new Bitmap(pictureBoxTake.Width, pictureBoxTake.Height);
