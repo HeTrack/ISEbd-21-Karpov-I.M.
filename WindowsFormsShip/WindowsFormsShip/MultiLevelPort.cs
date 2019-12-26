@@ -9,7 +9,7 @@ namespace WindowsFormsShip
     class MultiLevelPort
     {
         /// <summary>
-        /// Список с уровнями в порту
+        /// Список с уровнями порта
         /// </summary>
         List<Port<IShip>> parkingStages;
         /// <summary>

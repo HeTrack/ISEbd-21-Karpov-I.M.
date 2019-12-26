@@ -13,9 +13,10 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-        /// Объект от класса многоуровневого порта
+        /// Объект от класса многоуровневой порта
         /// </summary>
         MultiLevelPort parking;
+        FormShipConfig form;
         /// <summary>
         /// Количество уровней-парковок
         /// </summary>
@@ -37,60 +38,40 @@ namespace WindowsFormsShip
         /// </summary>
         private void Draw()
         {
-            if (listBoxlevels.SelectedIndex > -1) 
+            if (listBoxlevels.SelectedIndex > -1)
             {
-             //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
+                //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width,
                pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
-        }      
-        /// Обработка нажатия кнопки "Пришвартовать лодку"
-        private void buttonLocateBoat_Click(object sender, EventArgs e)
+        }
+             
+        private void AddShip(IShip ship)
         {
-            if (listBoxlevels.SelectedIndex > -1)
+            if (ship != null && listBoxlevels.SelectedIndex > -1)
             {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
+                int place = parking[listBoxlevels.SelectedIndex] + ship;
+                if (place > -1)
                 {
-                    var ship = new Ship(100, 1000, dialog.Color);
-                    int place = parking[listBoxlevels.SelectedIndex] + ship;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                     Draw();
                 }
-            }
-        }
-        /// Обработка нажатия кнопки "Пришвартовать катер"
-        private void buttonLocateShip_Click(object sender, EventArgs e)
-        {
-            if (listBoxlevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
+                else
                 {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var ship = new SuperShip(100, 1000, dialog.Color,
-                       dialogDop.Color, true, true, 2);
-                        int place = parking[listBoxlevels.SelectedIndex] + ship;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
+                    MessageBox.Show("Cудно не удалось поставить");
                 }
             }
         }
-        /// Обработка нажатия кнопки "Забрать"
+
+        private void buttonSetShip_Click(object sender, EventArgs e)
+        {
+            form = new FormShipConfig();
+            form.AddEvent(AddShip);
+            form.Show();
+        }
+
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
@@ -119,6 +100,7 @@ namespace WindowsFormsShip
                 }
             }
         }
+
         private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();

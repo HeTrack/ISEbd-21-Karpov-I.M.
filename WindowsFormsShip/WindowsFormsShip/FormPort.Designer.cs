@@ -36,9 +36,8 @@
             this.buttonGetShip = new System.Windows.Forms.Button();
             this.maskedTextBoxSpot = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonLocateBoat = new System.Windows.Forms.Button();
-            this.buttonLocateShip = new System.Windows.Forms.Button();
             this.listBoxlevels = new System.Windows.Forms.ListBox();
+            this.buttonSetShip = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -120,26 +119,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Место:";
             // 
-            // buttonLocateBoat
-            // 
-            this.buttonLocateBoat.Location = new System.Drawing.Point(1018, 115);
-            this.buttonLocateBoat.Name = "buttonLocateBoat";
-            this.buttonLocateBoat.Size = new System.Drawing.Size(174, 38);
-            this.buttonLocateBoat.TabIndex = 2;
-            this.buttonLocateBoat.Text = "Пришвартовать лодку";
-            this.buttonLocateBoat.UseVisualStyleBackColor = true;
-            this.buttonLocateBoat.Click += new System.EventHandler(this.buttonLocateBoat_Click);
-            // 
-            // buttonLocateShip
-            // 
-            this.buttonLocateShip.Location = new System.Drawing.Point(1018, 176);
-            this.buttonLocateShip.Name = "buttonLocateShip";
-            this.buttonLocateShip.Size = new System.Drawing.Size(174, 39);
-            this.buttonLocateShip.TabIndex = 3;
-            this.buttonLocateShip.Text = "Пришвартовать катер";
-            this.buttonLocateShip.UseVisualStyleBackColor = true;
-            this.buttonLocateShip.Click += new System.EventHandler(this.buttonLocateShip_Click);
-            // 
             // listBoxlevels
             // 
             this.listBoxlevels.FormattingEnabled = true;
@@ -150,14 +129,23 @@
             this.listBoxlevels.TabIndex = 4;
             this.listBoxlevels.SelectedIndexChanged += new System.EventHandler(this.listBoxlevels_SelectedIndexChanged);
             // 
+            // buttonSetShip
+            // 
+            this.buttonSetShip.Location = new System.Drawing.Point(1029, 165);
+            this.buttonSetShip.Name = "buttonSetShip";
+            this.buttonSetShip.Size = new System.Drawing.Size(142, 38);
+            this.buttonSetShip.TabIndex = 5;
+            this.buttonSetShip.Text = "Заказать судно";
+            this.buttonSetShip.UseVisualStyleBackColor = true;
+            this.buttonSetShip.Click += new System.EventHandler(this.buttonSetShip_Click);
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1215, 604);
+            this.Controls.Add(this.buttonSetShip);
             this.Controls.Add(this.listBoxlevels);
-            this.Controls.Add(this.buttonLocateShip);
-            this.Controls.Add(this.buttonLocateBoat);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxPort);
             this.Name = "FormPort";
@@ -167,7 +155,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -178,10 +165,9 @@
         private System.Windows.Forms.Button buttonGetShip;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxSpot;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonLocateBoat;
-        private System.Windows.Forms.Button buttonLocateShip;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBoxlevels;
+        private System.Windows.Forms.Button buttonSetShip;
     }
 }
