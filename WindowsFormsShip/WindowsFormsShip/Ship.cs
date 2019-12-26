@@ -17,33 +17,17 @@ namespace WindowsFormsShip
         /// </summary>
         protected const int shipHeight = 10;
         /// <summary>
-        /// Максимальная скорость
+        /// Конструктор
         /// </summary>
+        /// <param name="maxSpeed">Максимальная скорость</param>
+        /// <param name="weight">Вес катера</param>
+        /// <param name="bottomColor">Основной цвет - цвет ватерлинии</param>
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
-        }
-
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="maxSpeed">Максимальная скорость</param>
-        /// <param name="weight">Вес катера</param>
-        /// <param name="Bottom">Основной цвет кузова</param>
-        /// <param name="Hull">Дополнительный цвет корпуса</param>
-        /// <param name="LifeBuoy">Признак наличия переднего спойлера</param>
-        /// <param name="Motors">Признак наличия боковых спойлеров</param>
-        /// <param name="SecondBoard">Признак наличия заднего спойлера</param>
-        /// 
-        /// <summary>
-        /// Установка позиции катера
-        /// </summary>
-        /// <param name="x">Координата X</param>
-        /// <param name="y">Координата Y</param>
-        /// <param name="width">Ширина картинки</param>
-        /// <param name="height">Высота картинки</param>
+        }      
         /// <summary>
         /// Изменение направления перемещения
         /// </summary>
@@ -70,7 +54,7 @@ namespace WindowsFormsShip
                     }
                     break;
                 //вверх
-                case Direction.Up:                   
+                case Direction.Up:            
                     if (_startPosY - k - step > 0)
                     {
                         _startPosY -= step;
@@ -96,7 +80,7 @@ namespace WindowsFormsShip
             Brush bottom = new SolidBrush(MainColor);
             Brush brBlack = new SolidBrush(Color.Black);
             Brush hull = new SolidBrush(Color.LightGray);
-           
+
             //Днище
             Point point1 = new Point((int)_startPosX, (int)_startPosY);
             Point point2 = new Point((int)_startPosX + 5, (int)_startPosY + 10);

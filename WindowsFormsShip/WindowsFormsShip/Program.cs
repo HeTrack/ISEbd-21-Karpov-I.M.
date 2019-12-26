@@ -16,7 +16,7 @@ namespace WindowsFormsShip
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShipForm());
+            Application.Run(new FormPort());
         }
     }
 }

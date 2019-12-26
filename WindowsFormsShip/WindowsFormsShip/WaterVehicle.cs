@@ -9,11 +9,11 @@ namespace WindowsFormsShip
 {
     public abstract class WaterVehicle : IShip
     {
-        public static float _startPosX;
+        protected float _startPosX;
         /// <summary>
         /// Правая кооридната отрисовки судна
         /// </summary>
-        public static float _startPosY;
+        protected  float _startPosY;
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
@@ -29,7 +29,7 @@ namespace WindowsFormsShip
         /// </summary>
         public float Weight { protected set; get; }
         /// <summary>
-        /// Основной цвет кузова
+        /// Основной цвет - цвет ватерлинии
         /// </summary>
         public Color MainColor { protected set; get; }
 
