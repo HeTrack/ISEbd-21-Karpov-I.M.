@@ -28,14 +28,7 @@ namespace WindowsFormsShip
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
-        }
-        /// <summary>
-        /// Установка позиции катера
-        /// </summary>
-        /// <param name="x">Координата X</param>
-        /// <param name="y">Координата Y</param>
-        /// <param name="width">Ширина картинки</param>
-        /// <param name="height">Высота картинки</param>
+        }       
         /// <summary>
         /// Изменение направления перемещения
         /// </summary>

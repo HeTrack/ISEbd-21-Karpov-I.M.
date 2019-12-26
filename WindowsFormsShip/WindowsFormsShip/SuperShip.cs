@@ -16,7 +16,6 @@ namespace WindowsFormsShip
         public int MotorsForm;
         public Color MotorsColor { private set; get; }
 
-
         public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, CountMotors countmotors, Color Motorcolor) :
             base(maxSpeed, weight, bottomColor)
         {
