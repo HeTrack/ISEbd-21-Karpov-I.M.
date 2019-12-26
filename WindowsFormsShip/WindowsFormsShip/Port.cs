@@ -80,10 +80,9 @@ namespace WindowsFormsShip
         /// Логика действия: из порта забираем судно
         /// </summary>
         /// <param name="p">Порт</param>
-        /// <param name="index">Индекс места, с которого пытаемся извлечь
-      
- /// <returns></returns>
- public static T operator -(Port<T> p, int index )
+        /// <param name="index">Индекс места, с которого пытаемся извлечь     
+        /// <returns></returns>
+          public static T operator -(Port<T> p, int index )
         {
             if (!p.CheckFreePlace(index))
             {
@@ -99,10 +98,9 @@ namespace WindowsFormsShip
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
-        /// <param name="index">Номер парковочного места (порядковый номер в
-     
- /// <returns></returns>
- private bool CheckFreePlace(int index)
+        /// <param name="index">Номер парковочного места (порядковый номер в    
+        /// <returns></returns>
+        private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
         }
@@ -144,4 +142,4 @@ namespace WindowsFormsShip
             }
         }
     }
-}
+}

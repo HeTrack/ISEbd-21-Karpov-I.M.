@@ -95,7 +95,7 @@ namespace WindowsFormsShip
                         int place = parking[listBoxlevels.SelectedIndex] + ship;
                         if (place == -1)
                         {
-                            MessageBox.Show("Нет свободных мест", "Ошибка",
+                           MessageBox.Show("Нет свободных мест", "Ошибка",
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         Draw();
@@ -113,8 +113,7 @@ namespace WindowsFormsShip
             {
                 if (maskedTextBoxSpot.Text != "")
                 {
-                    var ship = parking[listBoxlevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBoxSpot.Text);
+                    var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
                     if (ship != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
