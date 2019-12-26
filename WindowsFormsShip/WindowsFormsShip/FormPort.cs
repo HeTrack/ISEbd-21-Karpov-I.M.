@@ -33,7 +33,7 @@ namespace WindowsFormsShip
             listBoxlevels.SelectedIndex = 0;
         }
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         private void Draw()
         {

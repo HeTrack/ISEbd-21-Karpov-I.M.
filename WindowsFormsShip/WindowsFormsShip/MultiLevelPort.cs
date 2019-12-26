@@ -9,7 +9,7 @@ namespace WindowsFormsShip
     class MultiLevelPort
     {
         /// <summary>
-        /// Список с уровнями парковки
+        /// Список с уровнями в порту
         /// </summary>
         List<Port<IShip>> parkingStages;
  /// <summary>
@@ -19,7 +19,7 @@ namespace WindowsFormsShip
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="countStages">Количество уровенй парковки</param>
+        /// <param name="countStages">Количество уровенй в порту</param>
         /// <param name="pictureWidth"></param>
         /// <param name="pictureHeight"></param>
         public MultiLevelPort(int countStages, int pictureWidth, int pictureHeight)
