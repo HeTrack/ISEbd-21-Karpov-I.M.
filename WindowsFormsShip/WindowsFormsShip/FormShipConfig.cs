@@ -113,9 +113,6 @@ DragDropEffects.Copy);
             }
         }
 
-      
-       
-
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
             if (ship != null)
