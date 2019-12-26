@@ -32,7 +32,7 @@ namespace WindowsFormsShip
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="sizes">Количество мест на парковке</param>
+        /// <param name="sizes">Количество парковочных мест в порту</param>
         /// <param name="pictureWidth">Рамзер порта - ширина</param>
         /// <param name="pictureHeight">Рамзер порта - высота</param>
         public Port(int sizes, int pictureWidth, int pictureHeight)
