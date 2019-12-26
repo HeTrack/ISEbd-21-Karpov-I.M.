@@ -25,7 +25,7 @@ namespace WindowsFormsShip
         /// </summary>
         public int MaxSpeed { protected set; get; }
         /// <summary>
-        /// Вес автомобиля
+        /// Вес судна
         /// </summary>
         public float Weight { protected set; get; }
         /// <summary>

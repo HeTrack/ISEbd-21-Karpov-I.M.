@@ -66,13 +66,13 @@ namespace WindowsFormsShip
         /// <param name="p">Порт</param>
         /// <param name="ship">Добавляемое судно</param>
         /// <returns></returns>
-        public static int operator +(Port<T> p, T car)
+        public static int operator +(Port<T> p, T ship)
         {
             if (p._places.Count == p._maxCount)
             {
                 throw new ParkingOverflowException();
             }
-            if (p._places.ContainsValue(car))
+            if (p._places.ContainsValue(ship))
             {
                 throw new ParkingAlreadyHaveException();
             }
@@ -80,7 +80,7 @@ namespace WindowsFormsShip
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p._places.Add(i, car);
+                    p._places.Add(i, ship);
                     p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 15,
                      i % 5 * _placeSizeHeight + 55, p.PictureWidth,
                     p.PictureHeight);
@@ -100,9 +100,9 @@ namespace WindowsFormsShip
         {
             if (!p.CheckFreePlace(index))
             {
-                T car = p._places[index];            
+                T ship = p._places[index];            
                 p._places.Remove(index);
-                return car;
+                return ship;
             }
             throw new ParkingNotFoundException(index);
         }
