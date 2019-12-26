@@ -90,6 +90,9 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 4;
+            this.label2.Size = new System.Drawing.Size(116, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Забрать судно с";
             // 
             // pictureBoxTake
             // 
@@ -109,12 +112,12 @@
             this.buttonGetShip.UseVisualStyleBackColor = true;
             this.buttonGetShip.Click += new System.EventHandler(this.buttonGetShip_Click);
             // 
-            // maskedTextBox1
+            // maskedTextBoxSpot
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(135, 46);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(50, 22);
-            this.maskedTextBox1.TabIndex = 1;
+            this.maskedTextBoxSpot.Location = new System.Drawing.Point(135, 46);
+            this.maskedTextBoxSpot.Name = "maskedTextBoxSpot";
+            this.maskedTextBoxSpot.Size = new System.Drawing.Size(50, 22);
+            this.maskedTextBoxSpot.TabIndex = 1;
             // 
             // label1
             // 
@@ -227,7 +230,6 @@
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
