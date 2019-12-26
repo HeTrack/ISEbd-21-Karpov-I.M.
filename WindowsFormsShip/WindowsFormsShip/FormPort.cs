@@ -13,7 +13,7 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-        /// Объект от класса многоуровневой парковки
+        /// Объект от класса многоуровневого порта
         /// </summary>
         MultiLevelPort parking;
         /// <summary>
@@ -33,7 +33,7 @@ namespace WindowsFormsShip
             listBoxlevels.SelectedIndex = 0;
         }
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         private void Draw()
         {

@@ -16,7 +16,7 @@ namespace WindowsFormsShip
         private Dictionary<int, T> _places;
         private Hashtable removed;
         /// <summary>
-        /// Максимальное количество мест на парковке
+        /// Максимальное количество мест в порту
         /// </summary>
         private int _maxCount;
         /// <summary>
@@ -38,9 +38,9 @@ namespace WindowsFormsShip
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="sizes">Количество мест на парковке</param>
-        /// <param name="pictureWidth">Рамзер парковки - ширина</param>
-        /// <param name="pictureHeight">Рамзер парковки - высота</param>
+        /// <param name="sizes">Количество мест в порту</param>
+        /// <param name="pictureWidth">Рамзер порта - ширина</param>
+        /// <param name="pictureHeight">Рамзер порта - высота</param>
         public Port(int sizes, int pictureWidth, int pictureHeight)
         {
             _maxCount = sizes;
@@ -51,9 +51,9 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора сложения
-        /// Логика действия: на парковку добавляется судно
+        /// Логика действия: в порт добавляется судно
         /// </summary>
-        /// <param name="p">Парковка</param>
+        /// <param name="p">Порт</param>
         /// <param name="ship">Добавляемое судно</param>
         /// <returns></returns>
         public static int operator +(Port<T> p, T ship)
@@ -77,9 +77,9 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки забираем судно
+        /// Логика действия: из порта забираем судно
         /// </summary>
-        /// <param name="p">Парковка</param>
+        /// <param name="p">Порт</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
       
  /// <returns></returns>
@@ -112,7 +112,7 @@ namespace WindowsFormsShip
             return _places.ContainsKey(key) ? _places[key] : null;
         }
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         /// <param name="g"></param>
         public void Draw(Graphics g)
