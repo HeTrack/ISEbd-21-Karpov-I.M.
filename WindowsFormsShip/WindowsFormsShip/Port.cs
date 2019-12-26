@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-   public class Port<T> where T:class, IShip
+   public class Port<T,N> where T:class, IShip where N:class,IMotors
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -22,11 +22,11 @@ namespace WindowsFormsShip
         /// </summary>
         private int PictureHeight { get; set; }
         /// <summary>
-        /// Размер парковочного места (ширина)
+        /// Размер парковочного места в порту (ширина)
         /// </summary>
         private const int _placeSizeWidth = 180;
         /// <summary>
-        /// Размер парковочного места (высота)
+        /// Размер парковочного места в порту (высота)
         /// </summary>
         private const int _placeSizeHeight = 70;
         /// <summary>
@@ -47,19 +47,19 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора сложения
-        /// Логика действия: на парковку добавляется судно
+        /// Логика действия: в порт добавляется лодка
         /// </summary>
-        /// <param name="p">Парковка</param>
-        /// <param name="ship">Добавляемое судно</param>
+        /// <param name="p">Порт</param>
+        /// <param name="ship">Добавляемая лодка</param>
         /// <returns></returns>
-        public static int operator +(Port<T> p, T ship)
+        public static int operator +(Port<T,N> p, T ship)
         {
             for (int i = 0; i < p._places.Length; i++)
             {
                 if (p.CheckFreePlace(i))
                 {
                     p._places[i] = ship;
-                    p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 10,
+                    p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 15,
                      i % 5 * _placeSizeHeight + 55, p.PictureWidth,
                     p.PictureHeight);
                     return i;
@@ -71,22 +71,60 @@ namespace WindowsFormsShip
         /// Перегрузка оператора вычитания
         /// Логика действия: из порта забираем судно
         /// </summary>
-        /// <param name="p">Парковка</param>
+        /// <param name="p">Порт</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
         /// <returns></returns>
-        public static T operator -(Port<T> p, int index)
+        public static T operator -(Port<T,N> p, int index)
         {
             if (index < 0 || index > p._places.Length)
             {
                 return null;
             }
+
             if (!p.CheckFreePlace(index))
- {
+            {
                 T ship = p._places[index];
                 p._places[index] = null;
                 return ship;
             }
             return null;
+        }
+
+        //перешвартоваться
+        public static int operator +(Port<T, N> p, int size)
+        {
+            int freeplace = 15;
+            for (int i = 0; i < p._places.Length; i++)
+            {
+                if (!p.CheckFreePlace(i))
+                {
+                  if(freeplace!=15)
+                    if (p.CheckFreePlace(freeplace))
+                    {
+                        p._places[freeplace] = p._places[i];
+                        p._places[freeplace].SetPosition(5 + freeplace / 5 * _placeSizeWidth + 15,
+                        freeplace % 5 * _placeSizeHeight + 55, p.PictureWidth,
+                       p.PictureHeight);
+                        p._places[i] = null;
+                         i = freeplace ;
+                            freeplace = 15;
+                    }
+                }
+                else
+                    if(i <= freeplace)
+                    freeplace = i;
+            }
+            return 1;
+        }
+
+        //очистка порта
+        public static int operator -(Port<T, N> p, string size)
+        {
+            for (int i = 0; i < Convert.ToInt32(size); i++)
+            {
+                p._places[i] = null;
+            }
+            return 1;
         }
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
@@ -105,9 +143,10 @@ namespace WindowsFormsShip
         {
             DrawMarking(g);
             for (int i = 0; i < _places.Length; i++)
-            {
+            { 
+                //если место не пустое
                 if (!CheckFreePlace(i))
-                {//если место не пустое
+                {                  
                     _places[i].DrawShip(g);
                 }
             }

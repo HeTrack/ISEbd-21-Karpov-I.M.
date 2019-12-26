@@ -11,9 +11,11 @@ namespace WindowsFormsShip
     {
         public Color DopColor { private set; get; }
         public bool LifeBuoy { private set; get; }
+        public CountMotors Motors { private set; get; }
         public bool SecondBoard { private set; get; }
-        public int Motors { private set; get; }
-        public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, int countmotors) :
+        public int MotorsForm;
+        public Color MotorsColor { private set; get; }
+        public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, CountMotors countmotors, Color Motorcolor) :
             base(maxSpeed, weight, bottomColor)
         {
             DopColor = dopColor;
@@ -21,6 +23,8 @@ namespace WindowsFormsShip
             SecondBoard = secondBoard;
             Random rnd = new Random();
             Motors = countmotors;
+            MotorsForm = rnd.Next(1,4);
+            MotorsColor = Motorcolor;
         }
         public override void DrawShip(Graphics g)
         {
@@ -44,26 +48,23 @@ namespace WindowsFormsShip
                 g.FillPolygon(brBlack, sboard);
                 g.DrawArc(pen1, _startPosX + 44, _startPosY - 48, 30, 15, 0, -60);
             }
-            switch (Motors)
+            IMotors motors;
+            switch (MotorsForm)
             {
                 case 1:
-                    g.FillRectangle(white, _startPosX - 10, _startPosY - 5, 8, 10);
-                    g.DrawRectangle(pen, _startPosX - 10, _startPosY - 5, 8, 10);
+                    motors = new SimpleMotors(_startPosX, _startPosY);
                     break;
                 case 2:
-                    g.FillRectangle(white, _startPosX - 8, _startPosY - 8, 8, 10);
-                    g.DrawRectangle(
-                    pen, _startPosX - 8, _startPosY - 8, 8, 10);
-                    g.FillRectangle(white, _startPosX - 10, _startPosY - 5, 8, 10);
-                    g.DrawRectangle(pen, _startPosX - 10, _startPosY - 5, 8, 10);
+                    motors = new TrapMotors(_startPosX, _startPosY);
                     break;
                 case 3:
-                    g.FillRectangle(white, _startPosX - 6, _startPosY - 10, 8, 10);
-                    g.DrawRectangle(pen, _startPosX - 6, _startPosY - 10, 8, 10);
-                    g.FillRectangle(white, _startPosX - 8, _startPosY - 8, 8, 10);
-                    g.DrawRectangle(pen, _startPosX - 8, _startPosY - 8, 8, 10);
+                    motors = new VentilMotors(_startPosX, _startPosY);
+                    break;
+                default:
+                    motors = new SimpleMotors(_startPosX, _startPosY);
                     break;
             }
+            motors.DrawMotors(g, Motors, MotorsColor);
             base.DrawShip(g);
             Point po1 = new Point((int)_startPosX, (int)_startPosY);
             Point po2 = new Point((int)_startPosX + 125, (int)_startPosY);

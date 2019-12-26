@@ -12,14 +12,13 @@ namespace WindowsFormsShip
 {
     public partial class FormPort : Form
     {
-        Port<IShip> parking;
+        Port<IShip, IMotors> parking;
         public FormPort()
         {
             InitializeComponent();
-            parking = new Port<IShip>(20, pictureBoxPort.Width, pictureBoxPort.Height);
+            parking = new Port<IShip, IMotors>(15, pictureBoxPort.Width, pictureBoxPort.Height);
             Draw();
         }
-
         /// <summary>
         /// Метод отрисовки порта
         /// </summary>
@@ -50,8 +49,7 @@ namespace WindowsFormsShip
                 ColorDialog dialogDop = new ColorDialog();
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
-                    var ship = new SuperShip(100, 1000, dialog.Color, dialogDop.Color,
-                   true, true, 2);
+                    var ship = new SuperShip(100, 1000, dialog.Color, dialogDop.Color, true, true, CountMotors.Two, Color.White);
                     int place = parking + ship;
                     Draw();
                 }
@@ -67,7 +65,7 @@ namespace WindowsFormsShip
                 {
                     Bitmap bmp = new Bitmap(pictureBoxTake.Width, pictureBoxTake.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                    ship.SetPosition(15, 55, pictureBoxTake.Width, pictureBoxTake.Height);
+                    ship.SetPosition(18, 55, pictureBoxTake.Width, pictureBoxTake.Height);
                     ship.DrawShip(gr);
                     pictureBoxTake.Image = bmp;
                 }
@@ -79,6 +77,18 @@ namespace WindowsFormsShip
                 }
                 Draw();
             }
+        }
+
+        private void buttonNewPorting_Click(object sender, EventArgs e)
+        {
+            int place = parking + 15;
+            Draw();
+        }
+
+        private void buttonCleanPort_Click(object sender, EventArgs e)
+        {
+            int place = parking - "15";
+            Draw();
         }
     }
 }
