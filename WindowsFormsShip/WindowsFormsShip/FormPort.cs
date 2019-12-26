@@ -20,7 +20,6 @@ namespace WindowsFormsShip
             Draw();
         }
 
-
         /// <summary>
         /// Метод отрисовки порта
         /// </summary>

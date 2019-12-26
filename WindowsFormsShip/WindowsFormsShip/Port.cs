@@ -73,9 +73,8 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
-  
- /// <returns></returns>
- public static T operator -(Port<T> p, int index)
+        /// <returns></returns>
+        public static T operator -(Port<T> p, int index)
         {
             if (index < 0 || index > p._places.Length)
             {
@@ -92,10 +91,9 @@ namespace WindowsFormsShip
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
-        /// <param name="index">Номер парковочного места (порядковый номер в
-       
- /// <returns></returns>
- private bool CheckFreePlace(int index)
+        /// <param name="index">Номер парковочного места (порядковый номер в     
+        /// <returns></returns>
+        private bool CheckFreePlace(int index)
         {
             return _places[index] == null;
         }
@@ -126,7 +124,8 @@ namespace WindowsFormsShip
             for (int i = 0; i < _places.Length / 5; i++)
             {//отрисовываем, по 5 мест на линии
                 for (int j = 0; j < 6; ++j)
-                {//линия рамзетки места
+                {
+                    //линия рамзетки места
                     g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight,
                     i * _placeSizeWidth + 110, j * _placeSizeHeight);
                 }
