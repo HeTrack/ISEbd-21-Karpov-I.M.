@@ -13,7 +13,7 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-        /// Объект от класса многоуровневой парковки
+        /// Объект от класса многоуровневой порта
         /// </summary>
         MultiLevelPort parking;
         FormShipConfig form;
@@ -29,37 +29,31 @@ namespace WindowsFormsShip
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
             {
-                listBox1.Items.Add("Уровень " + (i + 1));
+                listBoxlevels.Items.Add("Уровень " + (i + 1));
             }
-            listBox1.SelectedIndex = 0;
+            listBoxlevels.SelectedIndex = 0;
         }
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         private void Draw()
         {
-            if (listBox1.SelectedIndex > -1)
-            {//если выбран один из пуктов в listBox (при старте программы ни один пункт
-             // не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу
-             // listBox)
+            if (listBoxlevels.SelectedIndex > -1)
+            {
+                //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width,
                pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
-                parking[listBox1.SelectedIndex].Draw(gr);
+                parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
         }
-        
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
-
+       
         private void AddShip(IShip ship)
         {
-            if (ship != null && listBox1.SelectedIndex > -1)
+            if (ship != null && listBoxlevels.SelectedIndex > -1)
             {
-                int place = parking[listBox1.SelectedIndex] + ship;
+                int place = parking[listBoxlevels.SelectedIndex] + ship;
                 if (place > -1)
                 {
                     Draw();
@@ -80,12 +74,12 @@ namespace WindowsFormsShip
 
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > -1)
+            if (listBoxlevels.SelectedIndex > -1)
             {
-                if (maskedTextBox1.Text != "")
+                if (maskedTextBoxSpot.Text != "")
                 {
-                    var ship = parking[listBox1.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBox1.Text);
+                    var ship = parking[listBoxlevels.SelectedIndex] -
+                   Convert.ToInt32(maskedTextBoxSpot.Text);
                     if (ship != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
@@ -105,6 +99,11 @@ namespace WindowsFormsShip
                     Draw();
                 }
             }
+        }
+
+        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }
