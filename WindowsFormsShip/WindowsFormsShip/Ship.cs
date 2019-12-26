@@ -19,6 +19,14 @@ namespace WindowsFormsShip
         /// <summary>
         /// Максимальная скорость
         /// </summary>
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="maxSpeed">Максимальная скорость</param>
+        /// <param name="weight">Вес катера</param>
+        /// <param name="bottomColor">Основной цвет - цвет ватерлинии</param>       
+        /// 
+        /// <summary>
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
@@ -26,27 +34,9 @@ namespace WindowsFormsShip
             MainColor = bottomColor;
         }
         /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="maxSpeed">Максимальная скорость</param>
-        /// <param name="weight">Вес катера</param>
-        /// <param name="Bottom">Основной цвет кузова</param>
-        /// <param name="Hull">Дополнительный цвет корпуса</param>
-        /// <param name="LifeBuoy">Признак наличия переднего спойлера</param>
-        /// <param name="Motors">Признак наличия боковых спойлеров</param>
-        /// <param name="SecondBoard">Признак наличия заднего спойлера</param>
-        /// 
-        /// <summary>
-        /// Установка позиции катера
-        /// </summary>
-        /// <param name="x">Координата X</param>
-        /// <param name="y">Координата Y</param>
-        /// <param name="width">Ширина картинки</param>
-        /// <param name="height">Высота картинки</param>
-        /// <summary>
-        /// Изменение направления перемещения
-        /// </summary>
+        /// Изменение направления перемещения 
         /// <param name="direction">Направление</param>
+        /// </summary>
         public override void MoveTransport(Direction direction)
         {
             int k = 30;
@@ -70,8 +60,6 @@ namespace WindowsFormsShip
                     break;
                 //вверх
                 case Direction.Up:
-                    // if (SecondBoard)
-                    //    k = 48;
                     if (_startPosY - k - step > 0)
                     {
                         _startPosY -= step;
