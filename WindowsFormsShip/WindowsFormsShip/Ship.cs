@@ -16,15 +16,14 @@ namespace WindowsFormsShip
         /// Ширина отрисовки катера
         /// </summary>
         protected const int shipHeight = 10;
-        /// <summary>
-        /// Максимальная скорость
-        /// </summary>
+      
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
         }
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -95,7 +94,7 @@ namespace WindowsFormsShip
             Brush bottom = new SolidBrush(MainColor);
             Brush brBlack = new SolidBrush(Color.Black);
             Brush hull = new SolidBrush(Color.LightGray);
-
+           
             //Днище
             Point point1 = new Point((int)_startPosX, (int)_startPosY);
             Point point2 = new Point((int)_startPosX + 5, (int)_startPosY + 10);
