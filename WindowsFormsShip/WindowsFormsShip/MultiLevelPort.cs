@@ -179,7 +179,6 @@ namespace WindowsFormsShip
             return true;
         }
 
-
         //загрузить уровень
         public bool Loadlvl(int level, string filename)
         {
@@ -192,9 +191,7 @@ namespace WindowsFormsShip
                 return false;
             }
             parkingStages[level].ForClearlvl();
-            IShip ship = null;
-          
-              
+            IShip ship = null;                     
             using (StreamReader sr = new StreamReader(filename))
             {
                 string line;

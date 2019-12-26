@@ -93,12 +93,11 @@ namespace WindowsFormsShip
             {
                 if (parking.LoadData(openFileDialog1.FileName))
                 {
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
-    MessageBoxIcon.Information);
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 }
                 Draw();
@@ -111,12 +110,12 @@ namespace WindowsFormsShip
             {
                 if (parking.Savelvl(listBoxlevels.SelectedIndex, saveFileDialog1.FileName))
                 {
-                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                   MessageBox.Show("Сохранение прошло успешно", "Результат",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Не сохранилось", "Результат",
+                   MessageBox.Show("Не сохранилось", "Результат",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -128,12 +127,11 @@ namespace WindowsFormsShip
             {
                 if (parking.Loadlvl(listBoxlevels.SelectedIndex, openFileDialog1.FileName))
                 {
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
-    MessageBoxIcon.Information);
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 }
                 Draw();
@@ -144,6 +142,7 @@ namespace WindowsFormsShip
         {
             Draw();
         }
+        /// <summary>
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>
         /// <param name="sender"></param>

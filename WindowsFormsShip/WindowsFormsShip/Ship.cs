@@ -18,17 +18,16 @@ namespace WindowsFormsShip
         protected const int shipHeight = 10;
         /// <summary>
         /// Конструктор
+        /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
-        /// <param name="bottomColor">Основной цвет - цвет ватерлинии</param>
-        /// </summary>
+        /// <param name="bottomColor">Основной цвет - цвет ватерлинии</param>       
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
         }
-
         public Ship(string info)
         {
             string[] strs = info.Split(';');
