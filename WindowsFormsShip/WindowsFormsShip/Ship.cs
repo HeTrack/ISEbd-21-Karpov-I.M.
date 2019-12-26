@@ -17,20 +17,20 @@ namespace WindowsFormsShip
         /// Ширина отрисовки катера
         /// </summary>
         protected const int shipHeight = 10;
-        /// <summary>
-        /// Конструктор   
+        /// <summary>            
+        /// Конструктор
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
-        /// <param name="Bottom">Основной цвет - цвет ватерлинии</param>   
+        /// <param name="bottomColor">Основной цвет - цвет ватерлинии</param>           
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
-        }    
+        }
         /// <summary>
-        /// Изменение направления перемещения     
+        /// Изменение направления перемещения 
         /// <param name="direction">Направление</param>
         /// </summary>
         public override void MoveTransport(Direction direction)
@@ -55,7 +55,7 @@ namespace WindowsFormsShip
                     }
                     break;
                 //вверх
-                case Direction.Up:            
+                case Direction.Up:
                     if (_startPosY - k - step > 0)
                     {
                         _startPosY -= step;

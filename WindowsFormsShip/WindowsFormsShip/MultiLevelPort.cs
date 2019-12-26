@@ -9,7 +9,7 @@ namespace WindowsFormsShip
     class MultiLevelPort
     {
         /// <summary>
-        /// Список с уровнями в порту
+        /// Список с уровнями порта
         /// </summary>
         List<Port<IShip>> parkingStages;
         /// <summary>
@@ -42,6 +42,17 @@ namespace WindowsFormsShip
                 if (ind > -1 && ind < parkingStages.Count)
                 {
                     return parkingStages[ind];
+                }
+                return null;
+            }
+        }
+        public IShip this[int level, int key]
+        {
+            get
+            {
+                if (level > -1 && level < parkingStages.Count)
+                {
+                    return parkingStages[level].GetShipByKey(key);
                 }
                 return null;
             }

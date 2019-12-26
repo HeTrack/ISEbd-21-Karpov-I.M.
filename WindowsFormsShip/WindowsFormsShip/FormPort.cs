@@ -37,17 +37,26 @@ namespace WindowsFormsShip
         /// </summary>
         private void Draw()
         {
-            if (listBoxlevels.SelectedIndex > -1) 
+            if (listBoxlevels.SelectedIndex > -1)
             {
-             //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
+                //если выбран один из пуктов в listBox (при старте программы ни один пунктне будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width,
                pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
-        }      
+        }
+            
+        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
+        }
+        /// <summary>
         /// Обработка нажатия кнопки "Пришвартовать лодку"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLocateBoat_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
@@ -66,7 +75,11 @@ namespace WindowsFormsShip
                 }
             }
         }
+        /// <summary>
         /// Обработка нажатия кнопки "Пришвартовать катер"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLocateShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
@@ -82,7 +95,7 @@ namespace WindowsFormsShip
                         int place = parking[listBoxlevels.SelectedIndex] + ship;
                         if (place == -1)
                         {
-                            MessageBox.Show("Нет свободных мест", "Ошибка",
+                           MessageBox.Show("Нет свободных мест", "Ошибка",
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         Draw();
@@ -91,14 +104,16 @@ namespace WindowsFormsShip
             }
         }
         /// Обработка нажатия кнопки "Забрать"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
                 if (maskedTextBoxSpot.Text != "")
                 {
-                    var ship = parking[listBoxlevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBoxSpot.Text);
+                    var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
                     if (ship != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
@@ -118,10 +133,6 @@ namespace WindowsFormsShip
                     Draw();
                 }
             }
-        }
-        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Draw();
         }
     }
 }
