@@ -89,6 +89,9 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 4;
+            this.label2.Size = new System.Drawing.Size(116, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Забрать судно с";
             // 
             // pictureBoxTake
             // 
@@ -221,11 +224,9 @@
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
-
         private System.Windows.Forms.PictureBox pictureBoxPort;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxTake;
@@ -234,7 +235,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox1levels;
         private System.Windows.Forms.Button buttonSetShip;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
