@@ -151,10 +151,10 @@ namespace WindowsFormsShip
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
-                if (maskedTextBox1.Text != "")
+                if (maskedTextBoxSpot.Text != "")
                 {
                     var ship = parking[listBoxlevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBox1.Text);
+                   Convert.ToInt32(maskedTextBoxSpot.Text);
                     if (ship != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,

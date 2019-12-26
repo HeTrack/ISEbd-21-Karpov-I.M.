@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxTake = new System.Windows.Forms.PictureBox();
             this.buttonGetShip = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxSpot = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxlevels = new System.Windows.Forms.ListBox();
             this.buttonSetShip = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBoxTake);
             this.groupBox1.Controls.Add(this.buttonGetShip);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.maskedTextBoxSpot);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(964, 237);
             this.groupBox1.Name = "groupBox1";
@@ -109,12 +109,12 @@
             this.buttonGetShip.UseVisualStyleBackColor = true;
             this.buttonGetShip.Click += new System.EventHandler(this.buttonGetShip_Click);
             // 
-            // maskedTextBox1
+            // maskedTextBoxSpot
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(135, 46);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(50, 22);
-            this.maskedTextBox1.TabIndex = 1;
+            this.maskedTextBoxSpot.Location = new System.Drawing.Point(135, 46);
+            this.maskedTextBoxSpot.Name = "maskedTextBoxSpot";
+            this.maskedTextBoxSpot.Size = new System.Drawing.Size(50, 22);
+            this.maskedTextBoxSpot.TabIndex = 1;
             // 
             // label1
             // 
@@ -236,7 +236,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxTake;
         private System.Windows.Forms.Button buttonGetShip;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxSpot;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
