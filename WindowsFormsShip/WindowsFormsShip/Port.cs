@@ -69,7 +69,7 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки забираем судно
+        /// Логика действия: из порта забираем судно
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
@@ -100,7 +100,7 @@ namespace WindowsFormsShip
             return _places[index] == null;
         }
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         /// <param name="g"></param>
         public void Draw(Graphics g)
