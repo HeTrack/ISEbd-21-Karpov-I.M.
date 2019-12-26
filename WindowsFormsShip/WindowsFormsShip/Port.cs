@@ -87,7 +87,7 @@ namespace WindowsFormsShip
             if (!p.CheckFreePlace(index))
             {
                 T ship = p._places[index];
-              while(p.removed.ContainsKey(index))                
+              while (p.removed.ContainsKey(index))                
                     index = index + p._maxCount;
                 p.removed.Add(index, ship);
                 p._places.Remove(index);
