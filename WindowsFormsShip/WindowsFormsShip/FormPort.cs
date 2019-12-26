@@ -47,32 +47,16 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать лодку"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// Обработка нажатия кнопки "Припарковать катер"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// Обработка нажатия кнопки "Забрать"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
- 
-      
- 
-
- 
-
-   
-
+            
         private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
         }
-
+        /// <summary>
+        /// Обработка нажатия кнопки "Пришвартовать лодку"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLocateBoat_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
@@ -91,7 +75,11 @@ namespace WindowsFormsShip
                 }
             }
         }
-
+        /// <summary>
+        /// Обработка нажатия кнопки "Пришвартовать катер"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLocateShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
@@ -115,7 +103,10 @@ namespace WindowsFormsShip
                 }
             }
         }
-
+        /// Обработка нажатия кнопки "Забрать"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
