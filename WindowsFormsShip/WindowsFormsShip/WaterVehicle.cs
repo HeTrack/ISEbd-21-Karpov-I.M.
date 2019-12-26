@@ -47,4 +47,3 @@ namespace WindowsFormsShip
         public abstract void MoveTransport(Direction direction);
     }
 }
-
