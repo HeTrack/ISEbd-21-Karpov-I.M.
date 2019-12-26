@@ -33,19 +33,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxTake = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonGetShip = new System.Windows.Forms.Button();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxlevels = new System.Windows.Forms.ListBox();
             this.buttonSetShip = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.сохранитьУровеньToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьУровеньToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -65,7 +65,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBoxTake);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.buttonGetShip);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(964, 237);
@@ -99,14 +99,15 @@
             this.pictureBoxTake.TabIndex = 3;
             this.pictureBoxTake.TabStop = false;
             // 
-            // button3
+            // buttonGetShip
             // 
-            this.button3.Location = new System.Drawing.Point(54, 68);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Забрать";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonGetShip.Location = new System.Drawing.Point(54, 68);
+            this.buttonGetShip.Name = "buttonGetShip";
+            this.buttonGetShip.Size = new System.Drawing.Size(75, 33);
+            this.buttonGetShip.TabIndex = 2;
+            this.buttonGetShip.Text = "Забрать";
+            this.buttonGetShip.UseVisualStyleBackColor = true;
+            this.buttonGetShip.Click += new System.EventHandler(this.buttonGetShip_Click);
             // 
             // maskedTextBox1
             // 
@@ -124,15 +125,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Место:";
             // 
-            // listBox1
+            // listBoxlevels
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(1051, 39);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxlevels.FormattingEnabled = true;
+            this.listBoxlevels.ItemHeight = 16;
+            this.listBoxlevels.Location = new System.Drawing.Point(1051, 39);
+            this.listBoxlevels.Name = "listBoxlevels";
+            this.listBoxlevels.Size = new System.Drawing.Size(120, 84);
+            this.listBoxlevels.TabIndex = 4;
+            this.listBoxlevels.SelectedIndexChanged += new System.EventHandler(this.listBoxlevels_SelectedIndexChanged);
             // 
             // buttonSetShip
             // 
@@ -182,15 +183,6 @@
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "txt file | *.txt";
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "txt file | *.txt";
-            // 
             // сохранитьУровеньToolStripMenuItem
             // 
             this.сохранитьУровеньToolStripMenuItem.Name = "сохранитьУровеньToolStripMenuItem";
@@ -205,13 +197,22 @@
             this.загрузитьУровеньToolStripMenuItem.Text = "Загрузить уровень";
             this.загрузитьУровеньToolStripMenuItem.Click += new System.EventHandler(this.загрузитьУровеньToolStripMenuItem_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "txt file | *.txt";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "txt file | *.txt";
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1215, 604);
             this.Controls.Add(this.buttonSetShip);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxlevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxPort);
             this.Controls.Add(this.menuStrip1);
@@ -234,12 +235,12 @@
         private System.Windows.Forms.PictureBox pictureBoxPort;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxTake;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonGetShip;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxlevels;
         private System.Windows.Forms.Button buttonSetShip;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
