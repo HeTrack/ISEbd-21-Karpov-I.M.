@@ -13,7 +13,6 @@ namespace WindowsFormsShip
     public partial class ShipForm : Form
     {
         private IShip ship;
-
         public ShipForm()
         {
             InitializeComponent();
@@ -22,7 +21,7 @@ namespace WindowsFormsShip
         {
             Bitmap bmp = new Bitmap(pictureBoxShip.Width, pictureBoxShip.Height);
             Graphics gr = Graphics.FromImage(bmp);            
-        ship.DrawShip(gr);
+            ship.DrawShip(gr);
             pictureBoxShip.Image = bmp;
         }
         private void buttonCreate_Click(object sender, EventArgs e)

@@ -11,7 +11,6 @@ namespace WindowsFormsShip
     {
         public float _startPosX;
         public float _startPosY;
-
         public TrapMotors(float x, float y)
         {
             _startPosX = x;
@@ -33,7 +32,6 @@ namespace WindowsFormsShip
                     g.DrawPolygon(pen, pocase);
                     break;
                 case 2:
-
                     po1 = new Point((int)_startPosX - 15, (int)_startPosY + 2);
                     po2 = new Point((int)_startPosX - 8, (int)_startPosY - 8);
                     po3 = new Point((int)_startPosX, (int)_startPosY - 8);
@@ -48,7 +46,6 @@ namespace WindowsFormsShip
                     pocase = new Point[] { po1, po2, po3, po4 };
                     g.FillPolygon(white, pocase);
                     g.DrawPolygon(pen, pocase);
-
                     break;
                 case 3:
                     po1 = new Point((int)_startPosX - 15, (int)_startPosY - 3);

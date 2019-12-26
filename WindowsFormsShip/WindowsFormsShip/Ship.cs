@@ -31,7 +31,6 @@ namespace WindowsFormsShip
             Weight = weight;
             MainColor = bottomColor;
         }
-
         /// <summary>
         /// Изменение направления перемещения
         /// <param name="direction">Направление</param>

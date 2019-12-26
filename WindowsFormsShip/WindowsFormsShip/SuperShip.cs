@@ -9,17 +9,11 @@ namespace WindowsFormsShip
 {
     public class SuperShip : Ship
     {
-
         public Color DopColor { private set; get; }
-
         public bool LifeBuoy { private set; get; }
-
         public bool SecondBoard { private set; get; }
-
         public CountMotors Motors { private set; get; }
-
         private int MotorsForm;
-
         public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, CountMotors countmotors, int motorsType ) :
             base(maxSpeed, weight, bottomColor)
         {
