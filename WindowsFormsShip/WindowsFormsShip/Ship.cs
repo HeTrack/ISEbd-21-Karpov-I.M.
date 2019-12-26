@@ -21,19 +21,13 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
-        /// <param name="Bottom">Основной цвет - цвет ватерлинии</param>
-        /// <param name="Hull">Дополнительный цвет корпуса</param>
-        /// <param name="LifeBuoy">Признак наличия переднего спойлера</param>
-        /// <param name="Motors">Признак наличия боковых спойлеров</param>
-        /// <param name="SecondBoard">Признак наличия заднего спойлера</param>
-        /// 
+        /// <param name="bottomColor">Основной цвет - цвет ватерлинии</param>
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
         }
-
         public Ship(string info)
         {
             string[] strs = info.Split(';');
@@ -43,7 +37,7 @@ namespace WindowsFormsShip
                 Weight = Convert.ToInt32(strs[1]);
                 MainColor = Color.FromName(strs[2]);
             }
-        }          
+        }         
         /// <summary>
         /// Изменение направления перемещения
         /// </summary>
