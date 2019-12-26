@@ -9,6 +9,7 @@ namespace WindowsFormsShip
 {
     public class Ship: WaterVehicle
     {
+        /// <summary>
         /// Ширина отрисовки катера
         /// </summary>
         protected const int shipWidth = 150;
@@ -17,21 +18,21 @@ namespace WindowsFormsShip
         /// </summary>
         protected const int shipHeight = 10;
         /// <summary>
-        /// Конструктор
+        /// Конструктор   
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
-        /// <param name="bottomColor">Основной цвет - цвет ватерлинии</param>
+        /// <param name="Bottom">Основной цвет - цвет ватерлинии</param>   
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
-        }      
+        }    
         /// <summary>
-        /// Изменение направления перемещения
-        /// </summary>
+        /// Изменение направления перемещения     
         /// <param name="direction">Направление</param>
+        /// </summary>
         public override void MoveTransport(Direction direction)
         {
             int k = 30;

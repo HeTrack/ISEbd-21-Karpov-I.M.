@@ -30,6 +30,7 @@
         {
             this.pictureBoxPort = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxTake = new System.Windows.Forms.PictureBox();
             this.buttonGetShip = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonLocateBoat = new System.Windows.Forms.Button();
             this.buttonLocateShip = new System.Windows.Forms.Button();
+            this.listBoxlevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -46,35 +48,47 @@
             // 
             this.pictureBoxPort.Location = new System.Drawing.Point(1, 2);
             this.pictureBoxPort.Name = "pictureBoxPort";
-            this.pictureBoxPort.Size = new System.Drawing.Size(723, 447);
+            this.pictureBoxPort.Size = new System.Drawing.Size(904, 522);
             this.pictureBoxPort.TabIndex = 0;
             this.pictureBoxPort.TabStop = false;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBoxTake);
             this.groupBox1.Controls.Add(this.buttonGetShip);
             this.groupBox1.Controls.Add(this.maskedTextBoxSpot);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(774, 171);
+            this.groupBox1.Location = new System.Drawing.Point(964, 237);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(228, 278);
+            this.groupBox1.Size = new System.Drawing.Size(228, 252);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Забрать судно с";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 46);
             this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.TabIndex = 4;
             this.label2.Size = new System.Drawing.Size(116, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Забрать судно с";
             // 
             // pictureBoxTake
             // 
-            this.pictureBoxTake.Location = new System.Drawing.Point(0, 123);
+            this.pictureBoxTake.Location = new System.Drawing.Point(6, 107);
             this.pictureBoxTake.Name = "pictureBoxTake";
             this.pictureBoxTake.Size = new System.Drawing.Size(228, 144);
             this.pictureBoxTake.TabIndex = 3;
@@ -82,7 +96,7 @@
             // 
             // buttonGetShip
             // 
-            this.buttonGetShip.Location = new System.Drawing.Point(47, 86);
+            this.buttonGetShip.Location = new System.Drawing.Point(54, 68);
             this.buttonGetShip.Name = "buttonGetShip";
             this.buttonGetShip.Size = new System.Drawing.Size(75, 33);
             this.buttonGetShip.TabIndex = 2;
@@ -92,7 +106,7 @@
             // 
             // maskedTextBoxSpot
             // 
-            this.maskedTextBoxSpot.Location = new System.Drawing.Point(128, 66);
+            this.maskedTextBoxSpot.Location = new System.Drawing.Point(135, 46);
             this.maskedTextBoxSpot.Name = "maskedTextBoxSpot";
             this.maskedTextBoxSpot.Size = new System.Drawing.Size(50, 22);
             this.maskedTextBoxSpot.TabIndex = 1;
@@ -100,7 +114,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 66);
+            this.label1.Location = new System.Drawing.Point(69, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 0;
@@ -108,7 +122,7 @@
             // 
             // buttonLocateBoat
             // 
-            this.buttonLocateBoat.Location = new System.Drawing.Point(796, 22);
+            this.buttonLocateBoat.Location = new System.Drawing.Point(1018, 115);
             this.buttonLocateBoat.Name = "buttonLocateBoat";
             this.buttonLocateBoat.Size = new System.Drawing.Size(174, 38);
             this.buttonLocateBoat.TabIndex = 2;
@@ -118,7 +132,7 @@
             // 
             // buttonLocateShip
             // 
-            this.buttonLocateShip.Location = new System.Drawing.Point(796, 103);
+            this.buttonLocateShip.Location = new System.Drawing.Point(1018, 176);
             this.buttonLocateShip.Name = "buttonLocateShip";
             this.buttonLocateShip.Size = new System.Drawing.Size(174, 39);
             this.buttonLocateShip.TabIndex = 3;
@@ -126,11 +140,22 @@
             this.buttonLocateShip.UseVisualStyleBackColor = true;
             this.buttonLocateShip.Click += new System.EventHandler(this.buttonLocateShip_Click);
             // 
+            // listBoxlevels
+            // 
+            this.listBoxlevels.FormattingEnabled = true;
+            this.listBoxlevels.ItemHeight = 16;
+            this.listBoxlevels.Location = new System.Drawing.Point(1051, 12);
+            this.listBoxlevels.Name = "listBoxlevels";
+            this.listBoxlevels.Size = new System.Drawing.Size(120, 84);
+            this.listBoxlevels.TabIndex = 4;
+            this.listBoxlevels.SelectedIndexChanged += new System.EventHandler(this.listBoxlevels_SelectedIndexChanged);
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 545);
+            this.ClientSize = new System.Drawing.Size(1215, 604);
+            this.Controls.Add(this.listBoxlevels);
             this.Controls.Add(this.buttonLocateShip);
             this.Controls.Add(this.buttonLocateBoat);
             this.Controls.Add(this.groupBox1);
@@ -156,5 +181,7 @@
         private System.Windows.Forms.Button buttonLocateBoat;
         private System.Windows.Forms.Button buttonLocateShip;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox listBoxlevels;
     }
 }

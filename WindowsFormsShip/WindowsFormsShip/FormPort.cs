@@ -12,73 +12,116 @@ namespace WindowsFormsShip
 {
     public partial class FormPort : Form
     {
-        Port<IShip> parking;
+        /// <summary>
+        /// Объект от класса многоуровневого порта
+        /// </summary>
+        MultiLevelPort parking;
+        /// <summary>
+        /// Количество уровней-парковок
+        /// </summary>
+        private const int countLevel = 5;
         public FormPort()
         {
             InitializeComponent();
-            parking = new Port<IShip>(20, pictureBoxPort.Width, pictureBoxPort.Height);
-            Draw();
+            parking = new MultiLevelPort(countLevel, pictureBoxPort.Width,
+           pictureBoxPort.Height);
+            //заполнение listBox
+            for (int i = 0; i < countLevel; i++)
+            {
+                listBoxlevels.Items.Add("Уровень " + (i + 1));
+            }
+            listBoxlevels.SelectedIndex = 0;
         }
-
         /// <summary>
         /// Метод отрисовки порта
         /// </summary>
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxPort.Width, pictureBoxPort.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            parking.Draw(gr);
-            pictureBoxPort.Image = bmp;
-        }
-
+            if (listBoxlevels.SelectedIndex > -1) 
+            {
+             //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
+                Bitmap bmp = new Bitmap(pictureBoxPort.Width,
+               pictureBoxPort.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                parking[listBoxlevels.SelectedIndex].Draw(gr);
+                pictureBoxPort.Image = bmp;
+            }
+        }      
+        /// Обработка нажатия кнопки "Пришвартовать лодку"
         private void buttonLocateBoat_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxlevels.SelectedIndex > -1)
             {
-                var ship = new Ship(100, 1000, dialog.Color);
-                int place = parking + ship;
-                Draw();
-            }
-        }
-
-        private void buttonLocateShip_Click(object sender, EventArgs e)
-        {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var ship = new SuperShip(100, 1000, dialog.Color, dialogDop.Color,
-                   true, true, 2);
-                    int place = parking + ship;
+                    var ship = new Ship(100, 1000, dialog.Color);
+                    int place = parking[listBoxlevels.SelectedIndex] + ship;
+                    if (place == -1)
+                    {
+                        MessageBox.Show("Нет свободных мест", "Ошибка",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     Draw();
                 }
             }
         }
-
+        /// Обработка нажатия кнопки "Пришвартовать катер"
+        private void buttonLocateShip_Click(object sender, EventArgs e)
+        {
+            if (listBoxlevels.SelectedIndex > -1)
+            {
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var ship = new SuperShip(100, 1000, dialog.Color,
+                       dialogDop.Color, true, true, 2);
+                        int place = parking[listBoxlevels.SelectedIndex] + ship;
+                        if (place == -1)
+                        {
+                            MessageBox.Show("Нет свободных мест", "Ошибка",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        Draw();
+                    }
+                }
+            }
+        }
+        /// Обработка нажатия кнопки "Забрать"
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
-            if (maskedTextBoxSpot.Text != "")
+            if (listBoxlevels.SelectedIndex > -1)
             {
-                var ship = parking - Convert.ToInt32(maskedTextBoxSpot.Text);
-                if (ship != null)
+                if (maskedTextBoxSpot.Text != "")
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxTake.Width, pictureBoxTake.Height);
-                    Graphics gr = Graphics.FromImage(bmp);
-                    ship.SetPosition(15, 55, pictureBoxTake.Width, pictureBoxTake.Height);
-                    ship.DrawShip(gr);
-                    pictureBoxTake.Image = bmp;
+                    var ship = parking[listBoxlevels.SelectedIndex] -
+                   Convert.ToInt32(maskedTextBoxSpot.Text);
+                    if (ship != null)
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTake.Width,
+                       pictureBoxTake.Height);
+                        Graphics gr = Graphics.FromImage(bmp);
+                        ship.SetPosition(15, 55, pictureBoxTake.Width,
+                       pictureBoxTake.Height);
+                        ship.DrawShip(gr);
+                        pictureBoxTake.Image = bmp;
+                    }
+                    else
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTake.Width,
+                       pictureBoxTake.Height);
+                        pictureBoxTake.Image = bmp;
+                    }
+                    Draw();
                 }
-                else
-                {
-                    Bitmap bmp = new Bitmap(pictureBoxTake.Width,
-                   pictureBoxTake.Height);
-                    pictureBoxTake.Image = bmp;
-                }
-                Draw();
             }
+        }
+        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }
