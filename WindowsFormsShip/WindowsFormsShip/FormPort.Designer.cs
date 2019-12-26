@@ -39,6 +39,7 @@
             this.buttonNewPorting = new System.Windows.Forms.Button();
             this.buttonCleanPort = new System.Windows.Forms.Button();
             this.buttonLocateBoat = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -117,6 +118,7 @@
             this.buttonLocateShip.Text = "Пришвартовать катер";
             this.buttonLocateShip.UseVisualStyleBackColor = true;
             this.buttonLocateShip.Click += new System.EventHandler(this.buttonLocateShip_Click);
+
             // 
             // buttonNewPorting
             // 
@@ -147,12 +149,14 @@
             this.buttonLocateBoat.Text = "Пришвартовать лодку";
             this.buttonLocateBoat.UseVisualStyleBackColor = true;
             this.buttonLocateBoat.Click += new System.EventHandler(this.buttonLocateBoat_Click);
+
             // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 545);
+
             this.Controls.Add(this.buttonLocateBoat);
             this.Controls.Add(this.buttonCleanPort);
             this.Controls.Add(this.buttonNewPorting);
