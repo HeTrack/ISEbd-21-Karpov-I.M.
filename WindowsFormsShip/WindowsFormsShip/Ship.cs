@@ -16,9 +16,7 @@ namespace WindowsFormsShip
         /// Ширина отрисовки катера
         /// </summary>
         protected const int shipHeight = 10;
-        /// <summary>
-        /// Максимальная скорость
-        /// </summary>
+
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
