@@ -141,11 +141,11 @@ namespace WindowsFormsShip
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
-                if (maskedTextBox1.Text != "")
+                if (maskedTextBoxSpot.Text != "")
                 {
                     try
                     {
-                        var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBox1.Text);
+                        var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
@@ -153,7 +153,7 @@ namespace WindowsFormsShip
                        pictureBoxTake.Height);
                         ship.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
-                        logger.Info("Изъято судно" + ship.ToString() + " с места " + maskedTextBox1.Text);
+                        logger.Info("Изъято судно" + ship.ToString() + " с места " + maskedTextBoxSpot.Text);
                         Draw();
                     }
                     catch (ParkingNotFoundException ex)
