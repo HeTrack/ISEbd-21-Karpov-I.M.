@@ -30,13 +30,6 @@ namespace WindowsFormsShip
         }
        
         /// <summary>
-        /// Установка позиции катера
-        /// </summary>
-        /// <param name="x">Координата X</param>
-        /// <param name="y">Координата Y</param>
-        /// <param name="width">Ширина картинки</param>
-        /// <param name="height">Высота картинки</param>
-        /// <summary>
         /// Изменение направления перемещения
         /// </summary>
         /// <param name="direction">Направление</param>
