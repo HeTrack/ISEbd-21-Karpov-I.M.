@@ -15,7 +15,7 @@ namespace WindowsFormsShip
         /// </summary>
         private Dictionary<int, T> _places;
         /// <summary>
-        /// Максимальное количество мест на парковке
+        /// Максимальное количество мест в порту
         /// </summary>
         private int _maxCount;
         /// <summary>
@@ -39,9 +39,9 @@ namespace WindowsFormsShip
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="sizes">Количество мест на парковке</param>
-        /// <param name="pictureWidth">Рамзер парковки - ширина</param>
-        /// <param name="pictureHeight">Рамзер парковки - высота</param>
+        /// <param name="sizes">Количество мест в порту</param>
+        /// <param name="pictureWidth">Рамзер порта - ширина</param>
+        /// <param name="pictureHeight">Рамзер порта - высота</param>
         public Port(int sizes, int pictureWidth, int pictureHeight)
         {
             _maxCount = sizes;
@@ -52,12 +52,12 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора сложения
-        /// Логика действия: на парковку добавляется автомобиль
+        /// Логика действия: в порт добавляется судно
         /// </summary>
-        /// <param name="p">Парковка</param>
-        /// <param name="car">Добавляемый автомобиль</param>
+        /// <param name="p">Порт</param>
+        /// <param name="ship">Добавляемое судно</param>
         /// <returns></returns>
-        public static int operator +(Port<T> p, T car)
+        public static int operator +(Port<T> p, T ship)
         {
             if (p._places.Count == p._maxCount)
             {
@@ -67,7 +67,7 @@ namespace WindowsFormsShip
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p._places.Add(i, car);
+                    p._places.Add(i, ship);
                     p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 15,
                      i % 5 * _placeSizeHeight + 55, p.PictureWidth,
                     p.PictureHeight);
@@ -78,9 +78,9 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки забираем автомобиль
+        /// Логика действия: из порта забираем автомобиль
         /// </summary>
-        /// <param name="p">Парковка</param>
+        /// <param name="p">Порт</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
 
         /// <returns></returns>
@@ -88,10 +88,10 @@ namespace WindowsFormsShip
         {
             if (!p.CheckFreePlace(index))
             {
-                T car = p._places[index];
-                p.removePort.Add(index, car);
+                T ship = p._places[index];
+                p.removePort.Add(index, ship);
                 p._places.Remove(index);
-                return car;
+                return ship;
             }
             return null;
         }
@@ -110,7 +110,7 @@ namespace WindowsFormsShip
             return _places.ContainsKey(key) ? _places[key] : null;
         }
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         /// <param name="g"></param>
         public void Draw(Graphics g)

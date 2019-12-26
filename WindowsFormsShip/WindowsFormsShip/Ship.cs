@@ -42,7 +42,7 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
-        /// <param name="Bottom">Основной цвет кузова</param>
+        /// <param name="Bottom">Основной цвет - цвет ватерлинии</param>
         /// <param name="Hull">Дополнительный цвет корпуса</param>
         /// <param name="LifeBuoy">Признак наличия переднего спойлера</param>
         /// <param name="Motors">Признак наличия боковых спойлеров</param>
