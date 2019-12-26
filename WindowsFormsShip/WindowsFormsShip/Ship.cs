@@ -9,23 +9,16 @@ namespace WindowsFormsShip
 {
     public class Ship: WaterVehicle
     {
+        /// <summary>
         /// Ширина отрисовки катера
         /// </summary>
-        protected const int shipWidth = 150;
+       protected const int shipWidth = 150;
         /// <summary>
         /// Ширина отрисовки катера
         /// </summary>
         protected const int shipHeight = 10;
         /// <summary>
-        public Ship(int maxSpeed, float weight, Color bottomColor)
-        {
-            MaxSpeed = maxSpeed;
-            Weight = weight;
-            MainColor = bottomColor;
-        }
-        /// <summary>
         /// Конструктор
-        /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
         /// <param name="Bottom">Основной цвет кузова</param>
@@ -33,7 +26,13 @@ namespace WindowsFormsShip
         /// <param name="LifeBuoy">Признак наличия переднего спойлера</param>
         /// <param name="Motors">Признак наличия боковых спойлеров</param>
         /// <param name="SecondBoard">Признак наличия заднего спойлера</param>
-        /// 
+        /// </summary>
+        public Ship(int maxSpeed, float weight, Color bottomColor)
+        {
+            MaxSpeed = maxSpeed;
+            Weight = weight;
+            MainColor = bottomColor;
+        }
         /// <summary>
         /// Установка позиции катера
         /// </summary>
