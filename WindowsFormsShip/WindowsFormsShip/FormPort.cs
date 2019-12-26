@@ -136,7 +136,7 @@ namespace WindowsFormsShip
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e"></param
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
@@ -171,7 +171,7 @@ namespace WindowsFormsShip
                     }
                 }
             }
-        }
+        }     
     }
 }
  
