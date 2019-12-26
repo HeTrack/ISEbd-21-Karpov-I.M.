@@ -49,7 +49,7 @@ namespace WindowsFormsShip
         /// Перегрузка оператора сложения
         /// Логика действия: в порт добавляется лодка
         /// </summary>
-        /// <param name="p">Парковка</param>
+        /// <param name="p">Порт</param>
         /// <param name="ship">Добавляемая лодка</param>
         /// <returns></returns>
         public static int operator +(Port<T,N> p, T ship)
@@ -69,9 +69,9 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки забираем судно
+        /// Логика действия: из порта забираем судно
         /// </summary>
-        /// <param name="p">Парковка</param>
+        /// <param name="p">Порт</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
  /// <returns></returns>
         public static T operator -(Port<T,N> p, int index)
@@ -139,7 +139,7 @@ namespace WindowsFormsShip
             return _places[index] == null;
         }
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         /// <param name="g"></param>
         public void Draw(Graphics g)

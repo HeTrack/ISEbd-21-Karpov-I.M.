@@ -22,7 +22,7 @@ namespace WindowsFormsShip
 
 
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         private void Draw()
         {
