@@ -83,14 +83,15 @@ namespace WindowsFormsShip
         /// <param name="index">Индекс места, с которого пытаемся извлечь
       
  /// <returns></returns>
- public static T operator -(Port<T> p, int index)
+ public static T operator -(Port<T> p, int index )
         {
             if (!p.CheckFreePlace(index))
             {
                 T ship = p._places[index];
-                p.removed.Add(index,ship);
+              while(p.removed.ContainsKey(index))                
+                    index = index + p._maxCount;
+                p.removed.Add(index, ship);
                 p._places.Remove(index);
-
                 return ship;
             }
             return null;

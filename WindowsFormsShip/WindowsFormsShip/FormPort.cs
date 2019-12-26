@@ -62,7 +62,18 @@ namespace WindowsFormsShip
         /// <param name="e"></param>
  
       
-        private void button1_Click(object sender, EventArgs e)
+ 
+
+ 
+
+   
+
+        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
+        }
+
+        private void buttonLocateBoat_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
@@ -81,7 +92,7 @@ namespace WindowsFormsShip
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonLocateShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
@@ -105,14 +116,14 @@ namespace WindowsFormsShip
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
-                if (maskedTextBox1.Text != "")
+                if (maskedTextBoxSpot.Text != "")
                 {
                     var ship = parking[listBoxlevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBox1.Text);
+                   Convert.ToInt32(maskedTextBoxSpot.Text);
                     if (ship != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
@@ -133,7 +144,5 @@ namespace WindowsFormsShip
                 }
             }
         }
-
-        
     }
 }
