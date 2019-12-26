@@ -34,8 +34,7 @@ namespace WindowsFormsShip
         /// Размер парковочного места (высота)
         /// </summary>
         private const int _placeSizeHeight = 80;
-
-        private Hashtable removePort;
+        private Hashtable removed;
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -48,7 +47,7 @@ namespace WindowsFormsShip
             _places = new Dictionary<int, T>();
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
-            removePort = new Hashtable();
+            removed = new Hashtable();
         }
         /// <summary>
         /// Перегрузка оператора сложения
@@ -89,7 +88,9 @@ namespace WindowsFormsShip
             if (!p.CheckFreePlace(index))
             {
                 T ship = p._places[index];
-                p.removePort.Add(index,ship);
+                while (p.removed.ContainsKey(index))
+                    index = index + p._maxCount;
+                p.removed.Add(index, ship);
                 p._places.Remove(index);
                 return ship;
             }
@@ -98,10 +99,9 @@ namespace WindowsFormsShip
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
-        /// <param name="index">Номер парковочного места (порядковый номер в
-     
- /// <returns></returns>
- private bool CheckFreePlace(int index)
+        /// <param name="index">Номер парковочного места (порядковый номер в   
+        /// <returns></returns>
+            private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
         }
@@ -149,8 +149,7 @@ namespace WindowsFormsShip
                 {
                     return _places[ind];
                 }
-                return null;
-               // throw new ParkingNotFoundException(ind);
+                return null;              
             }
             set
             {
@@ -165,6 +164,6 @@ namespace WindowsFormsShip
                     throw new ParkingOccupiedPlaceException(ind);
                 }
             }
-        }
+        }
     }
 }

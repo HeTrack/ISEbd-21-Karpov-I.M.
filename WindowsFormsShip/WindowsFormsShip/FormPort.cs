@@ -44,17 +44,15 @@ namespace WindowsFormsShip
         private void Draw()
         {
             if (listBoxlevels.SelectedIndex > -1)
-            {//если выбран один из пуктов в listBox (при старте программы ни один пункт
-             // не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу
-             // listBox)
+            {
+                //если выбран один из пуктов в listBox (при старте программы ни один пунктне будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width,
                pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
-        }
-          
+        }       
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)
@@ -66,8 +64,7 @@ namespace WindowsFormsShip
                     Draw();
                 }
                 catch (ParkingOverflowException ex)
-                {
-                    
+                {                  
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     error.Error(ex.Message);
                 }
@@ -111,8 +108,7 @@ namespace WindowsFormsShip
                 try
                 {
                     parking.LoadData(openFileDialog1.FileName);
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
-    MessageBoxIcon.Information);
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     logger.Info("Загружено из файла " + openFileDialog1.FileName);
                 }
                 catch (ParkingOccupiedPlaceException ex)
@@ -141,9 +137,7 @@ namespace WindowsFormsShip
                 {
                     try
                     {
-                        var ship = parking[listBoxlevels.SelectedIndex] -
-                       Convert.ToInt32(maskedTextBoxSpot.Text);
-
+                        var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
@@ -167,7 +161,6 @@ namespace WindowsFormsShip
                         MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         error.Error(ex.Message);
                     }
-
                 }
             }
         }

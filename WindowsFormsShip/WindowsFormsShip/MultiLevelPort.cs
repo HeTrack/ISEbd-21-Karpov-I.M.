@@ -20,6 +20,7 @@ namespace WindowsFormsShip
         /// <summary>
         private int pictureWidth;
         private int pictureHeight;
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="countStages">Количество уровенй парковки</param>
@@ -110,8 +111,7 @@ namespace WindowsFormsShip
                 }
                 else
                 {
-                    throw new Exception("Неверный формат файла");
-                    
+                    throw new Exception("Неверный формат файла");                   
                 }
                 while ((line = sr.ReadLine()) != null)
                 {

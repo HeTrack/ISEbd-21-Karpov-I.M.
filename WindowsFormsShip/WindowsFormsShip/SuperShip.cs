@@ -9,16 +9,10 @@ namespace WindowsFormsShip
 {
     public class SuperShip : Ship
     {
-
         public Color DopColor { private set; get; }
-
         public bool LifeBuoy { private set; get; }
-
         public bool SecondBoard { private set; get; }
-
         public int Motors { private set; get; }
-
-
         public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, int countmotors) :
             base(maxSpeed, weight, bottomColor)
         {
@@ -28,7 +22,6 @@ namespace WindowsFormsShip
             Random rnd = new Random();
             Motors = countmotors;
         }
-
         public SuperShip(string info) : base(info)
         {
             string[] strs = info.Split(';');
@@ -43,7 +36,6 @@ namespace WindowsFormsShip
                 Motors = Convert.ToInt32(strs[6]);
             }
         }
-
         public override void DrawShip(Graphics g)
         {
             Pen pen = new Pen(Color.Black);

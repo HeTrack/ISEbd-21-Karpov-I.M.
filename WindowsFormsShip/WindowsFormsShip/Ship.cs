@@ -28,7 +28,6 @@ namespace WindowsFormsShip
             Weight = weight;
             MainColor = bottomColor;
         }
-
         public Ship(string info)
         {
             string[] strs = info.Split(';');
@@ -38,7 +37,7 @@ namespace WindowsFormsShip
                 Weight = Convert.ToInt32(strs[1]);
                 MainColor = Color.FromName(strs[2]);
             }
-        }             
+        }           
         /// <summary>
         /// Изменение направления перемещения
         /// </summary>
