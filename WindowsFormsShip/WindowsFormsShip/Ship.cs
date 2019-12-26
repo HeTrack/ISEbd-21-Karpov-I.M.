@@ -9,6 +9,7 @@ namespace WindowsFormsShip
 {
     public class Ship: WaterVehicle
     {
+        /// <summary>
         /// Ширина отрисовки катера
         /// </summary>
         protected const int shipWidth = 150;
