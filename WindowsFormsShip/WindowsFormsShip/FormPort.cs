@@ -39,9 +39,8 @@ namespace WindowsFormsShip
         private void Draw()
         {
             if (listBoxlevels.SelectedIndex > -1)
-            {//если выбран один из пуктов в listBox (при старте программы ни один пункт
-             // не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу
-             // listBox)
+            {
+                //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width,
                pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);

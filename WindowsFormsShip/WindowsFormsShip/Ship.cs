@@ -51,15 +51,12 @@ namespace WindowsFormsShip
                 //влево
                 case Direction.Left:
                     if (_startPosX - 10 - step > 0)
-
                     {
                         _startPosX -= step;
                     }
                     break;
                 //вверх
-                case Direction.Up:
-                    // if (SecondBoard)
-                    //    k = 48;
+                case Direction.Up:                 
                     if (_startPosY - k - step > 0)
                     {
                         _startPosY -= step;

@@ -14,7 +14,6 @@ namespace WindowsFormsShip
     {
         IShip ship = null;
         private event shipDelegate eventAddShip;
-
         public FormShipConfig()
         {
             InitializeComponent();
@@ -25,7 +24,8 @@ namespace WindowsFormsShip
             panelRed.MouseDown += panelColor_MouseDown;
             panelWhite.MouseDown += panelColor_MouseDown;
             panelYellow.MouseDown += panelColor_MouseDown;
-            panelBlue.MouseDown += panelColor_MouseDown;            buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
+            panelBlue.MouseDown += panelColor_MouseDown;
+            buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
         }
 
         private void DrawShip()
@@ -38,7 +38,9 @@ namespace WindowsFormsShip
                 ship.DrawShip(gr);
                 pictureBoxShip.Image = bmp;
             }
-        }        public void AddEvent(shipDelegate ev)
+        }
+
+        public void AddEvent(shipDelegate ev)
         {
             if (eventAddShip == null)
             {
@@ -48,7 +50,8 @@ namespace WindowsFormsShip
             {
                 eventAddShip += ev;
             }
-        }
+        }
+
 
         private void labelBoat_MouseDown(object sender, MouseEventArgs e)
         {
@@ -89,7 +92,8 @@ DragDropEffects.Copy);
 
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
         {
-            (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
+            (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
+
         }
 
         private void labelBaseColor_DragEnter(object sender, DragEventArgs e)
@@ -110,7 +114,8 @@ DragDropEffects.Copy);
             {
                 ship.SetMainColor((Color)e.Data.GetData(typeof(Color)));
                 DrawShip();
-            }
+            }
+
         }
 
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
