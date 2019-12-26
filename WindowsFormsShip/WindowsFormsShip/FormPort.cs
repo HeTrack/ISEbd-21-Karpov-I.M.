@@ -14,7 +14,7 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-        /// Объект от класса многоуровневой парковки
+        /// Объект от класса многоуровневой порта
         /// </summary>
         MultiLevelPort parking;
         FormShipConfig form;
@@ -39,7 +39,7 @@ namespace WindowsFormsShip
             listBox1.SelectedIndex = 0;
         }
         /// <summary>
-        /// Метод отрисовки парковки
+        /// Метод отрисовки порта
         /// </summary>
         private void Draw()
         {
@@ -54,15 +54,7 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// Обработка нажатия кнопки "Припарковать гоночный автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+ 
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>
         /// <param name="sender"></param>
@@ -73,49 +65,6 @@ namespace WindowsFormsShip
             Draw();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var car = new Ship(100, 1000, dialog.Color);
-                    int place = parking[listBox1.SelectedIndex] + car;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var car = new SuperShip(100, 1000, dialog.Color,
-                       dialogDop.Color, true, true, 2);
-                        int place = parking[listBox1.SelectedIndex] + car;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
@@ -124,17 +73,17 @@ namespace WindowsFormsShip
                 {
                     try
                     {
-                        var car = parking[listBox1.SelectedIndex] -
+                        var ship = parking[listBox1.SelectedIndex] -
                        Convert.ToInt32(maskedTextBox1.Text);
 
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(15, 55, pictureBoxTake.Width,
+                        ship.SetPosition(15, 55, pictureBoxTake.Width,
                        pictureBoxTake.Height);
-                        car.DrawShip(gr);
+                        ship.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
-                        logger.Info("Изъято судно" + car.ToString() + " с места " + maskedTextBox1.Text);
+                        logger.Info("Изъято судно" + ship.ToString() + " с места " + maskedTextBox1.Text);
                         Draw();
                     }
                     catch (ParkingNotFoundException ex)
