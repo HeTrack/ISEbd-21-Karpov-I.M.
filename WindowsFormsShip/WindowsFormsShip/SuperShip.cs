@@ -9,16 +9,10 @@ namespace WindowsFormsShip
 {
     public class SuperShip : Ship,IComparable<SuperShip>,IEquatable<SuperShip>
     {
-
         public Color DopColor { private set; get; }
-
         public bool LifeBuoy { private set; get; }
-
         public bool SecondBoard { private set; get; }
-
         public int Motors { private set; get; }
-
-
         public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, int countmotors) :
             base(maxSpeed, weight, bottomColor)
         {
@@ -28,7 +22,6 @@ namespace WindowsFormsShip
             Random rnd = new Random();
             Motors = countmotors;
         }
-
         public SuperShip(string info) : base(info)
         {
             string[] strs = info.Split(';');
@@ -113,9 +106,8 @@ namespace WindowsFormsShip
         {
             return base.ToString() + ";" + DopColor.Name + ";" +  SecondBoard + ";" + LifeBuoy + ";" + Motors;
         }
-
         /// <summary>
-        /// Метод интерфейса IComparable для класса SportCar
+        /// Метод интерфейса IComparable для класса SuperShip
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
@@ -145,7 +137,7 @@ namespace WindowsFormsShip
             return 0;
         }
         /// <summary>
-        /// Метод интерфейса IEquatable для класса SportCar
+        /// Метод интерфейса IEquatable для класса SuperShip
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>

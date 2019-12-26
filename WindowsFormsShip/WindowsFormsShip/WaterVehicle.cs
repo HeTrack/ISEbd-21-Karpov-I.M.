@@ -11,7 +11,7 @@ namespace WindowsFormsShip
     {
         protected float _startPosX;
         /// <summary>
-        /// Правая кооридната отрисовки автомобиля
+        /// Правая кооридната отрисовки судна
         /// </summary>
         protected  float _startPosY;
         /// <summary>
@@ -29,7 +29,7 @@ namespace WindowsFormsShip
         /// </summary>
         public float Weight { protected set; get; }
         /// <summary>
-        /// Основной цвет кузова
+        /// Основной цвет - цвет ватерлинии
         /// </summary>
         public Color MainColor { protected set; get; }
 

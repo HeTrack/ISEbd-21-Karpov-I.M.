@@ -10,7 +10,7 @@ namespace WindowsFormsShip
     class MultiLevelPort
     {
         /// <summary>
-        /// Список с уровнями парковки
+        /// Список с уровнями порта
         /// </summary>
         List<Port<IShip>> parkingStages;
         /// <summary>
@@ -20,6 +20,7 @@ namespace WindowsFormsShip
         /// <summary>
         private int pictureWidth;
         private int pictureHeight;
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="countStages">Количество уровенй парковки</param>
@@ -80,7 +81,6 @@ namespace WindowsFormsShip
                 }
             }
             
-
         //выгрузить
         public bool LoadData(string filename)
         {
@@ -106,8 +106,7 @@ namespace WindowsFormsShip
                 }
                 else
                 {
-                    throw new Exception("Неверный формат файла");
-                    
+                    throw new Exception("Неверный формат файла");                   
                 }
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -141,6 +140,6 @@ namespace WindowsFormsShip
         public void Sort()
         {
             parkingStages.Sort();
-        }
+        }
     }
 }
