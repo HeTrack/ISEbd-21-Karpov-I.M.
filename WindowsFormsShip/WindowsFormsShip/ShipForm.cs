@@ -13,7 +13,6 @@ namespace WindowsFormsShip
     public partial class ShipForm : Form
     {
         private IShip ship;
-
         public ShipForm()
         {
             InitializeComponent();

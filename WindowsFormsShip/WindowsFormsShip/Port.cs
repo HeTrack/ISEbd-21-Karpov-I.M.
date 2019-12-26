@@ -21,10 +21,10 @@ namespace WindowsFormsShip
         /// Высота окна отрисовки
         /// </summary>
         private int PictureHeight { get; set; }
- /// <summary>
- /// Размер парковочного места в порту (ширина)
- /// </summary>
- private const int _placeSizeWidth = 180;
+        /// <summary>
+        /// Размер парковочного места в порту (ширина)
+        /// </summary>
+        private const int _placeSizeWidth = 180;
         /// <summary>
         /// Размер парковочного места в порту (высота)
         /// </summary>
@@ -126,13 +126,10 @@ namespace WindowsFormsShip
             }
             return 1;
         }
-
-
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
         /// <param name="index">Номер парковочного места (порядковый номер в
-
         /// <returns></returns>
         private bool CheckFreePlace(int index)
         {

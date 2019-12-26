@@ -19,8 +19,6 @@ namespace WindowsFormsShip
             parking = new Port<IShip, IMotors>(15, pictureBoxPort.Width, pictureBoxPort.Height);
             Draw();
         }
-
-
         /// <summary>
         /// Метод отрисовки порта
         /// </summary>

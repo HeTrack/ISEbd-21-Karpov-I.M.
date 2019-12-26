@@ -21,7 +21,7 @@ namespace WindowsFormsShip
         /// Конструктор
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
-        /// <param name=bottomColor">Основной цвет - цве ватерлинии</param>
+        /// <param name=bottomColor">Основной цвет - цвет ватерлинии</param>
         /// </summary>
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {

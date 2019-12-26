@@ -22,7 +22,6 @@ namespace WindowsFormsShip
             Pen pen = new Pen(Color.Black);
             Brush white = new SolidBrush(color);
             Brush black = new SolidBrush(Color.Black);
-
             switch ((int)countMotors + 1)
             {
                 case 1:
@@ -34,7 +33,6 @@ namespace WindowsFormsShip
                     g.DrawEllipse(pen, _startPosX - 13, _startPosY, 3, 3);
                     g.FillEllipse(white, _startPosX - 16, _startPosY - 2, 3, 3);
                     g.DrawEllipse(pen, _startPosX - 16, _startPosY - 2, 3, 3);
-
                     break;
                 case 2:
                     g.FillRectangle(black, _startPosX - 6, _startPosY - 8, 6, 18);
@@ -52,8 +50,7 @@ namespace WindowsFormsShip
                     g.FillEllipse(white, _startPosX - 13, _startPosY + 4, 3, 3);
                     g.DrawEllipse(pen, _startPosX - 13, _startPosY + 4, 3, 3);
                     g.FillEllipse(white, _startPosX - 16, _startPosY + 6, 3, 3);
-                    g.DrawEllipse(pen, _startPosX - 16, _startPosY + 6, 3, 3);
-
+                    g.DrawEllipse(pen, _startPosX - 16, _startPosY + 6, 3, 3);              
                     break;
                 case 3:
                     g.FillRectangle(black, _startPosX - 6, _startPosY - 8, 6, 18);
@@ -81,7 +78,6 @@ namespace WindowsFormsShip
                     g.DrawEllipse(pen, _startPosX - 13, _startPosY - 8, 3, 3);
                     g.FillEllipse(white, _startPosX - 16, _startPosY - 10, 3, 3);
                     g.DrawEllipse(pen, _startPosX - 16, _startPosY - 10, 3, 3);
-
                     break;
             }
         }
