@@ -32,7 +32,7 @@ namespace WindowsFormsShip
             pictureBoxPort.Image = bmp;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLocateBoat_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -41,10 +41,9 @@ namespace WindowsFormsShip
                 int place = parking + ship;
                 Draw();
             }
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonLocateShip_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -60,7 +59,7 @@ namespace WindowsFormsShip
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (maskedTextBoxSpot.Text != "")
             {
@@ -69,7 +68,7 @@ namespace WindowsFormsShip
                 {
                     Bitmap bmp = new Bitmap(pictureBoxTake.Width, pictureBoxTake.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                   ship.SetPosition(15, 55, pictureBoxTake.Width,  pictureBoxTake.Height);
+                    ship.SetPosition(15, 55, pictureBoxTake.Width, pictureBoxTake.Height);
                     ship.DrawShip(gr);
                     pictureBoxTake.Image = bmp;
                 }
@@ -82,7 +81,5 @@ namespace WindowsFormsShip
                 Draw();
             }
         }
-
-     
     }
 }

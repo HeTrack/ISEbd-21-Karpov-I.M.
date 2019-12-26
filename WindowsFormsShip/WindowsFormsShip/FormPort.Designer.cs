@@ -88,7 +88,7 @@
             this.buttonGetShip.TabIndex = 2;
             this.buttonGetShip.Text = "Забрать";
             this.buttonGetShip.UseVisualStyleBackColor = true;
-            this.buttonGetShip.Click += new System.EventHandler(this.button3_Click);
+            this.buttonGetShip.Click += new System.EventHandler(this.buttonGetShip_Click);
             // 
             // maskedTextBoxSpot
             // 
@@ -114,7 +114,7 @@
             this.buttonLocateBoat.TabIndex = 2;
             this.buttonLocateBoat.Text = "Пришвартовать лодку";
             this.buttonLocateBoat.UseVisualStyleBackColor = true;
-            this.buttonLocateBoat.Click += new System.EventHandler(this.button1_Click);
+            this.buttonLocateBoat.Click += new System.EventHandler(this.buttonLocateBoat_Click);
             // 
             // buttonLocateShip
             // 
@@ -124,7 +124,7 @@
             this.buttonLocateShip.TabIndex = 3;
             this.buttonLocateShip.Text = "Пришвартовать катер";
             this.buttonLocateShip.UseVisualStyleBackColor = true;
-            this.buttonLocateShip.Click += new System.EventHandler(this.button2_Click);
+            this.buttonLocateShip.Click += new System.EventHandler(this.buttonLocateShip_Click);
             // 
             // FormPort
             // 
