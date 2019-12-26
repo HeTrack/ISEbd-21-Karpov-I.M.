@@ -22,7 +22,7 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
-        /// <param name="Bottom">Основной цвет - цвет ватерлинии</param> 
+        /// <param name="Bottom">Основной цвет - цвет ватерлинии</param>   
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
@@ -55,9 +55,7 @@ namespace WindowsFormsShip
                     }
                     break;
                 //вверх
-                case Direction.Up:
-                    // if (SecondBoard)
-                    //    k = 48;
+                case Direction.Up:            
                     if (_startPosY - k - step > 0)
                     {
                         _startPosY -= step;

@@ -37,7 +37,7 @@ namespace WindowsFormsShip
         /// </summary>
         private void Draw()
         {
-            if (listBoxlevels.SelectedIndex > -1)
+            if (listBoxlevels.SelectedIndex > -1) 
             {
              //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width,
@@ -90,7 +90,6 @@ namespace WindowsFormsShip
                 }
             }
         }
-
         /// Обработка нажатия кнопки "Забрать"
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
@@ -120,7 +119,6 @@ namespace WindowsFormsShip
                 }
             }
         }
-
         private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
