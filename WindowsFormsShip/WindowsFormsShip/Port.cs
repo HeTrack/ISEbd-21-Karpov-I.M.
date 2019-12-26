@@ -21,10 +21,10 @@ namespace WindowsFormsShip
         /// Высота окна отрисовки
         /// </summary>
         private int PictureHeight { get; set; }
- /// <summary>
- /// Размер парковочного места (ширина)
- /// </summary>
- private const int _placeSizeWidth = 180;
+        /// <summary>
+        /// Размер парковочного места (ширина)
+        /// </summary>
+        private const int _placeSizeWidth = 180;
         /// <summary>
         /// Размер парковочного места (высота)
         /// </summary>
