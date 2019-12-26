@@ -9,9 +9,7 @@ namespace WindowsFormsShip
 {
     public class SuperShip : Ship
     {
-        
         public Color DopColor { private set; get; }
-    
         public bool LifeBuoy { private set; get; }
         public CountMotors Motors { private set; get; }
         public bool SecondBoard { private set; get; }
