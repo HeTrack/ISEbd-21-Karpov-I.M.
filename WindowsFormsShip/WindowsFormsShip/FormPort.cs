@@ -46,8 +46,7 @@ namespace WindowsFormsShip
                 parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
-        }
-        
+        }      
         /// Обработка нажатия кнопки "Пришвартовать лодку"
         private void buttonLocateBoat_Click(object sender, EventArgs e)
         {

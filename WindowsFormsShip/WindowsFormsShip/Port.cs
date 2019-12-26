@@ -78,9 +78,8 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="p">Порт</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
-      
- /// <returns></returns>
- public static T operator -(Port<T> p, int index)
+       /// <returns></returns>
+        public static T operator -(Port<T> p, int index)
         {
             if (!p.CheckFreePlace(index))
             {
@@ -94,17 +93,16 @@ namespace WindowsFormsShip
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
         /// <param name="index">Номер парковочного места (порядковый номер в
-     
- /// <returns></returns>
- private bool CheckFreePlace(int index)
+       /// <returns></returns>
+         private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
         }
- /// <summary>
- /// Метод отрисовки порта
- /// </summary>
- /// <param name="g"></param>
- public void Draw(Graphics g)
+        /// <summary>
+        /// Метод отрисовки порта
+        /// </summary>
+        /// <param name="g"></param>
+         public void Draw(Graphics g)
         {
             DrawMarking(g);
             var keys = _places.Keys.ToList();
@@ -123,9 +121,11 @@ namespace WindowsFormsShip
             //границы праковки
             g.DrawRectangle(pen, 0, 0, (_maxCount / 5) * _placeSizeWidth, 480);
             for (int i = 0; i < _maxCount / 5; i++)
-            {//отрисовываем, по 5 мест на линии
+            {
+                //отрисовываем, по 5 мест на линии
                 for (int j = 0; j < 6; ++j)
-                {//линия рамзетки места
+                {
+                    //линия рамзетки места
                     g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight,
                     i * _placeSizeWidth + 110, j * _placeSizeHeight);
                 }
@@ -133,4 +133,4 @@ namespace WindowsFormsShip
             }
         }
     }
-}
+}
