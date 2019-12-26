@@ -93,7 +93,7 @@ namespace WindowsFormsShip
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
         /// <param name="index">Номер парковочного места (порядковый номер в
-        /// <returns></returns>
+      /// <returns></returns>
          private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
@@ -102,7 +102,7 @@ namespace WindowsFormsShip
         /// Метод отрисовки порта
         /// </summary>
         /// <param name="g"></param>
-            public void Draw(Graphics g)
+        public void Draw(Graphics g)
         {
             DrawMarking(g);
             var keys = _places.Keys.ToList();

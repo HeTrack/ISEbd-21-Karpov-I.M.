@@ -33,6 +33,7 @@
             this.labelShip = new System.Windows.Forms.Label();
             this.labelBoat = new System.Windows.Forms.Label();
             this.panelShip = new System.Windows.Forms.Panel();
+            this.labelMotorsType = new System.Windows.Forms.Label();
             this.labelDopColor = new System.Windows.Forms.Label();
             this.labelBaseColor = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -46,16 +47,21 @@
             this.panelBlack = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonLocate = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelSimpleMotors = new System.Windows.Forms.Label();
+            this.labelTrapMotors = new System.Windows.Forms.Label();
+            this.labelVentilMotors = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShip)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panelShip.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxShip
             // 
             this.pictureBoxShip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxShip.Location = new System.Drawing.Point(3, 18);
+            this.pictureBoxShip.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxShip.Name = "pictureBoxShip";
             this.pictureBoxShip.Size = new System.Drawing.Size(241, 112);
             this.pictureBoxShip.TabIndex = 0;
@@ -65,7 +71,7 @@
             // 
             this.groupBox1.Controls.Add(this.labelShip);
             this.groupBox1.Controls.Add(this.labelBoat);
-            this.groupBox1.Location = new System.Drawing.Point(39, 73);
+            this.groupBox1.Location = new System.Drawing.Point(39, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(138, 100);
             this.groupBox1.TabIndex = 1;
@@ -96,23 +102,37 @@
             // 
             this.panelShip.AllowDrop = true;
             this.panelShip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelShip.Controls.Add(this.labelMotorsType);
             this.panelShip.Controls.Add(this.labelDopColor);
             this.panelShip.Controls.Add(this.labelBaseColor);
             this.panelShip.Controls.Add(this.pictureBoxShip);
             this.panelShip.Location = new System.Drawing.Point(283, 42);
             this.panelShip.Name = "panelShip";
-            this.panelShip.Size = new System.Drawing.Size(247, 266);
+            this.panelShip.Size = new System.Drawing.Size(247, 297);
             this.panelShip.TabIndex = 2;
             this.panelShip.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelShip_DragDrop);
             this.panelShip.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelShip_DragEnter);
+            // 
+            // labelMotorsType
+            // 
+            this.labelMotorsType.AllowDrop = true;
+            this.labelMotorsType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelMotorsType.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelMotorsType.Location = new System.Drawing.Point(65, 235);
+            this.labelMotorsType.Name = "labelMotorsType";
+            this.labelMotorsType.Size = new System.Drawing.Size(110, 48);
+            this.labelMotorsType.TabIndex = 3;
+            this.labelMotorsType.Text = "Тип моторов";
+            this.labelMotorsType.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMotorsType_DragDrop);
+            this.labelMotorsType.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMotorsType_DragEnter);
             // 
             // labelDopColor
             // 
             this.labelDopColor.AllowDrop = true;
             this.labelDopColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelDopColor.Location = new System.Drawing.Point(62, 204);
+            this.labelDopColor.Location = new System.Drawing.Point(65, 176);
             this.labelDopColor.Name = "labelDopColor";
-            this.labelDopColor.Size = new System.Drawing.Size(113, 49);
+            this.labelDopColor.Size = new System.Drawing.Size(110, 49);
             this.labelDopColor.TabIndex = 2;
             this.labelDopColor.Text = "Доп. цвет";
             this.labelDopColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelDopColor_DragDrop);
@@ -122,7 +142,7 @@
             // 
             this.labelBaseColor.AllowDrop = true;
             this.labelBaseColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelBaseColor.Location = new System.Drawing.Point(62, 143);
+            this.labelBaseColor.Location = new System.Drawing.Point(65, 118);
             this.labelBaseColor.Name = "labelBaseColor";
             this.labelBaseColor.Size = new System.Drawing.Size(110, 44);
             this.labelBaseColor.TabIndex = 1;
@@ -221,7 +241,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(49, 247);
+            this.buttonCancel.Location = new System.Drawing.Point(39, 358);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(89, 32);
             this.buttonCancel.TabIndex = 4;
@@ -230,7 +250,7 @@
             // 
             // buttonLocate
             // 
-            this.buttonLocate.Location = new System.Drawing.Point(49, 200);
+            this.buttonLocate.Location = new System.Drawing.Point(39, 317);
             this.buttonLocate.Name = "buttonLocate";
             this.buttonLocate.Size = new System.Drawing.Size(89, 35);
             this.buttonLocate.TabIndex = 5;
@@ -238,11 +258,54 @@
             this.buttonLocate.UseVisualStyleBackColor = true;
             this.buttonLocate.Click += new System.EventHandler(this.buttonLocate_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.labelVentilMotors);
+            this.groupBox3.Controls.Add(this.labelTrapMotors);
+            this.groupBox3.Controls.Add(this.labelSimpleMotors);
+            this.groupBox3.Location = new System.Drawing.Point(39, 168);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(179, 129);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Тип моторов";
+            // 
+            // labelSimpleMotors
+            // 
+            this.labelSimpleMotors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelSimpleMotors.Location = new System.Drawing.Point(23, 22);
+            this.labelSimpleMotors.Name = "labelSimpleMotors";
+            this.labelSimpleMotors.Size = new System.Drawing.Size(126, 23);
+            this.labelSimpleMotors.TabIndex = 0;
+            this.labelSimpleMotors.Text = "Простые моторы";
+            this.labelSimpleMotors.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelSimpleMotors_MouseDown);
+            // 
+            // labelTrapMotors
+            // 
+            this.labelTrapMotors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelTrapMotors.Location = new System.Drawing.Point(6, 58);
+            this.labelTrapMotors.Name = "labelTrapMotors";
+            this.labelTrapMotors.Size = new System.Drawing.Size(167, 23);
+            this.labelTrapMotors.TabIndex = 1;
+            this.labelTrapMotors.Text = "Гоночные трап-моторы";
+            this.labelTrapMotors.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTrapMotors_MouseDown);
+            // 
+            // labelVentilMotors
+            // 
+            this.labelVentilMotors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelVentilMotors.Location = new System.Drawing.Point(27, 92);
+            this.labelVentilMotors.Name = "labelVentilMotors";
+            this.labelVentilMotors.Size = new System.Drawing.Size(129, 23);
+            this.labelVentilMotors.TabIndex = 2;
+            this.labelVentilMotors.Text = "Моторы-вентили";
+            this.labelVentilMotors.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelVentilMotors_MouseDown);
+            // 
             // FormShipConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonLocate);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.groupBox2);
@@ -254,6 +317,7 @@
             this.groupBox1.ResumeLayout(false);
             this.panelShip.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -278,5 +342,10 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonLocate;
         private System.Windows.Forms.Label labelDopColor;
+        private System.Windows.Forms.Label labelMotorsType;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label labelVentilMotors;
+        private System.Windows.Forms.Label labelTrapMotors;
+        private System.Windows.Forms.Label labelSimpleMotors;
     }
 }
