@@ -103,13 +103,13 @@ namespace WindowsFormsShip
 
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    parking.LoadData(openFileDialog1.FileName);
+                    parking.LoadData(openFilePort.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    logger.Info("Загружено из файла " + openFileDialog1.FileName);
+                    logger.Info("Загружено из файла " + openFilePort.FileName);
                 }
                 catch (ParkingOccupiedPlaceException ex)
                 {
@@ -169,6 +169,8 @@ namespace WindowsFormsShip
         {
             Draw();
         }
+
+       
     }
 }
  
