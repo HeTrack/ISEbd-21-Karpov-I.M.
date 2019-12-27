@@ -85,13 +85,13 @@ namespace WindowsFormsShip
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    parking.SaveData(saveFileDialog1.FileName);
+                    parking.SaveData(saveFilePort.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    logger.Info("Сохранено в файл " + saveFileDialog1.FileName);
+                    logger.Info("Сохранено в файл " + saveFilePort.FileName);
                 }
                 catch (Exception ex)
                 {
