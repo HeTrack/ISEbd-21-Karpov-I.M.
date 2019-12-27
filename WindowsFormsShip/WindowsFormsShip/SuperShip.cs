@@ -36,7 +36,6 @@ namespace WindowsFormsShip
                 Motors = Convert.ToInt32(strs[6]);
             }
         }
-
         public override void DrawShip(Graphics g)
         {
             Pen pen = new Pen(Color.Black);

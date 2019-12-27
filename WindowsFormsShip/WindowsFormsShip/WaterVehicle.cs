@@ -32,7 +32,6 @@ namespace WindowsFormsShip
         /// Основной цвет - цвет ватерлинии
         /// </summary>
         public Color MainColor { protected set; get; }
-
         public void SetPosition(int x, int y, int width, int height)
         {
             _startPosX = x;
@@ -48,4 +47,3 @@ namespace WindowsFormsShip
         public abstract void MoveTransport(Direction direction);
     }
 }
-
