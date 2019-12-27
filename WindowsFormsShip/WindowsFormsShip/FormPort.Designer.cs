@@ -36,14 +36,14 @@
             this.buttonGetShip = new System.Windows.Forms.Button();
             this.maskedTextBoxSpot = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1levels = new System.Windows.Forms.ListBox();
+            this.listBoxlevels = new System.Windows.Forms.ListBox();
             this.buttonSetShip = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFilePort = new System.Windows.Forms.OpenFileDialog();
+            this.saveFilePort = new System.Windows.Forms.SaveFileDialog();
             this.buttonForSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -124,15 +124,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Место:";
             // 
-            // listBox1levels
+            // listBoxlevels
             // 
-            this.listBox1levels.FormattingEnabled = true;
-            this.listBox1levels.ItemHeight = 16;
-            this.listBox1levels.Location = new System.Drawing.Point(1051, 39);
-            this.listBox1levels.Name = "listBox1levels";
-            this.listBox1levels.Size = new System.Drawing.Size(120, 84);
-            this.listBox1levels.TabIndex = 4;
-            this.listBox1levels.SelectedIndexChanged += new System.EventHandler(this.listBox1levels_SelectedIndexChanged);
+            this.listBoxlevels.FormattingEnabled = true;
+            this.listBoxlevels.ItemHeight = 16;
+            this.listBoxlevels.Location = new System.Drawing.Point(1051, 39);
+            this.listBoxlevels.Name = "listBoxlevels";
+            this.listBoxlevels.Size = new System.Drawing.Size(120, 84);
+            this.listBoxlevels.TabIndex = 4;
+            this.listBoxlevels.SelectedIndexChanged += new System.EventHandler(this.listBox1levels_SelectedIndexChanged);
             // 
             // buttonSetShip
             // 
@@ -180,14 +180,14 @@
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
-            // openFileDialog1
+            // openFilePort
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "txt file | *.txt";
+            this.openFilePort.FileName = "openFileDialog1";
+            this.openFilePort.Filter = "txt file | *.txt";
             // 
-            // saveFileDialog1
+            // saveFilePort
             // 
-            this.saveFileDialog1.Filter = "txt file | *.txt";
+            this.saveFilePort.Filter = "txt file | *.txt";
             // 
             // buttonForSort
             // 
@@ -206,7 +206,7 @@
             this.ClientSize = new System.Drawing.Size(1215, 604);
             this.Controls.Add(this.buttonForSort);
             this.Controls.Add(this.buttonSetShip);
-            this.Controls.Add(this.listBox1levels);
+            this.Controls.Add(this.listBoxlevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxPort);
             this.Controls.Add(this.menuStrip1);
@@ -234,14 +234,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox1levels;
+        private System.Windows.Forms.ListBox listBoxlevels;
         private System.Windows.Forms.Button buttonSetShip;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFilePort;
+        private System.Windows.Forms.SaveFileDialog saveFilePort;
         private System.Windows.Forms.Button buttonForSort;
     }
 }

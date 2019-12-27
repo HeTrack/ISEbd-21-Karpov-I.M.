@@ -34,33 +34,33 @@ namespace WindowsFormsShip
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
             {
-                listBox1levels.Items.Add("Уровень " + (i + 1));
+                listBoxlevels.Items.Add("Уровень " + (i + 1));
             }
-            listBox1levels.SelectedIndex = 0;
+            listBoxlevels.SelectedIndex = 0;
         }
         /// <summary>
         /// Метод отрисовки порта
         /// </summary>
         private void Draw()
         {
-            if (listBox1levels.SelectedIndex > -1)
+            if (listBoxlevels.SelectedIndex > -1)
             {
                //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width,
                pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
-                parking[listBox1levels.SelectedIndex].Draw(gr);
+                parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
         }
        
         private void AddShip(IShip ship)
         {
-            if (ship != null && listBox1levels.SelectedIndex > -1)
+            if (ship != null && listBoxlevels.SelectedIndex > -1)
             {
                 try
                 {
-                    int place = parking[listBox1levels.SelectedIndex] + ship;
+                    int place = parking[listBoxlevels.SelectedIndex] + ship;
                     logger.Info("Добавлено судно " + ship.ToString() + "на место " + place);
                     Draw();
                 }
@@ -91,13 +91,13 @@ namespace WindowsFormsShip
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    parking.SaveData(saveFileDialog1.FileName);
+                    parking.SaveData(saveFilePort.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    logger.Info("Сохранено в файл " + saveFileDialog1.FileName);
+                    logger.Info("Сохранено в файл " + saveFilePort.FileName);
                 }
                 catch (Exception ex)
                 {
@@ -109,14 +109,14 @@ namespace WindowsFormsShip
 
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    parking.LoadData(openFileDialog1.FileName);
+                    parking.LoadData(openFilePort.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
     MessageBoxIcon.Information);
-                    logger.Info("Загружено из файла " + openFileDialog1.FileName);
+                    logger.Info("Загружено из файла " + openFilePort.FileName);
                 }
                 catch (ParkingOccupiedPlaceException ex)
                 {
@@ -150,13 +150,13 @@ namespace WindowsFormsShip
         /// <param name="e"></param>
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
-            if (listBox1levels.SelectedIndex > -1)
+            if (listBoxlevels.SelectedIndex > -1)
             {
                 if (maskedTextBoxSpot.Text != "")
                 {
                     try
                     {
-                        var car = parking[listBox1levels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
+                        var car = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
