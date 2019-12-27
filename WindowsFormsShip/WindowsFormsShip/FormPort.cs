@@ -156,15 +156,15 @@ namespace WindowsFormsShip
                 {
                     try
                     {
-                        var car = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
+                        var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(15, 55, pictureBoxTake.Width,
+                        ship.SetPosition(15, 55, pictureBoxTake.Width,
                        pictureBoxTake.Height);
-                        car.DrawShip(gr);
+                        ship.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
-                        logger.Info("Изъято судно" + car.ToString() + " с места " + maskedTextBoxSpot.Text);
+                        logger.Info("Изъято судно" + ship.ToString() + " с места " + maskedTextBoxSpot.Text);
                         Draw();
                     }
                     catch (ParkingNotFoundException ex)
