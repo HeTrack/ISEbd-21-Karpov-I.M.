@@ -48,7 +48,7 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-  
+
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)
@@ -137,7 +137,6 @@ namespace WindowsFormsShip
                 Draw();
             }
         }
-
         private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
@@ -161,6 +160,7 @@ namespace WindowsFormsShip
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
                        ship.SetPosition(15, 55, pictureBoxTake.Width,
+
                        pictureBoxTake.Height);
                         ship.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
@@ -177,3 +177,4 @@ namespace WindowsFormsShip
         }
     }
 }
+

@@ -44,6 +44,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьУровеньToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьУровеньToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.openFilePort = new System.Windows.Forms.OpenFileDialog();
             this.saveFilePort = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
@@ -251,5 +252,6 @@
         private System.Windows.Forms.SaveFileDialog saveFilePort;
         private System.Windows.Forms.ToolStripMenuItem сохранитьУровеньToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьУровеньToolStripMenuItem;
+
     }
 }
