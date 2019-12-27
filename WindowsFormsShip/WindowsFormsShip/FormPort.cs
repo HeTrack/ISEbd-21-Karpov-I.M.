@@ -90,9 +90,9 @@ namespace WindowsFormsShip
 
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.LoadData(openFileDialog1.FileName))
+                if (parking.LoadData(openFilePort.FileName))
                 {
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -124,9 +124,9 @@ namespace WindowsFormsShip
 
         private void загрузитьУровеньToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.Loadlvl(listBoxlevels.SelectedIndex, openFileDialog1.FileName))
+                if (parking.Loadlvl(listBoxlevels.SelectedIndex, openFilePort.FileName))
                 {
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
