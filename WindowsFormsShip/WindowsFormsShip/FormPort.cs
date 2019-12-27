@@ -169,9 +169,6 @@ namespace WindowsFormsShip
         {
             Draw();
         }
-
-       
     }
-}
- 
+ }   
 
