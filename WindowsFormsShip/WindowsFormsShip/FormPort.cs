@@ -75,9 +75,9 @@ namespace WindowsFormsShip
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.SaveData(saveFileDialog1.FileName))
+                if (parking.SaveData(saveFilePort.FileName))
                 {
                     MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -107,9 +107,9 @@ namespace WindowsFormsShip
 
         private void сохранитьУровеньToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.Savelvl(listBoxlevels.SelectedIndex, saveFileDialog1.FileName))
+                if (parking.Savelvl(listBoxlevels.SelectedIndex, saveFilePort.FileName))
                 {
                    MessageBox.Show("Сохранение прошло успешно", "Результат",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
