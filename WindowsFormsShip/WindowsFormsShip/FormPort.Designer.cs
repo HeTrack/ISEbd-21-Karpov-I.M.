@@ -44,6 +44,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.listBoxlevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -88,6 +89,9 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 4;
+            this.label2.Size = new System.Drawing.Size(116, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Забрать судно с";
             // 
             // pictureBoxTake
             // 
@@ -188,6 +192,16 @@
             // 
             this.saveFileDialog1.Filter = "txt file | *.txt";
             // 
+            // listBoxlevels
+            // 
+            this.listBoxlevels.FormattingEnabled = true;
+            this.listBoxlevels.ItemHeight = 16;
+            this.listBoxlevels.Location = new System.Drawing.Point(1051, 39);
+            this.listBoxlevels.Name = "listBoxlevels";
+            this.listBoxlevels.Size = new System.Drawing.Size(120, 84);
+            this.listBoxlevels.TabIndex = 4;
+            this.listBoxlevels.SelectedIndexChanged += new System.EventHandler(this.listBoxlevels_SelectedIndexChanged);
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -209,7 +223,6 @@
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -230,5 +243,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ListBox listBoxlevels;
     }
 }
