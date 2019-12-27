@@ -53,7 +53,7 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-       
+
         private void AddShip(IShip ship)
         {
             if (ship != null && listBox1levels.SelectedIndex > -1)
@@ -91,13 +91,13 @@ namespace WindowsFormsShip
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    parking.SaveData(saveFileDialog1.FileName);
+                    parking.SaveData(saveFilePort.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    logger.Info("Сохранено в файл " + saveFileDialog1.FileName);
+                    logger.Info("Сохранено в файл " + saveFilePort.FileName);
                 }
                 catch (Exception ex)
                 {
@@ -109,14 +109,14 @@ namespace WindowsFormsShip
 
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    parking.LoadData(openFileDialog1.FileName);
+                    parking.LoadData(openFilePort.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
     MessageBoxIcon.Information);
-                    logger.Info("Загружено из файла " + openFileDialog1.FileName);
+                    logger.Info("Загружено из файла " + openFilePort.FileName);
                 }
                 catch (ParkingOccupiedPlaceException ex)
                 {
@@ -185,3 +185,5 @@ namespace WindowsFormsShip
         }
     }
 }
+ 
+
