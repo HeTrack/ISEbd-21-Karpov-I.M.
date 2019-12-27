@@ -37,7 +37,8 @@ namespace WindowsFormsShip
                 Weight = Convert.ToInt32(strs[1]);
                 MainColor = Color.FromName(strs[2]);
             }
-        }        /// <summary>
+        }
+        /// <summary>
         /// Изменение направления перемещения
         /// <param name="direction">Направление</param>
         /// </summary>

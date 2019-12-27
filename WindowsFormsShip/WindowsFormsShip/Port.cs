@@ -154,6 +154,7 @@ namespace WindowsFormsShip
                     * _placeSizeHeight + 55, PictureWidth, PictureHeight);
                 }
             }
-        }
+        }
+
     }
-}
+}
