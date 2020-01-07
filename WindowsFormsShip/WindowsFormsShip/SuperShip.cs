@@ -25,7 +25,6 @@ namespace WindowsFormsShip
             MotorsForm = motorsType;
         }
 
-
         public SuperShip(string info) : base(info)
         {
             string[] strs = info.Split(';');
@@ -121,6 +120,7 @@ namespace WindowsFormsShip
         {
             MotorsForm = form;
         }
+
         public void SetDopColor(Color color)
         {
             DopColor = color;
