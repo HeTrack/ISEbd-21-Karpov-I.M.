@@ -37,19 +37,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxlevels = new System.Windows.Forms.ListBox();
             this.buttonSetShip = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьУровеньToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьУровеньToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
             this.openFilePort = new System.Windows.Forms.OpenFileDialog();
             this.saveFilePort = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxPort
@@ -136,16 +135,16 @@
             this.buttonSetShip.UseVisualStyleBackColor = true;
             this.buttonSetShip.Click += new System.EventHandler(this.buttonSetShip_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1215, 28);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1215, 28);
+            this.menuStrip.TabIndex = 6;
+            this.menuStrip.Text = "menuStrip";
             // 
             // файлToolStripMenuItem
             // 
@@ -206,19 +205,18 @@
             this.Controls.Add(this.listBoxlevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxPort);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "FormPort";
             this.Text = "FormPort";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -232,7 +230,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBoxlevels;
         private System.Windows.Forms.Button buttonSetShip;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
@@ -240,6 +238,5 @@
         private System.Windows.Forms.SaveFileDialog saveFilePort;
         private System.Windows.Forms.ToolStripMenuItem сохранитьУровеньToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьУровеньToolStripMenuItem;
-
     }
 }

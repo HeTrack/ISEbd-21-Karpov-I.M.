@@ -13,7 +13,7 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-        /// Объект от класса многоуровневой порта
+        /// Объект от класса многоуровневого порта
         /// </summary>
         MultiLevelPort parking;
         FormShipConfig form;

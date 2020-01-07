@@ -104,6 +104,7 @@ namespace WindowsFormsShip
         {
             return !_places.ContainsKey(index);
         }
+
         public T GetShipByKey(int key)
         {
             return _places.ContainsKey(key) ? _places[key] : null;
@@ -140,6 +141,7 @@ namespace WindowsFormsShip
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
             }
         }
+
         public T this[int ind]
         {
             get
@@ -160,6 +162,7 @@ namespace WindowsFormsShip
                 }
             }
         }
+
         public void ForClearlvl()
         {
             _places.Clear();

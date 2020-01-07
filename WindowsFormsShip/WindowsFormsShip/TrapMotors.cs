@@ -16,6 +16,7 @@ namespace WindowsFormsShip
             _startPosX = x;
             _startPosY = y;
         }
+
         public void DrawMotors(Graphics g, CountMotors countMotors, Color color)
         {
             Pen pen = new Pen(Color.Black);
@@ -74,4 +75,3 @@ namespace WindowsFormsShip
         }
     }
 }
-

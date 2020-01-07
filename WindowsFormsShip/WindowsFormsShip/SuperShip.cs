@@ -24,6 +24,7 @@ namespace WindowsFormsShip
             Motors = countmotors;
             MotorsForm = motorsType;
         }
+
         public SuperShip(string info) : base(info)
         {
             string[] strs = info.Split(';');
@@ -57,6 +58,7 @@ namespace WindowsFormsShip
                 MotorsForm = Convert.ToInt32(strs[7]);
             }
         }
+
         public override void DrawShip(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
@@ -64,7 +66,6 @@ namespace WindowsFormsShip
             Brush bottom = new SolidBrush(MainColor);
             Brush brBlack = new SolidBrush(Color.Black);
             Brush hull = new SolidBrush(DopColor);
-
             if (SecondBoard)
             {
                 g.FillRectangle(white, _startPosX + 20, _startPosY - 35, 55, 4);
@@ -114,10 +115,12 @@ namespace WindowsFormsShip
                 g.DrawLine(whitep, _startPosX + 126, _startPosY - 4, _startPosX + 126, _startPosY - 2);
             }
         }
+
         public void LocateMotorsType(int form)
         {
             MotorsForm = form;
         }
+
         public void SetDopColor(Color color)
         {
             DopColor = color;

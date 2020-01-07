@@ -17,6 +17,7 @@ namespace WindowsFormsShip
         {
             InitializeComponent();
         }
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxShip.Width, pictureBoxShip.Height);
@@ -24,6 +25,7 @@ namespace WindowsFormsShip
             ship.DrawShip(gr);
             pictureBoxShip.Image = bmp;
         }
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             int minpos = 30;
@@ -58,6 +60,7 @@ namespace WindowsFormsShip
             }
             Draw();
         }
+
         private void buttonCreateShip_Click(object sender, EventArgs e)
         {
             int minpos = 47;
