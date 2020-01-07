@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-   public class Port<T> where T:class, IShip
+    public class Port<T> where T : class, IShip
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -101,7 +101,7 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="index">Номер парковочного места (порядковый номер в   
         /// <returns></returns>
-            private bool CheckFreePlace(int index)
+        private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
         }
@@ -164,6 +164,10 @@ namespace WindowsFormsShip
                     throw new ParkingOccupiedPlaceException(ind);
                 }
             }
+        }
+        public void ForClearlvl()
+        {
+            _places.Clear();
         }
     }
 }
