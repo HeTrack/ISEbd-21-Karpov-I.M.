@@ -21,7 +21,7 @@ namespace WindowsFormsShip
         {
             Bitmap bmp = new Bitmap(pictureBoxShip.Width, pictureBoxShip.Height);
             Graphics gr = Graphics.FromImage(bmp);            
-        ship.DrawShip(gr);
+            ship.DrawShip(gr);
             pictureBoxShip.Image = bmp;
         }
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace WindowsFormsShip
         {
             int minpos = 47;
             Random rnd = new Random();
-            ship = new SuperShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black, Color.Red, true, true, 3);
+            ship = new SuperShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black, Color.Red, true, true, CountMotors.One,0);
             ship.SetPosition(rnd.Next(10, 100), rnd.Next(minpos, 100), pictureBoxShip.Width, pictureBoxShip.Height);
             Draw();
         }
