@@ -27,6 +27,7 @@ namespace WindowsFormsShip
             panelBlue.MouseDown += panelColor_MouseDown;
             buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
         }
+
         private void DrawShip()
         {
             if (ship != null)
@@ -38,6 +39,7 @@ namespace WindowsFormsShip
                 pictureBoxShip.Image = bmp;
             }
         }
+
         public void AddEvent(shipDelegate ev)
         {
             if (eventAddShip == null)
@@ -57,8 +59,7 @@ namespace WindowsFormsShip
 
         private void labelShip_MouseDown(object sender, MouseEventArgs e)
         {
-            labelShip.DoDragDrop(labelShip.Text, DragDropEffects.Move |
-DragDropEffects.Copy);
+            labelShip.DoDragDrop(labelShip.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void panelShip_DragEnter(object sender, DragEventArgs e)
@@ -111,7 +112,6 @@ DragDropEffects.Copy);
                 ship.SetMainColor((Color)e.Data.GetData(typeof(Color)));
                 DrawShip();
             }
-
         }
 
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
@@ -122,7 +122,6 @@ DragDropEffects.Copy);
                 {
                     (ship as SuperShip).SetDopColor((Color)e.Data.GetData(typeof(Color)));
                     DrawShip();
-
                 }
             }
         }
