@@ -111,8 +111,7 @@ namespace WindowsFormsShip
                 }
                 else
                 {
-                    throw new Exception("Неверный формат файла");
-                    
+                    throw new Exception("Неверный формат файла");           
                 }
                 while ((line = sr.ReadLine()) != null)
                 {
