@@ -46,7 +46,7 @@
             this.panelWhite = new System.Windows.Forms.Panel();
             this.panelBlack = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonLocate = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelSimpleMotors = new System.Windows.Forms.Label();
             this.labelTrapMotors = new System.Windows.Forms.Label();
@@ -250,13 +250,13 @@
             // 
             // buttonAdd
             // 
-            this.buttonLocate.Location = new System.Drawing.Point(39, 317);
-            this.buttonLocate.Name = "buttonLocate";
-            this.buttonLocate.Size = new System.Drawing.Size(89, 35);
-            this.buttonLocate.TabIndex = 5;
-            this.buttonLocate.Text = "Добавить";
-            this.buttonLocate.UseVisualStyleBackColor = true;
-            this.buttonLocate.Click += new System.EventHandler(this.buttonLocate_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(39, 317);
+            this.buttonAdd.Name = "buttonLocate";
+            this.buttonAdd.Size = new System.Drawing.Size(89, 35);
+            this.buttonAdd.TabIndex = 5;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // groupBox3
             // 
@@ -306,7 +306,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.buttonLocate);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panelShip);

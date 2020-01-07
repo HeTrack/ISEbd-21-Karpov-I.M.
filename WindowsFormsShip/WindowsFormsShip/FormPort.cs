@@ -174,10 +174,5 @@ namespace WindowsFormsShip
                 }
             }
         }
-
-        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
     }
 }

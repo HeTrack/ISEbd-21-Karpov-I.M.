@@ -13,6 +13,7 @@ namespace WindowsFormsShip
         public bool LifeBuoy { private set; get; }
         public bool SecondBoard { private set; get; }
         public CountMotors Motors { private set; get; }
+        public string num;
         private int MotorsForm;
         public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, CountMotors countmotors, int motorsType ) :
             base(maxSpeed, weight, bottomColor)
@@ -26,7 +27,7 @@ namespace WindowsFormsShip
         public SuperShip(string info) : base(info)
         {
             string[] strs = info.Split(';');
-            if (strs.Length == 7)
+            if (strs.Length == 8)
             {
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
@@ -34,7 +35,26 @@ namespace WindowsFormsShip
                 DopColor = Color.FromName(strs[3]);
                 LifeBuoy = Convert.ToBoolean(strs[4]);
                 SecondBoard = Convert.ToBoolean(strs[5]);
-                Motors = Convert.ToInt32(strs[6]);
+                num = Convert.ToString(strs[6]);
+                switch (num)
+                {
+                    case "One":
+                        {
+                            Motors = CountMotors.One;
+                            break;
+                        }
+                    case "Two":
+                        {
+                            Motors = CountMotors.Two;
+                            break;
+                        }
+                    case "Three":
+                        {
+                            Motors = CountMotors.Three;
+                            break;
+                        }
+                }
+                MotorsForm = Convert.ToInt32(strs[7]);
             }
         }
         public override void DrawShip(Graphics g)
@@ -105,7 +125,7 @@ namespace WindowsFormsShip
 
         public override string ToString()
         {
-            return base.ToString() + ";" + DopColor.Name + ";" +  SecondBoard + ";" + LifeBuoy + ";" + Motors;
+            return base.ToString() + ";" + DopColor.Name + ";" + SecondBoard + ";" + LifeBuoy + ";" + Motors + ";" + MotorsForm;
         }
     }
 }
