@@ -137,6 +137,7 @@ namespace WindowsFormsShip
                 return true;
             }
         }
+
         public void Sort()
         {
             parkingStages.Sort();

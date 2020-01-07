@@ -115,6 +115,7 @@ namespace WindowsFormsShip
         {
             return !_places.ContainsKey(index);
         }
+
         public T GetShipByKey(int key)
         {
             return _places.ContainsKey(key) ? _places[key] : null;

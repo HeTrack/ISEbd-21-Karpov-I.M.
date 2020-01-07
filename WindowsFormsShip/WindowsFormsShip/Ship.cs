@@ -28,6 +28,7 @@ namespace WindowsFormsShip
             Weight = weight;
             MainColor = bottomColor;
         }
+
         public Ship(string info)
         {
             string[] strs = info.Split(';');
@@ -144,6 +145,7 @@ namespace WindowsFormsShip
             Point[] windows2 = { window5, window6, window7, window8 };
             g.FillPolygon(brBlack, windows2);
         }
+
         public override string ToString()
         {
             return MaxSpeed + ";" + Weight + ";" + MainColor.Name;

@@ -8,7 +8,6 @@ namespace WindowsFormsShip
 {
    public class ParkingAlreadyHaveException:Exception
     {
-        public ParkingAlreadyHaveException() : base("В порту уже есть такое судно")
- { }
+        public ParkingAlreadyHaveException() : base("В порту уже есть такое судно") { }
     }
 }
