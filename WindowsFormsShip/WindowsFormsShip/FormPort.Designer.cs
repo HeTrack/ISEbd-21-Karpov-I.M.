@@ -43,6 +43,7 @@
             this.openFilePort = new System.Windows.Forms.OpenFileDialog();
             this.saveFilePort = new System.Windows.Forms.SaveFileDialog();
             this.listBoxlevels = new System.Windows.Forms.ListBox();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -148,14 +149,14 @@
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
@@ -218,6 +219,5 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFilePort;
         private System.Windows.Forms.SaveFileDialog saveFilePort;
-        private System.Windows.Forms.ListBox listBoxlevels;
     }
 }
