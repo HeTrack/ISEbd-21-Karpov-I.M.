@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿using NLog;
+using NLog;
 using System;
-=======
-﻿using System;
->>>>>>> Laba6Home
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,11 +14,7 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-<<<<<<< HEAD
         /// Объект от класса многоуровневого порта
-=======
-        /// Объект от класса многоуровневой порта
->>>>>>> Laba6Home
         /// </summary>
         MultiLevelPort parking;
         FormShipConfig form;
@@ -30,7 +22,6 @@ namespace WindowsFormsShip
         /// Количество уровней-парковок
         /// </summary>
         private const int countLevel = 5;
-<<<<<<< HEAD
         private Logger logger;
         private Logger error;
         public FormPort()
@@ -38,11 +29,6 @@ namespace WindowsFormsShip
             InitializeComponent();
             logger = LogManager.GetCurrentClassLogger();
             error = LogManager.GetCurrentClassLogger();
-=======
-        public FormPort()
-        {
-            InitializeComponent();
->>>>>>> Laba6Home
             parking = new MultiLevelPort(countLevel, pictureBoxPort.Width,
            pictureBoxPort.Height);
             //заполнение listBox
@@ -59,11 +45,7 @@ namespace WindowsFormsShip
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
-<<<<<<< HEAD
                 //если выбран один из пуктов в listBox (при старте программы ни один пунктне будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
-=======
-                //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
->>>>>>> Laba6Home
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width,
                pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
@@ -71,16 +53,11 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> Laba6Home
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)
             {
-<<<<<<< HEAD
                 try
                 {
                     int place = parking[listBoxlevels.SelectedIndex] + ship;
@@ -96,16 +73,6 @@ namespace WindowsFormsShip
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     error.Error(ex.Message);
-=======
-                int place = parking[listBoxlevels.SelectedIndex] + ship;
-                if (place > -1)
-                {
-                    Draw();
-                }
-                else
-                {
-                    MessageBox.Show("Cудно не удалось поставить");
->>>>>>> Laba6Home
                 }
             }
         }
@@ -121,7 +88,6 @@ namespace WindowsFormsShip
         {
             if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
                 try
                 {
                     parking.SaveData(saveFilePort.FileName);
@@ -132,15 +98,6 @@ namespace WindowsFormsShip
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     error.Error(ex.Message);
-=======
-                if (parking.SaveData(saveFilePort.FileName))
-                {
-                    MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
->>>>>>> Laba6Home
                 }
             }
         }
@@ -149,7 +106,6 @@ namespace WindowsFormsShip
         {
             if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
                 try
                 {
                     parking.LoadData(openFilePort.FileName);
@@ -165,16 +121,6 @@ namespace WindowsFormsShip
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     error.Error(ex.Message);
-=======
-                if (parking.LoadData(openFilePort.FileName))
-                {
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                   MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
->>>>>>> Laba6Home
                 }
                 Draw();
             }
@@ -186,7 +132,7 @@ namespace WindowsFormsShip
             {
                 if (parking.Savelvl(listBoxlevels.SelectedIndex, saveFilePort.FileName))
                 {
-<<<<<<< HEAD
+
                     MessageBox.Show("Сохранение прошло успешно", "Результат",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -194,15 +140,7 @@ namespace WindowsFormsShip
                 {
                     MessageBox.Show("Не сохранилось", "Результат",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-=======
-                   MessageBox.Show("Сохранение прошло успешно", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                   MessageBox.Show("Не сохранилось", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
->>>>>>> Laba6Home
+
                 }
             }
         }
@@ -217,31 +155,16 @@ namespace WindowsFormsShip
                 }
                 else
                 {
-<<<<<<< HEAD
                     MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-=======
-                   MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
->>>>>>> Laba6Home
                 }
                 Draw();
             }
         }
-<<<<<<< HEAD
+
         /// <summary>
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>      
-=======
-
-        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
-        /// <summary>
-        /// Обработка нажатия кнопки "Забрать"
-        /// </summary>
->>>>>>> Laba6Home
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void buttonGetShip_Click(object sender, EventArgs e)
@@ -250,7 +173,6 @@ namespace WindowsFormsShip
             {
                 if (maskedTextBoxSpot.Text != "")
                 {
-<<<<<<< HEAD
                     try
                     {
                         var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
@@ -285,31 +207,10 @@ namespace WindowsFormsShip
         {
             Draw();
         }
-    }
-}
-=======
-                    var ship = parking[listBoxlevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBoxSpot.Text);
-                    if (ship != null)
-                    {
-                        Bitmap bmp = new Bitmap(pictureBoxTake.Width,
-                       pictureBoxTake.Height);
-                        Graphics gr = Graphics.FromImage(bmp);
-                       ship.SetPosition(15, 55, pictureBoxTake.Width,
-                       pictureBoxTake.Height);
-                        ship.DrawShip(gr);
-                        pictureBoxTake.Image = bmp;
-                    }
-                    else
-                    {
-                        Bitmap bmp = new Bitmap(pictureBoxTake.Width,
-                       pictureBoxTake.Height);
-                        pictureBoxTake.Image = bmp;
-                    }
-                    Draw();
-                }
-            }
+
+        private void FormPort_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
->>>>>>> Laba6Home
