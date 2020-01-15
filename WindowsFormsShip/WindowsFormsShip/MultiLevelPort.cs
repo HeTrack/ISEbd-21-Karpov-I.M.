@@ -16,16 +16,15 @@ namespace WindowsFormsShip
         /// <summary>
         /// Сколько мест на каждом уровне
         /// </summary>
-        private const int countPlaces = 20;
-        /// <summary>
+        private const int countPlaces = 20;    
         private int pictureWidth;
         private int pictureHeight;
         /// <summary>
-        /// Конструктор
-        /// </summary>
+        /// Конструктор   
         /// <param name="countStages">Количество уровенй порта</param>
         /// <param name="pictureWidth"></param>
         /// <param name="pictureHeight"></param>
+        /// </summary>
         public MultiLevelPort(int countStages, int pictureWidth, int pictureHeight)
         {
             parkingStages = new List<Port<IShip>>();
@@ -137,6 +136,86 @@ namespace WindowsFormsShip
                             ship = new SuperShip(splitLine[2]);
                         }
                         parkingStages[counter][Convert.ToInt32(splitLine[0])] = ship;
+                    }
+                }
+                return true;
+            }
+        }
+
+        //сохранить уровень
+        public bool Savelvl(int level, string filename)
+        {
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+            if (level < 0 || level >= parkingStages.Count)
+            {
+                return false;
+            }
+            if (parkingStages[level] == null)
+            {
+                return false;
+            }
+            var lvl = parkingStages[level];
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                for (int i = 0; i < countPlaces; i++)
+                {
+                    var ship = lvl[i];
+                    if (ship != null)
+                    {
+                        if (ship.GetType().Name == "Ship")
+                        {
+                            sw.WriteLine(i + ":Ship:" + ship);
+                        }
+                        if (ship.GetType().Name == "SuperShip")
+                        {
+                            sw.WriteLine(i + ":SuperShip:" + ship);
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        //загрузить уровень
+        public bool Loadlvl(int level, string filename)
+        {
+            if (level < 0 || level >= parkingStages.Count)
+            {
+                return false;
+            }
+            if (!File.Exists(filename) || parkingStages[level] == null)
+            {
+                return false;
+            }
+            parkingStages[level].ForClearlvl();
+            IShip ship = null;                     
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (string.IsNullOrEmpty(line))
+                    {
+                        continue;
+                    }
+                    string[] splitLine = line.Split(':');
+                    if (splitLine.Length > 2)
+                    {
+                        if (splitLine[1] == "Ship")
+                        {
+                            ship = new Ship(splitLine[2]);
+                        }
+                        else
+                        {
+                            ship = new SuperShip(splitLine[2]);
+                        }
+                        if (ship != null)
+                        {
+                            parkingStages[level][Convert.ToInt32(splitLine[0])] = ship;
+                        }
                     }
                 }
                 return true;

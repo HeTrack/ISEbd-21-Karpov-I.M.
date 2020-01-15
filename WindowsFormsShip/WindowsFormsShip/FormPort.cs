@@ -13,7 +13,7 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-        /// Объект от класса многоуровневой порта
+        /// Объект от класса многоуровневого порта
         /// </summary>
         MultiLevelPort parking;
         FormShipConfig form;
@@ -48,7 +48,7 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-       
+  
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)
@@ -104,6 +104,40 @@ namespace WindowsFormsShip
             }
         }
 
+        private void сохранитьУровеньToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (parking.Savelvl(listBoxlevels.SelectedIndex, saveFilePort.FileName))
+                {
+                   MessageBox.Show("Сохранение прошло успешно", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                   MessageBox.Show("Не сохранилось", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загрузитьУровеньToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (parking.Loadlvl(listBoxlevels.SelectedIndex, openFilePort.FileName))
+                {
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                   MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                Draw();
+            }
+        }
+
         private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
@@ -119,14 +153,13 @@ namespace WindowsFormsShip
             {
                 if (maskedTextBoxSpot.Text != "")
                 {
-                    var ship = parking[listBoxlevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBoxSpot.Text);
+                    var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
                     if (ship != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        ship.SetPosition(15, 55, pictureBoxTake.Width,
+                       ship.SetPosition(15, 55, pictureBoxTake.Width,
                        pictureBoxTake.Height);
                         ship.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
@@ -143,5 +176,3 @@ namespace WindowsFormsShip
         }
     }
 }
- 
-

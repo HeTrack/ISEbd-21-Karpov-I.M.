@@ -34,7 +34,7 @@ namespace WindowsFormsShip
             {
                 Bitmap bmp = new Bitmap(pictureBoxShip.Width, pictureBoxShip.Height);
                 Graphics gr = Graphics.FromImage(bmp);
-                ship.SetPosition(15, 45, pictureBoxShip.Width, pictureBoxShip.Height);
+                ship.SetPosition(18, 45, pictureBoxShip.Width, pictureBoxShip.Height);
                 ship.DrawShip(gr);
                 pictureBoxShip.Image = bmp;
             }
@@ -52,7 +52,6 @@ namespace WindowsFormsShip
             }
         }
 
-
         private void labelBoat_MouseDown(object sender, MouseEventArgs e)
         {
             labelBoat.DoDragDrop(labelBoat.Text, DragDropEffects.Move | DragDropEffects.Copy);
@@ -60,8 +59,7 @@ namespace WindowsFormsShip
 
         private void labelShip_MouseDown(object sender, MouseEventArgs e)
         {
-            labelShip.DoDragDrop(labelShip.Text, DragDropEffects.Move |
-DragDropEffects.Copy);
+            labelShip.DoDragDrop(labelShip.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void panelShip_DragEnter(object sender, DragEventArgs e)
@@ -84,7 +82,7 @@ DragDropEffects.Copy);
                     ship = new Ship(100, 500, Color.White);
                     break;
                 case "Катер":
-                    ship = new SuperShip(100, 500, Color.White, Color.Black, true, true, 3);
+                    ship = new SuperShip(100, 500, Color.White, Color.Black, true, true, CountMotors.Three,0 );
                     break;
             }
             DrawShip();
@@ -93,7 +91,6 @@ DragDropEffects.Copy);
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
         {
             (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
-
         }
 
         private void labelBaseColor_DragEnter(object sender, DragEventArgs e)
@@ -116,7 +113,7 @@ DragDropEffects.Copy);
                 DrawShip();
             }
         }
- 
+
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
             if (ship != null)
@@ -141,11 +138,60 @@ DragDropEffects.Copy);
             }
         }
 
-        private void buttonLocate_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
             eventAddShip?.Invoke(ship);
             Close();
         }
+
+        private void labelMotorsType_DragDrop(object sender, DragEventArgs e)
+        {
+            if (ship != null)
+            {
+                if (ship is SuperShip)
+                {
+                    switch (e.Data.GetData(DataFormats.Text).ToString())
+                    {
+                        case "Простые моторы":
+                            (ship as SuperShip).LocateMotorsType(0);
+                            break;
+                        case "Гоночные трап-моторы":
+                            (ship as SuperShip).LocateMotorsType(1);
+                            break;
+                        case "Моторы-вентили":
+                            (ship as SuperShip).LocateMotorsType(2);
+                            break;
+                    }
+                    DrawShip();
+                }
+            }
+        }
+
+        private void labelSimpleMotors_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelSimpleMotors.DoDragDrop(labelSimpleMotors.Text, DragDropEffects.Move | DragDropEffects.Copy);
+        }
+
+        private void labelTrapMotors_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelTrapMotors.DoDragDrop(labelTrapMotors.Text, DragDropEffects.Move | DragDropEffects.Copy);
+        }
+
+        private void labelVentilMotors_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelVentilMotors.DoDragDrop(labelVentilMotors.Text, DragDropEffects.Move | DragDropEffects.Copy);
+        }
+
+        private void labelMotorsType_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
     }
 }
-
