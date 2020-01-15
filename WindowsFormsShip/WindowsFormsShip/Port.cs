@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -74,12 +75,12 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: из порта забираем судно
+        /// Логика действия: с порта забираем судно
         /// </summary>
         /// <param name="p">Порт</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь     
         /// <returns></returns>
-        public static T operator -(Port<T> p, int index)
+             public static T operator -(Port<T> p, int index)
         {
             if (!p.CheckFreePlace(index))
             {
@@ -94,15 +95,19 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="index">Номер парковочного места (порядковый номер в
         /// <returns></returns>
-         private bool CheckFreePlace(int index)
+            private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
+        }
+        public T GetShipByKey(int key)
+        {
+            return _places.ContainsKey(key) ? _places[key] : null;
         }
         /// <summary>
         /// Метод отрисовки порта
         /// </summary>
         /// <param name="g"></param>
-            public void Draw(Graphics g)
+        public void Draw(Graphics g)
         {
             DrawMarking(g);
             var keys = _places.Keys.ToList();
@@ -128,6 +133,26 @@ namespace WindowsFormsShip
                     i * _placeSizeWidth + 110, j * _placeSizeHeight);
                 }
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
+            }
+        }
+        public T this[int ind]
+        {
+            get
+            {
+                if (_places.ContainsKey(ind))
+                {
+                    return _places[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlace(ind))
+                {
+                    _places.Add(ind, value);
+                    _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 15, ind % 5
+                    * _placeSizeHeight + 55, PictureWidth, PictureHeight);
+                }
             }
         }
     }

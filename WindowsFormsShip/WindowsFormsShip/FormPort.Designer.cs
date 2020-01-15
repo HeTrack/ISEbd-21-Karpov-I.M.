@@ -38,14 +38,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxlevels = new System.Windows.Forms.ListBox();
             this.buttonSetShip = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFilePort = new System.Windows.Forms.OpenFileDialog();
+            this.saveFilePort = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxPort
             // 
-            this.pictureBoxPort.Location = new System.Drawing.Point(1, 2);
+            this.pictureBoxPort.Location = new System.Drawing.Point(0, 70);
             this.pictureBoxPort.Name = "pictureBoxPort";
             this.pictureBoxPort.Size = new System.Drawing.Size(904, 522);
             this.pictureBoxPort.TabIndex = 0;
@@ -123,7 +130,7 @@
             // 
             this.listBoxlevels.FormattingEnabled = true;
             this.listBoxlevels.ItemHeight = 16;
-            this.listBoxlevels.Location = new System.Drawing.Point(1051, 12);
+            this.listBoxlevels.Location = new System.Drawing.Point(1051, 39);
             this.listBoxlevels.Name = "listBoxlevels";
             this.listBoxlevels.Size = new System.Drawing.Size(120, 84);
             this.listBoxlevels.TabIndex = 4;
@@ -139,6 +146,51 @@
             this.buttonSetShip.UseVisualStyleBackColor = true;
             this.buttonSetShip.Click += new System.EventHandler(this.buttonSetShip_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1215, 28);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            this.файлToolStripMenuItem.Checked = true;
+            this.файлToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьToolStripMenuItem,
+            this.загрузитьToolStripMenuItem});
+            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
+            this.файлToolStripMenuItem.Text = "Файл";
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // загрузитьToolStripMenuItem
+            // 
+            this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.загрузитьToolStripMenuItem.Text = "Загрузить";
+            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            // 
+            // openFilePort
+            // 
+            this.openFilePort.FileName = "openFileDialog1";
+            this.openFilePort.Filter = "txt file | *.txt";
+            // 
+            // saveFilePort
+            // 
+            this.saveFilePort.Filter = "txt file | *.txt";
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,13 +200,18 @@
             this.Controls.Add(this.listBoxlevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxPort);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPort";
             this.Text = "FormPort";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
@@ -169,5 +226,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBoxlevels;
         private System.Windows.Forms.Button buttonSetShip;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFilePort;
+        private System.Windows.Forms.SaveFileDialog saveFilePort;
     }
 }

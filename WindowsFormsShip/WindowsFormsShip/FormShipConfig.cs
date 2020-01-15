@@ -115,9 +115,8 @@ DragDropEffects.Copy);
                 ship.SetMainColor((Color)e.Data.GetData(typeof(Color)));
                 DrawShip();
             }
-
         }
-
+ 
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
             if (ship != null)
@@ -126,7 +125,6 @@ DragDropEffects.Copy);
                 {
                     (ship as SuperShip).SetDopColor((Color)e.Data.GetData(typeof(Color)));
                     DrawShip();
-
                 }
             }
         }

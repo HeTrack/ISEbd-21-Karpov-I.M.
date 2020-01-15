@@ -9,7 +9,6 @@ namespace WindowsFormsShip
 {
     public class Ship: WaterVehicle
     {
-        /// <summary>
         /// Ширина отрисовки катера
         /// </summary>
         protected const int shipWidth = 150;
@@ -18,22 +17,29 @@ namespace WindowsFormsShip
         /// </summary>
         protected const int shipHeight = 10;
         /// <summary>
-        /// Конструктор   
+        /// Конструктор
         /// </summary>
-        /// <summary>
-        /// Конструктор    
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес катера</param>
-        /// <param name="bottomColor">Основной цвет - цвет ватерлинии</param>      
-        /// <summary>
+        /// <param name="bottomColor">Основной цвет - цвет ватерлини</param>       
         public Ship(int maxSpeed, float weight, Color bottomColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = bottomColor;
         }
+        public Ship(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
         /// <summary>
-        /// Изменение направления перемещения      
+        /// Изменение направления перемещения
         /// <param name="direction">Направление</param>
         /// </summary>
         public override void MoveTransport(Direction direction)
@@ -52,6 +58,7 @@ namespace WindowsFormsShip
                 //влево
                 case Direction.Left:
                     if (_startPosX - 10 - step > 0)
+
                     {
                         _startPosX -= step;
                     }
@@ -136,6 +143,10 @@ namespace WindowsFormsShip
             Point window8 = new Point((int)_startPosX + 82, (int)_startPosY - 25);
             Point[] windows2 = { window5, window6, window7, window8 };
             g.FillPolygon(brBlack, windows2);
+        }
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }
