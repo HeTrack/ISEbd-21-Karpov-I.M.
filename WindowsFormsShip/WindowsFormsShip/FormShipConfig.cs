@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,7 +52,6 @@ namespace WindowsFormsShip
             }
         }
 
-
         private void labelBoat_MouseDown(object sender, MouseEventArgs e)
         {
             labelBoat.DoDragDrop(labelBoat.Text, DragDropEffects.Move | DragDropEffects.Copy);
@@ -60,8 +59,7 @@ namespace WindowsFormsShip
 
         private void labelShip_MouseDown(object sender, MouseEventArgs e)
         {
-            labelShip.DoDragDrop(labelShip.Text, DragDropEffects.Move |
-DragDropEffects.Copy);
+            labelShip.DoDragDrop(labelShip.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void panelShip_DragEnter(object sender, DragEventArgs e)
@@ -93,7 +91,6 @@ DragDropEffects.Copy);
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
         {
             (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
-
         }
 
         private void labelBaseColor_DragEnter(object sender, DragEventArgs e)
@@ -116,7 +113,7 @@ DragDropEffects.Copy);
                 DrawShip();
             }
         }
- 
+
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
             if (ship != null)
@@ -141,11 +138,10 @@ DragDropEffects.Copy);
             }
         }
 
-        private void buttonLocate_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
             eventAddShip?.Invoke(ship);
             Close();
         }
     }
 }
-

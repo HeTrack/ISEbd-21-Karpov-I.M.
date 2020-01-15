@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace WindowsFormsShip
     public partial class FormPort : Form
     {
         /// <summary>
-        /// Объект от класса многоуровневой порта
+        /// Объект от класса многоуровневого порта
         /// </summary>
         MultiLevelPort parking;
         FormShipConfig form;
@@ -21,11 +22,14 @@ namespace WindowsFormsShip
         /// Количество уровней-парковок
         /// </summary>
         private const int countLevel = 5;
+        private Logger logger;
+        private Logger error;
         public FormPort()
         {
             InitializeComponent();
-            parking = new MultiLevelPort(countLevel, pictureBoxPort.Width,
-           pictureBoxPort.Height);
+            logger = LogManager.GetCurrentClassLogger();
+            error = LogManager.GetCurrentClassLogger();
+            parking = new MultiLevelPort(countLevel, pictureBoxPort.Width, pictureBoxPort.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
             {
@@ -41,26 +45,33 @@ namespace WindowsFormsShip
             if (listBoxlevels.SelectedIndex > -1)
             {
                 //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
-                Bitmap bmp = new Bitmap(pictureBoxPort.Width,
-               pictureBoxPort.Height);
+                Bitmap bmp = new Bitmap(pictureBoxPort.Width, pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
         }
-       
+ 
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)
             {
-                int place = parking[listBoxlevels.SelectedIndex] + ship;
-                if (place > -1)
+                try
                 {
+                    int place = parking[listBoxlevels.SelectedIndex] + ship;
+                    logger.Info("Добавлено судно " + ship.ToString() + "на место " + place);
                     Draw();
                 }
-                else
+                catch (ParkingOverflowException ex)
                 {
-                    MessageBox.Show("Cудно не удалось поставить");
+                    
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
                 }
             }
         }
@@ -76,13 +87,16 @@ namespace WindowsFormsShip
         {
             if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.SaveData(saveFilePort.FileName))
+                try
                 {
+                    parking.SaveData(saveFilePort.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFilePort.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message,"Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   error.Error(ex.Message);
                 }
             }
         }
@@ -91,14 +105,21 @@ namespace WindowsFormsShip
         {
             if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (parking.LoadData(openFilePort.FileName))
+                try
                 {
+                    parking.LoadData(openFilePort.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Загружено из файла " + openFilePort.FileName);
                 }
-                else
+                catch (ParkingOccupiedPlaceException ex)
                 {
-                   MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
                 }
                 Draw();
             }
@@ -112,36 +133,38 @@ namespace WindowsFormsShip
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e"></param
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
                 if (maskedTextBoxSpot.Text != "")
                 {
-                    var ship = parking[listBoxlevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBoxSpot.Text);
-                    if (ship != null)
+                    try
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTake.Width,
-                       pictureBoxTake.Height);
+                        var ship = parking[listBoxlevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxSpot.Text);
+                        Bitmap bmp = new Bitmap(pictureBoxTake.Width, pictureBoxTake.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        ship.SetPosition(15, 55, pictureBoxTake.Width,
-                       pictureBoxTake.Height);
+                        ship.SetPosition(15, 55, pictureBoxTake.Width, pictureBoxTake.Height);
                         ship.DrawShip(gr);
                         pictureBoxTake.Image = bmp;
+                        logger.Info("Изъято судно" + ship.ToString() + " с места " + maskedTextBoxSpot.Text);
+                        Draw();
                     }
-                    else
+                    catch (ParkingNotFoundException ex)
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTake.Width,
-                       pictureBoxTake.Height);
+                        MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Bitmap bmp = new Bitmap(pictureBoxTake.Width, pictureBoxTake.Height);
                         pictureBoxTake.Image = bmp;
+                        error.Error(ex.Message);
                     }
-                    Draw();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        error.Error(ex.Message);
+                    }
                 }
             }
-        }
+        }     
     }
 }
- 
-

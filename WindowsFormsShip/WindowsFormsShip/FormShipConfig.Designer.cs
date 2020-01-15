@@ -45,7 +45,7 @@
             this.panelWhite = new System.Windows.Forms.Panel();
             this.panelBlack = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonLocate = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShip)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panelShip.SuspendLayout();
@@ -228,22 +228,22 @@
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
-            // buttonLocate
+            // buttonAdd
             // 
-            this.buttonLocate.Location = new System.Drawing.Point(49, 200);
-            this.buttonLocate.Name = "buttonLocate";
-            this.buttonLocate.Size = new System.Drawing.Size(89, 35);
-            this.buttonLocate.TabIndex = 5;
-            this.buttonLocate.Text = "Добавить";
-            this.buttonLocate.UseVisualStyleBackColor = true;
-            this.buttonLocate.Click += new System.EventHandler(this.buttonLocate_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(49, 200);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(89, 35);
+            this.buttonAdd.TabIndex = 5;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // FormShipConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonLocate);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panelShip);
@@ -276,7 +276,7 @@
         private System.Windows.Forms.Panel panelWhite;
         private System.Windows.Forms.Panel panelBlack;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonLocate;
+        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label labelDopColor;
     }
 }

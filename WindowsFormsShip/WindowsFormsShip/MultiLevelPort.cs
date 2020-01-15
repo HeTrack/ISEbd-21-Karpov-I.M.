@@ -23,7 +23,7 @@ namespace WindowsFormsShip
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="countStages">Количество уровенй порта</param>
+        /// <param name="countStages">Количество уровенй в порту</param>
         /// <param name="pictureWidth"></param>
         /// <param name="pictureHeight"></param>
         public MultiLevelPort(int countStages, int pictureWidth, int pictureHeight)
@@ -111,7 +111,7 @@ namespace WindowsFormsShip
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("Неверный формат файла");           
                 }
                 while ((line = sr.ReadLine()) != null)
                 {

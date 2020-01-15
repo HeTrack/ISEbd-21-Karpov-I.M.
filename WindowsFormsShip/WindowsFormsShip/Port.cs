@@ -58,7 +58,7 @@ namespace WindowsFormsShip
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new ParkingOverflowException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -75,11 +75,11 @@ namespace WindowsFormsShip
         }
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с порта забираем судно
+        /// Логика действия: из порта забираем судно
         /// </summary>
         /// <param name="p">Порт</param>
-        /// <param name="index">Индекс места, с которого пытаемся извлечь     
-        /// <returns></returns>
+        /// <param name="index">Индекс места, с которого пытаемся извлечь
+      /// <returns></returns>
              public static T operator -(Port<T> p, int index)
         {
             if (!p.CheckFreePlace(index))
@@ -88,17 +88,18 @@ namespace WindowsFormsShip
                 p._places.Remove(index);
                 return ship;
             }
-            return null;
+            throw new ParkingNotFoundException(index);
         }
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
-        /// <param name="index">Номер парковочного места (порядковый номер в
+        /// <param name="index">Номер парковочного места (порядковый номер в    
         /// <returns></returns>
             private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
         }
+
         public T GetShipByKey(int key)
         {
             return _places.ContainsKey(key) ? _places[key] : null;
@@ -135,6 +136,7 @@ namespace WindowsFormsShip
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
             }
         }
+
         public T this[int ind]
         {
             get
@@ -143,7 +145,7 @@ namespace WindowsFormsShip
                 {
                     return _places[ind];
                 }
-                return null;
+                return null;             
             }
             set
             {
@@ -152,6 +154,10 @@ namespace WindowsFormsShip
                     _places.Add(ind, value);
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 15, ind % 5
                     * _placeSizeHeight + 55, PictureWidth, PictureHeight);
+                }
+                else
+                {
+                    throw new ParkingOccupiedPlaceException(ind);
                 }
             }
         }
