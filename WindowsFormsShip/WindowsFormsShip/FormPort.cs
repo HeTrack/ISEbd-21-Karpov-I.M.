@@ -1,4 +1,4 @@
-﻿using NLog;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,14 +44,14 @@ namespace WindowsFormsShip
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
-                //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
+                //если выбран один из пуктов в listBox (при старте программы ни один пунктне будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxPort.Width, pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
         }
- 
+        
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)
@@ -59,12 +59,11 @@ namespace WindowsFormsShip
                 try
                 {
                     int place = parking[listBoxlevels.SelectedIndex] + ship;
-                    logger.Info("Добавлено судно " + ship.ToString() + "на место " + place);
+                    logger.Info("Добавлено судно " + ship.ToString() + " на место " + place);
                     Draw();
                 }
                 catch (ParkingOverflowException ex)
                 {
-                    
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     error.Error(ex.Message);
                 }
@@ -95,8 +94,8 @@ namespace WindowsFormsShip
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message,"Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                   error.Error(ex.Message);
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error.Error(ex.Message);
                 }
             }
         }
@@ -124,16 +123,46 @@ namespace WindowsFormsShip
                 Draw();
             }
         }
-
-        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void сохранитьУровеньToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Draw();
+            if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (parking.Savelvl(listBoxlevels.SelectedIndex, saveFilePort.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
+        private void загрузитьУровеньToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (parking.Loadlvl(listBoxlevels.SelectedIndex, openFilePort.FileName))
+                {
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
+                Draw();
+            }
+        }
+
         /// <summary>
         /// Обработка нажатия кнопки "Забрать"
-        /// </summary>
+        /// </summary>      
         /// <param name="sender"></param>
-        /// <param name="e"></param
+        /// <param name="e"></param>
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
@@ -165,6 +194,11 @@ namespace WindowsFormsShip
                     }
                 }
             }
-        }     
+        }
+
+        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-   public class ParkingOverflowException: Exception
+    public class ParkingOverflowException : ArgumentOutOfRangeException
     {
         public ParkingOverflowException(): base("В порту нет свободных мест")
         { }

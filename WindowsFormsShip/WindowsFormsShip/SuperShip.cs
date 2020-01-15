@@ -12,21 +12,23 @@ namespace WindowsFormsShip
         public Color DopColor { private set; get; }
         public bool LifeBuoy { private set; get; }
         public bool SecondBoard { private set; get; }
-        public int Motors { private set; get; }
-        public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, int countmotors) :
+        public CountMotors Motors { private set; get; }
+        public string num;
+        private int MotorsForm;
+        public SuperShip(int maxSpeed, float weight, Color bottomColor, Color dopColor, bool secondBoard, bool lifebuoy, CountMotors countmotors, int motorsType ) :
             base(maxSpeed, weight, bottomColor)
         {
             DopColor = dopColor;
             LifeBuoy = lifebuoy;
-            SecondBoard = secondBoard;
-            Random rnd = new Random();
+            SecondBoard = secondBoard;     
             Motors = countmotors;
+            MotorsForm = motorsType;
         }
 
         public SuperShip(string info) : base(info)
         {
             string[] strs = info.Split(';');
-            if (strs.Length == 7)
+            if (strs.Length == 8)
             {
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
@@ -34,7 +36,26 @@ namespace WindowsFormsShip
                 DopColor = Color.FromName(strs[3]);
                 LifeBuoy = Convert.ToBoolean(strs[4]);
                 SecondBoard = Convert.ToBoolean(strs[5]);
-                Motors = Convert.ToInt32(strs[6]);
+                num = Convert.ToString(strs[6]);
+                switch (num)
+                {
+                    case "One":
+                        {
+                            Motors = CountMotors.One;
+                            break;
+                        }
+                    case "Two":
+                        {
+                            Motors = CountMotors.Two;
+                            break;
+                        }
+                    case "Three":
+                        {
+                            Motors = CountMotors.Three;
+                            break;
+                        }
+                }
+                MotorsForm = Convert.ToInt32(strs[7]);
             }
         }
 
@@ -59,26 +80,23 @@ namespace WindowsFormsShip
                 g.FillPolygon(brBlack, sboard);
                 g.DrawArc(pen1, _startPosX + 44, _startPosY - 48, 30, 15, 0, -60);
             }
-            switch (Motors)
+            IMotors motors;
+            switch (MotorsForm)
             {
+                case 0:
+                    motors = new SimpleMotors(_startPosX, _startPosY);
+                    break;
                 case 1:
-                    g.FillRectangle(white, _startPosX - 10, _startPosY - 5, 8, 10);
-                    g.DrawRectangle(pen, _startPosX - 10, _startPosY - 5, 8, 10);
+                    motors = new TrapMotors(_startPosX, _startPosY);
                     break;
                 case 2:
-                    g.FillRectangle(white, _startPosX - 8, _startPosY - 8, 8, 10);
-                    g.DrawRectangle(
-                    pen, _startPosX - 8, _startPosY - 8, 8, 10);
-                    g.FillRectangle(white, _startPosX - 10, _startPosY - 5, 8, 10);
-                    g.DrawRectangle(pen, _startPosX - 10, _startPosY - 5, 8, 10);
+                    motors = new VentilMotors(_startPosX, _startPosY);
                     break;
-                case 3:
-                    g.FillRectangle(white, _startPosX - 6, _startPosY - 10, 8, 10);
-                    g.DrawRectangle(pen, _startPosX - 6, _startPosY - 10, 8, 10);
-                    g.FillRectangle(white, _startPosX - 8, _startPosY - 8, 8, 10);
-                    g.DrawRectangle(pen, _startPosX - 8, _startPosY - 8, 8, 10);
+                default:
+                    motors = new SimpleMotors(_startPosX, _startPosY);
                     break;
             }
+            motors.DrawMotors(g, Motors, Color.Black);
             base.DrawShip(g);
             Point po1 = new Point((int)_startPosX, (int)_startPosY);
             Point po2 = new Point((int)_startPosX + 125, (int)_startPosY);
@@ -98,6 +116,11 @@ namespace WindowsFormsShip
             }
         }
 
+        public void LocateMotorsType(int form)
+        {
+            MotorsForm = form;
+        }
+
         public void SetDopColor(Color color)
         {
             DopColor = color;
@@ -105,7 +128,7 @@ namespace WindowsFormsShip
 
         public override string ToString()
         {
-            return base.ToString() + ";" + DopColor.Name + ";" +  SecondBoard + ";" + LifeBuoy + ";" + Motors;
+            return base.ToString() + ";" + DopColor.Name + ";" + SecondBoard + ";" + LifeBuoy + ";" + Motors + ";" + MotorsForm;
         }
     }
 }

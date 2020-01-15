@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-   public class Port<T> where T:class, IShip
+    public class Port<T> where T : class, IShip
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -34,6 +34,7 @@ namespace WindowsFormsShip
         /// Размер парковочного места (высота)
         /// </summary>
         private const int _placeSizeHeight = 80;
+        private Hashtable removed;
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -46,6 +47,7 @@ namespace WindowsFormsShip
             _places = new Dictionary<int, T>();
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
+            removed = new Hashtable();
         }
         /// <summary>
         /// Перегрузка оператора сложения
@@ -79,12 +81,16 @@ namespace WindowsFormsShip
         /// </summary>
         /// <param name="p">Порт</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь
-      /// <returns></returns>
-             public static T operator -(Port<T> p, int index)
+      
+ /// <returns></returns>
+ public static T operator -(Port<T> p, int index)
         {
             if (!p.CheckFreePlace(index))
             {
                 T ship = p._places[index];
+                while (p.removed.ContainsKey(index))
+                    index = index + p._maxCount;
+                p.removed.Add(index, ship);
                 p._places.Remove(index);
                 return ship;
             }
@@ -93,9 +99,9 @@ namespace WindowsFormsShip
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
         /// </summary>
-        /// <param name="index">Номер парковочного места (порядковый номер в    
+        /// <param name="index">Номер парковочного места (порядковый номер в   
         /// <returns></returns>
-            private bool CheckFreePlace(int index)
+        private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
         }
@@ -145,7 +151,7 @@ namespace WindowsFormsShip
                 {
                     return _places[ind];
                 }
-                return null;             
+                return null;              
             }
             set
             {
@@ -160,6 +166,10 @@ namespace WindowsFormsShip
                     throw new ParkingOccupiedPlaceException(ind);
                 }
             }
+        }
+        public void ForClearlvl()
+        {
+            _places.Clear();
         }
     }
 }

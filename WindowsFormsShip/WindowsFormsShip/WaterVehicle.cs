@@ -29,7 +29,7 @@ namespace WindowsFormsShip
         /// </summary>
         public float Weight { protected set; get; }
         /// <summary>
-        /// Основной цвет ватерлинии
+        /// Основной цвет - цвет ватерлинии
         /// </summary>
         public Color MainColor { protected set; get; }
         public void SetPosition(int x, int y, int width, int height)
