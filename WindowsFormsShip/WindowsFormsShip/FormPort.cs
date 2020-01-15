@@ -51,7 +51,7 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-
+        
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)
@@ -123,7 +123,7 @@ namespace WindowsFormsShip
                 Draw();
             }
         }
-
+        
         private void сохранитьУровеньToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFilePort.ShowDialog() == System.Windows.Forms.DialogResult.OK)
