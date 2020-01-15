@@ -60,6 +60,7 @@ namespace WindowsFormsShip
             }
             Draw();
         }
+
         private void buttonCreateShip_Click(object sender, EventArgs e)
         {
             int minpos = 47;

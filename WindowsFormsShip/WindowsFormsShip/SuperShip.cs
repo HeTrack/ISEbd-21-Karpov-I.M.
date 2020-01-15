@@ -45,7 +45,6 @@ namespace WindowsFormsShip
             Brush bottom = new SolidBrush(MainColor);
             Brush brBlack = new SolidBrush(Color.Black);
             Brush hull = new SolidBrush(DopColor);
-
             if (SecondBoard)
             {
                 g.FillRectangle(white, _startPosX + 20, _startPosY - 35, 55, 4);

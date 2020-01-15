@@ -53,7 +53,7 @@ namespace WindowsFormsShip
                 pictureBoxPort.Image = bmp;
             }
         }
-       
+        
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)

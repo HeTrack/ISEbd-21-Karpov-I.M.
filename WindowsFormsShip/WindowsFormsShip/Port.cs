@@ -152,6 +152,7 @@ namespace WindowsFormsShip
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
             }
         }
+
         public T this[int ind]
         {
             get
