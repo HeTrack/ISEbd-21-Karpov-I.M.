@@ -1,4 +1,4 @@
-﻿using NLog;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +29,8 @@ namespace WindowsFormsShip
             InitializeComponent();
             logger = LogManager.GetCurrentClassLogger();
             error = LogManager.GetCurrentClassLogger();
-            parking = new MultiLevelPort(countLevel, pictureBoxPort.Width, pictureBoxPort.Height);
+            parking = new MultiLevelPort(countLevel, pictureBoxPort.Width,
+           pictureBoxPort.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
             {
@@ -44,14 +45,15 @@ namespace WindowsFormsShip
         {
             if (listBoxlevels.SelectedIndex > -1)
             {
-                //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
-                Bitmap bmp = new Bitmap(pictureBoxPort.Width, pictureBoxPort.Height);
+               //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
+                Bitmap bmp = new Bitmap(pictureBoxPort.Width,
+               pictureBoxPort.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 parking[listBoxlevels.SelectedIndex].Draw(gr);
                 pictureBoxPort.Image = bmp;
             }
         }
- 
+        
         private void AddShip(IShip ship)
         {
             if (ship != null && listBoxlevels.SelectedIndex > -1)
@@ -63,10 +65,14 @@ namespace WindowsFormsShip
                     Draw();
                 }
                 catch (ParkingOverflowException ex)
-                {
-                    
+                {                 
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     error.Error(ex.Message);
+                }
+                catch (ParkingAlreadyHaveException ex)
+                {                 
+                 MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
@@ -125,7 +131,14 @@ namespace WindowsFormsShip
             }
         }
 
-        private void listBoxlevels_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonForSort_Click(object sender, EventArgs e)
+        {
+            parking.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
+        }
+
+        private void listBox1levels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
         }
@@ -133,7 +146,7 @@ namespace WindowsFormsShip
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param
+        /// <param name="e"></param>
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
             if (listBoxlevels.SelectedIndex > -1)
@@ -165,6 +178,6 @@ namespace WindowsFormsShip
                     }
                 }
             }
-        }     
+        }
     }
 }

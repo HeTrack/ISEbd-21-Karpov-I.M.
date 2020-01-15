@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsShip
 {
-    public class SuperShip : Ship
+    public class SuperShip : Ship,IComparable<SuperShip>,IEquatable<SuperShip>
     {
         public Color DopColor { private set; get; }
         public bool LifeBuoy { private set; get; }
@@ -106,6 +106,98 @@ namespace WindowsFormsShip
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" +  SecondBoard + ";" + LifeBuoy + ";" + Motors;
+        }
+        /// <summary>
+        /// Метод интерфейса IComparable для класса SuperShip
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(SuperShip other)
+        {
+            var res = (this is Ship).CompareTo(other is Ship);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (LifeBuoy != other.LifeBuoy)
+            {
+                return LifeBuoy.CompareTo(other.LifeBuoy);
+            }
+            if (SecondBoard != other.SecondBoard)
+            {
+                return SecondBoard.CompareTo(other.SecondBoard);
+            }
+            if (Motors != other.Motors)
+            {
+                return Motors.CompareTo(other.Motors);
+            }
+            return 0;
+        }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса SuperShip
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(SuperShip other)
+        {
+            var res = (this as Ship).Equals(other as Ship);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (LifeBuoy != other.LifeBuoy)
+            {
+                return false;
+            }
+        if (SecondBoard != other.SecondBoard)
+            {
+                return false;
+            }
+            if (Motors != other.Motors)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is SuperShip shipObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(shipObj);
+            }
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

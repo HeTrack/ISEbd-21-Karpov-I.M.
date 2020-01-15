@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -112,6 +112,7 @@ namespace WindowsFormsShip
                 ship.SetMainColor((Color)e.Data.GetData(typeof(Color)));
                 DrawShip();
             }
+
         }
 
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)

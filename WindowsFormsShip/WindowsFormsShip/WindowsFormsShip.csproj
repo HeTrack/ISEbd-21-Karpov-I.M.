@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="IShip.cs" />
     <Compile Include="MultiLevelPort.cs" />
+    <Compile Include="ParkingAlreadyHaveException.cs" />
     <Compile Include="ParkingNotFoundException.cs" />
     <Compile Include="ParkingOccupiedPlaceException.cs" />
     <Compile Include="ParkingOverflowException.cs" />

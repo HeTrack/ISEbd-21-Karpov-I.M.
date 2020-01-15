@@ -23,7 +23,7 @@ namespace WindowsFormsShip
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="countStages">Количество уровенй в порту</param>
+        /// <param name="countStages">Количество уровеней в порту</param>
         /// <param name="pictureWidth"></param>
         /// <param name="pictureHeight"></param>
         public MultiLevelPort(int countStages, int pictureWidth, int pictureHeight)
@@ -54,7 +54,7 @@ namespace WindowsFormsShip
         }
 
         //сохранение
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -66,26 +66,21 @@ namespace WindowsFormsShip
                 foreach (var level in parkingStages)
                 {
                     sw.WriteLine("Level");
-                    for (int i = 0; i < countPlaces; i++)
-                    {
-                        var ship = level[i];
-                        if (ship != null)
+                    foreach (IShip ship in level)
                         {
                             if (ship.GetType().Name == "Ship")
                             {
-                                sw.WriteLine(i + ":Ship:" + ship);
+                                sw.WriteLine(level.GetKey + ":Ship:" + ship);
                             }
                             if (ship.GetType().Name == "SuperShip")
                             {
-                                sw.WriteLine(i + ":SuperShip:" + ship);
+                                sw.WriteLine(level.GetKey + ":SuperShip:" + ship);
                             }
                         }
                     }
                 }
             }
-            return true;
-        }
-
+            
         //выгрузить
         public bool LoadData(string filename)
         {
@@ -111,7 +106,7 @@ namespace WindowsFormsShip
                 }
                 else
                 {
-                    throw new Exception("Неверный формат файла");           
+                    throw new Exception("Неверный формат файла");                   
                 }
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -141,6 +136,11 @@ namespace WindowsFormsShip
                 }
                 return true;
             }
+        }
+
+        public void Sort()
+        {
+            parkingStages.Sort();
         }
     }
 }

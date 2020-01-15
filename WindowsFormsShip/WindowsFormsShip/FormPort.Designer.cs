@@ -35,6 +35,7 @@
             this.buttonGetShip = new System.Windows.Forms.Button();
             this.maskedTextBoxSpot = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.listBoxlevels = new System.Windows.Forms.ListBox();
             this.buttonSetShip = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,8 +43,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFilePort = new System.Windows.Forms.OpenFileDialog();
             this.saveFilePort = new System.Windows.Forms.SaveFileDialog();
-            this.listBoxlevels = new System.Windows.Forms.ListBox();
-
+            this.buttonForSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -80,6 +80,14 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Забрать судно с";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.TabIndex = 4;
+            // 
             // pictureBoxTake
             // 
             this.pictureBoxTake.Location = new System.Drawing.Point(6, 107);
@@ -114,9 +122,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Место:";
             // 
+            // listBoxlevels
+            // 
+            this.listBoxlevels.FormattingEnabled = true;
+            this.listBoxlevels.ItemHeight = 16;
+            this.listBoxlevels.Location = new System.Drawing.Point(1051, 39);
+            this.listBoxlevels.Name = "listBoxlevels";
+            this.listBoxlevels.Size = new System.Drawing.Size(120, 84);
+            this.listBoxlevels.TabIndex = 4;
+            this.listBoxlevels.SelectedIndexChanged += new System.EventHandler(this.listBox1levels_SelectedIndexChanged);
+            // 
             // buttonSetShip
             // 
-            this.buttonSetShip.Location = new System.Drawing.Point(1029, 165);
+            this.buttonSetShip.Location = new System.Drawing.Point(1029, 129);
             this.buttonSetShip.Name = "buttonSetShip";
             this.buttonSetShip.Size = new System.Drawing.Size(142, 38);
             this.buttonSetShip.TabIndex = 5;
@@ -149,14 +167,14 @@
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
@@ -169,21 +187,22 @@
             // 
             this.saveFilePort.Filter = "txt file | *.txt";
             // 
-            // listBoxlevels
+            // buttonForSort
             // 
-            this.listBoxlevels.FormattingEnabled = true;
-            this.listBoxlevels.ItemHeight = 16;
-            this.listBoxlevels.Location = new System.Drawing.Point(1051, 39);
-            this.listBoxlevels.Name = "listBoxlevels";
-            this.listBoxlevels.Size = new System.Drawing.Size(120, 84);
-            this.listBoxlevels.TabIndex = 4;
-            this.listBoxlevels.SelectedIndexChanged += new System.EventHandler(this.listBoxlevels_SelectedIndexChanged);
+            this.buttonForSort.Location = new System.Drawing.Point(1029, 182);
+            this.buttonForSort.Name = "buttonForSort";
+            this.buttonForSort.Size = new System.Drawing.Size(142, 30);
+            this.buttonForSort.TabIndex = 7;
+            this.buttonForSort.Text = "Сортировка";
+            this.buttonForSort.UseVisualStyleBackColor = true;
+            this.buttonForSort.Click += new System.EventHandler(this.buttonForSort_Click);
             // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1215, 604);
+            this.Controls.Add(this.buttonForSort);
             this.Controls.Add(this.buttonSetShip);
             this.Controls.Add(this.listBoxlevels);
             this.Controls.Add(this.groupBox1);
@@ -212,6 +231,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxSpot;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox listBoxlevels;
         private System.Windows.Forms.Button buttonSetShip;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
@@ -219,5 +239,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFilePort;
         private System.Windows.Forms.SaveFileDialog saveFilePort;
+        private System.Windows.Forms.Button buttonForSort;
     }
 }
